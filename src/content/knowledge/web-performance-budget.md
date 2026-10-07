@@ -7,7 +7,7 @@ kind: article
 tags: [performance, Core Web Vitals, web]
 audience: [independent builders, solo founders, small teams]
 status: published
-evidence: multiple-sources
+evidence: mixed
 confidence: moderate
 lastVerified: 2026-10-07
 related: [quality]
@@ -20,14 +20,27 @@ sources:
     accessed: 2026-10-07
 ---
 
-## Make performance visible
+## Measure a user journey before setting a budget
 
-Measure representative pages on a real device and network profile, not only on a developer laptop. Separate local lab checks, which help reproduce regressions, from field measurements, which show what users experienced. Track the main contentful area, input responsiveness, and layout stability.
+A performance budget is a limit you choose to prevent regressions in the parts of a product users feel. Begin with a real task—open the landing page, search, load a dashboard, save a record—on a representative low-end device and network. Record a baseline before optimizing. Do not treat a single Lighthouse score as a complete description of real user experience.
 
-As current reference thresholds, web.dev defines “good” Core Web Vitals at the 75th percentile as LCP at or below 2.5 seconds, INP at or below 200 milliseconds, and CLS at or below 0.1. These are population thresholds, not a guarantee that every device feels fast.
+## Use field and lab data for different questions
 
-## Spend bytes deliberately
+Lab tests are repeatable and useful for finding regressions. Field data shows what actual users experienced across devices, networks, and locations, but may be sparse for a new product. Check both where available. Google’s current Core Web Vitals “good” thresholds at the 75th percentile are LCP ≤2.5 seconds, INP ≤200 milliseconds, and CLS ≤0.1; these are population thresholds, not a promise every visit feels fast. See [web.dev’s definitions](https://web.dev/articles/defining-core-web-vitals-thresholds).
 
-Prefer static HTML for content pages, responsive compressed images, system fonts or carefully subsetted local fonts, and small scripts loaded only when needed. Avoid shipping large UI libraries for interactions that native HTML can provide. Reserve image dimensions to reduce layout shifts. Defer nonessential third-party scripts.
+Track the user-visible bottleneck. A page can meet a metric while its key interaction remains confusing or slow. Use performance traces and network waterfalls to identify whether the cost is images, JavaScript, fonts, API latency, database queries, or third-party scripts.
 
-Set a baseline, then investigate the largest measured bottleneck. Recheck after meaningful changes and on lower-end mobile hardware. See [web.dev’s Core Web Vitals thresholds](https://web.dev/articles/defining-core-web-vitals-thresholds) for definitions and context.
+## Set a budget tied to the product
+
+For a content site, you might cap initial transfer size, client-side JavaScript, and third-party requests. For an interactive app, set an acceptable response time for the main action and a target for the slowest common query. Write the environment and measurement method next to each limit. A budget without a repeatable test is only an aspiration.
+
+## Fix the largest cost first
+
+- Resize and compress images; provide responsive variants and reserve dimensions to prevent layout shift.
+- Remove unused JavaScript and load nonessential code only on pages that need it.
+- Prefer platform features and semantic HTML over shipping a library for a small interaction.
+- Cache public, stable content safely; do not cache private responses across accounts.
+- Reduce database round trips and request duplicate work only after observing traces.
+- Defer third-party widgets until they are needed and monitor their impact.
+
+After each change, repeat the same measurement and verify visual behavior. Keep the budget in CI for automated regressions where practical, and review field metrics after release. Do not trade security, readable content, or accessibility for a small synthetic score improvement.

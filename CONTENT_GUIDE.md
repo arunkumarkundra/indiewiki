@@ -6,6 +6,12 @@ This guide defines how IndieWiki articles should read. See [SOURCE_POLICY.md](SO
 
 Use a title that matches a builder's question. Start with a direct orientation and next action. Define unfamiliar terms, link related concepts, and use concrete steps, examples, or checklists where useful. Explain why advice matters and when it does not apply. Include meaningful failure modes, alternatives, and trade-offs. Avoid filler, hype, unexplained acronyms, and certainty the evidence cannot support.
 
+## Minimum useful article
+
+A page marked `published` must help a reader do or decide something without requiring them to infer the missing steps. Include a direct answer, a workable process or decision method, at least one concrete example or reusable artifact when the topic allows it, likely failure modes, and a clear next action. Explain the limits of the method and link to relevant pages. A short reference page can be shorter when its definitions or checklist are complete; do not pad it to meet a word count.
+
+Keep research-process notes out of reader-facing copy. Do not tell readers that a supplied PDF, screenshot, or source packet was incomplete, dated, or not copied. Convert useful ideas into original guidance, verify claims that need evidence, and omit anything that cannot be responsibly generalized. Put corpus inventory and contributor-facing provenance in repository documents, not in published articles.
+
 ## Distinguish claim types
 
 Make clear whether a passage is a **fact** (checkable and sourced), **recommendation** (with rationale, assumptions, and fit), **experience** (attributed and context-bound), **opinion** (reasoned and labeled), or **example** (clearly illustrative). Separate these when they appear together. Do not disguise preference as objective ranking.

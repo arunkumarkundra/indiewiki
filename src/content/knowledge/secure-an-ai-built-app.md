@@ -7,7 +7,7 @@ kind: checklist
 tags: [security, AI, OWASP]
 audience: [independent builders, solo founders, small teams]
 status: published
-evidence: multiple-sources
+evidence: mixed
 confidence: moderate
 lastVerified: 2026-10-07
 related: [quality]
@@ -18,23 +18,44 @@ sources:
     url: https://owasp.org/www-project-top-ten/
     publisher: "OWASP"
     accessed: 2026-10-07
+  - title: "Authorization Cheat Sheet"
+    url: https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+    publisher: "OWASP"
+    accessed: 2026-10-07
+  - title: "Secrets Management Cheat Sheet"
+    url: https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html
+    publisher: "OWASP"
+    accessed: 2026-10-07
 ---
 
-## Protect identities and data
+## Review the application’s trust boundaries, not just the generated code
 
-- Verify authentication on the server for every protected operation.
-- Enforce authorization against the requested resource, not only the visible interface.
-- Store secrets in deployment-managed secret storage; rotate anything exposed in source, logs, or prompts.
-- Validate and constrain user input at the boundary. Encode output for its context.
-- Use parameterized database operations and safe file paths.
-- Collect only the personal data the feature needs; define retention and deletion behavior.
+An application is not secure because a coding assistant produced it or because a scanner found no issue. Start with a small threat model: what data matters, who can access it, where a request crosses a trust boundary, and what damage an attacker or mistake could cause. Then test the boundaries in the deployed application.
 
-## Review dependencies and deployment
+## The first review pass
 
-Use supported dependency versions, review changes in lockfiles, and understand what new packages can access. Keep production error messages free of stack traces and secrets. Apply security headers and HTTPS through the hosting platform where available. Back up important data and test restoration rather than merely checking that backup jobs ran.
+### Identity and authorization
 
-## Add AI-specific controls
+Authentication answers “who is this?” Authorization answers “may this identity do this action to this object?” Check permissions on the server for every read and write. Try changing an object ID in the request to another user’s record. Hiding a button or checking ownership only in the browser is not protection. Give admin and background jobs separate, minimal privileges. OWASP explains the distinction and testing approach in its [Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).
 
-Treat model output and retrieved content as untrusted. Restrict tool permissions and validate tool inputs independently. Require confirmation for consequential actions. Test injection attempts in documents, URLs, and user messages. The agent is not an authorization layer.
+### Input, output, and queries
 
-Use the [OWASP Top 10](https://owasp.org/www-project-top-ten/) as a broad awareness checklist, not as a substitute for a threat model or security review. For agentic systems, consult the [OWASP Agentic AI guidance](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html). Prioritize fixes by exploitability and impact; involve a qualified reviewer when sensitive data or significant financial risk is involved.
+Validate type, size, format, and allowed values at the boundary. Use parameterized queries or safe ORM APIs. Encode output for the context where it appears. Restrict file uploads by size and expected type; do not trust a filename or browser-supplied content type. Store uploads away from executable paths and authorize downloads. Apply rate limits to expensive or abuse-prone operations.
+
+### Secrets and errors
+
+Search the repository and build output for API keys, tokens, private URLs, and test data. Store server credentials in the host’s secret manager; browser code may contain only intentionally public keys. Rotate anything that entered Git, a screenshot, prompt, or log. Return useful user errors without stack traces, SQL, or secrets. The [OWASP Secrets Management guidance](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) covers credential scope and lifecycle.
+
+### Data lifecycle
+
+List personal and sensitive data, why each field exists, which vendors receive it, who can read it, how long it stays, and how deletion works. Remove data you do not need. Avoid logging passwords, session tokens, payment details, or full prompts containing personal data. Back up important data and practice restoration.
+
+## Add AI-specific checks
+
+Treat model output as untrusted input. Parse structured output against a schema and reject unknown actions. Tool calls must recheck authorization and validate arguments independently. Retrieved content can contain prompt injection; it must not grant permissions or override policy. Require a human to approve irreversible or externally visible actions such as payments, account changes, publishing, or sending messages.
+
+Test cases should include: prompt injection in a document, a request for another user’s data, malformed model output, a tool timeout, a provider outage, and a repeated action. Record the expected safe behavior before running the test.
+
+## Prioritize the fixes
+
+Fix exposed secrets, broken authorization, public sensitive data, and unsafe writes before cosmetic issues. Record the affected route, exploit preconditions, impact, remediation, and regression test. Use OWASP’s [Top 10](https://owasp.org/www-project-top-ten/) as an awareness list, not a substitute for reviewing your actual application. If you handle regulated or high-impact data, arrange a qualified security review before launch. See [privacy by default](/wiki/privacy-by-default/) and [bounded agents](/wiki/building-bounded-agents/).

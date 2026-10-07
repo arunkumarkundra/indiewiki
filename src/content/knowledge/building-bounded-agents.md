@@ -12,8 +12,7 @@ confidence: moderate
 lastVerified: 2026-10-07
 related: [ai-building]
 featured: false
-seedSources:
-  - "User-supplied IndieWiki source packet; see SOURCE_INTAKE.md for provenance and limitations."
+seedSources: []
 sources:
   - title: "AI Agent Security Cheat Sheet"
     url: https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html
@@ -21,18 +20,40 @@ sources:
     accessed: 2026-10-07
 ---
 
-## Decide whether an agent is needed
+## First ask whether the task needs an agent
 
-First write the task as an input, expected output, and success condition. If a deterministic script or ordinary workflow can do it reliably, an agent may add unnecessary complexity. If the task requires choosing among steps, list the decisions and the information required for each.
+An agent is software that can choose steps and call tools toward a goal. If the task has a fixed sequence and predictable inputs, a normal function or workflow is usually easier to test and safer to operate. Use an agent when the useful next step depends on interpreting varied context or selecting among tools, and when you can bound the possible actions.
 
-The supplied community diagram recommends a narrow use case, a small tool set, and iterative scope. It is a discussion seed with limited provenance, not a validated implementation standard.
+## Specify the boundary before connecting tools
 
-## Limit authority
+Write a contract:
 
-Give the agent only the tools and data needed for the task. Separate read actions from consequential writes. Require human confirmation before sending messages, spending money, deleting data, changing access, or publishing. Validate arguments in the tool itself; prompt instructions alone do not enforce permissions.
+```text
+Task: classify a support request and draft a reply.
+Input: the request text and approved help articles.
+Allowed tools: search public help content; draft a response.
+Forbidden: send a reply, change an account, issue a refund, reveal another user's data.
+Success: return a cited draft plus an uncertainty flag.
+Escalate when: billing dispute, account compromise, health/legal concern, or low confidence.
+Limits: 3 tool calls, 20 seconds, no more than 2 retries.
+```
 
-Treat retrieved documents and user content as untrusted data. Do not let text from a webpage or file grant new authority or override system rules. Keep secrets outside model-visible context where possible, and do not log sensitive payloads unnecessarily.
+Separate **read** from **write** capabilities. Prefer read-only access. If an external action is necessary, validate it in application code and ask a human to approve the exact action. A model instruction saying “do not send” is not a permission system.
 
-## Make failures visible
+## Enforce permissions outside the prompt
 
-Set bounded iteration and resource limits. Log a trace sufficient to understand decisions while minimizing personal data. Return a clear failure state instead of silently claiming completion. Test prompt injection, malformed tool arguments, permission denial, timeouts, and partial completion. Review the [OWASP agent security guidance](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) and adapt controls to the actual threat model.
+The tool server should identify the user, verify their authorization for every object, validate arguments, constrain destinations and amounts, and reject unexpected calls. Do not let a model-provided user ID determine whose data it may access. Use narrowly scoped credentials and keep secrets out of model context and logs.
+
+Treat retrieved pages, uploaded documents, emails, and tool results as untrusted data. They may contain instructions designed to override the task. Delimit and label data as data; do not let it expand the allowed tools or authorize a transaction. OWASP’s [AI Agent Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/AI_Agent_Security_Cheat_Sheet.html) provides a threat-oriented review list.
+
+## Design for partial failure
+
+Set a deadline, maximum tool calls, retry policy, token or spend ceiling, and a clear stop state. Tools should be idempotent where possible: repeating a request should not accidentally charge twice or create duplicate records. Give each action a request ID, validate returned data, and log enough to diagnose a failure without storing full sensitive prompts.
+
+Return a structured result such as `completed`, `needs_approval`, `needs_human`, or `failed`. Distinguish “the tool call succeeded” from “the user’s task is complete.” If a write may have partially succeeded, check state before retrying. Provide a human override and a conventional workflow for outages.
+
+## Test abuse as well as success
+
+Test irrelevant requests, malicious instructions inside retrieved content, malformed tool arguments, unauthorized record IDs, timeouts, rate limits, provider errors, duplicate requests, empty results, and attempts to exceed budget. Confirm that denial is enforced by the tool layer. Review traces with synthetic data and redact personal information.
+
+Start with a small internal cohort and compare completion quality, correction rate, latency, cost, and harmful-action attempts against the non-agent baseline. If a simpler workflow performs as well, remove the agent. See [AI-assisted development](/wiki/ai-assisted-development/) and [security review](/wiki/secure-an-ai-built-app/).

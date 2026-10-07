@@ -7,25 +7,41 @@ kind: article
 tags: [operations, support, reliability]
 audience: [independent builders, solo founders, small teams]
 status: published
-evidence: multiple-sources
+evidence: practitioner
 confidence: moderate
 lastVerified: 2026-10-07
 related: [operate]
 featured: false
 seedSources: []
-sources: []
+sources:
+  - title: "Managing incidents"
+    url: https://sre.google/sre-book/managing-incidents/
+    publisher: "Google SRE Book"
+    accessed: 2026-10-07
 ---
 
-## Keep a small service map
+## Create a one-page service map
 
-List production services, who owns them, where credentials are managed, what data they handle, and how to reach support. Document the few tasks that would be difficult to reconstruct during an outage: deploy, rollback, restore backup, rotate a credential, and contact a provider.
+List each production component, its purpose, owner, data handled, account location, support contact, renewal date, and recovery path. Include domain/DNS, source control, hosting, database, authentication, email, payment processor, analytics, file storage, and error monitoring where used. Record where credentials are stored—not the credentials themselves.
 
-## Set a sustainable review rhythm
+For each critical dependency, answer: what happens if it is unavailable, how will you notice, can users keep working, and what can you safely do? A solo founder may not need a complex on-call platform, but does need access recovery and a way to restore essential data.
 
-Review support requests and errors regularly. Group repeated problems, distinguish product defects from user confusion, and prioritize by user impact and recurrence. Schedule dependency updates and confirm backup restoration periodically. Avoid dashboards full of metrics without a decision attached.
+## Keep a small operating rhythm
 
-For a solo product, write down what happens if you are unavailable. A status page or clear support expectation can reduce uncertainty. Do not promise response times the team cannot maintain.
+**Weekly:** review severe errors, unanswered support, failed payments or background jobs, and unexpected usage/spend.
 
-## Learn from incidents
+**Monthly:** install security updates, verify account owners and billing contacts, review backups and retention, and remove unused integrations.
 
-Record what users experienced, timeline, cause where known, mitigation, and follow-up owner. Focus on system conditions that made the failure possible rather than blame. If personal or regulated data may be involved, follow the applicable response process and get qualified help promptly.
+**Quarterly or after a major change:** restore a backup in a test environment, review who has production access, verify the contact and rollback steps, and update the service map.
+
+Adjust the schedule to the system’s risk. A static site with no user data needs much less operational ceremony than a paid product storing customer documents.
+
+## Write runbooks for rare, stressful tasks
+
+For deploy and rollback, backup restore, credential rotation, provider outage, and suspected data exposure, document prerequisites, the exact safe steps, expected result, and escalation/contact point. Keep runbooks accessible if the primary app is down. Test them without exposing production secrets. If you are the only operator, identify what another trusted person would need to regain access in an emergency.
+
+## Respond to incidents with facts
+
+When a failure occurs: protect users first, stop harmful processing, preserve relevant logs, communicate what is known and unknown, and bring in qualified help when the impact exceeds your experience. Record a timeline, affected users/data, trigger, detection gap, mitigation, and follow-up owner. Avoid assigning blame; change the system so the same failure is less likely. Follow applicable notification and reporting requirements when personal data or regulated services are involved.
+
+Keep monitoring proportional. Every metric or alert should answer a question or trigger an action. Alert on user-impacting failures and thresholds you can respond to, not every harmless log line. For launch gates see [first launch readiness](/wiki/first-launch-readiness/) and for privacy planning see [privacy by default](/wiki/privacy-by-default/).

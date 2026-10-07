@@ -20,14 +20,30 @@ sources:
     accessed: 2026-10-07
 ---
 
-## Write for the task
+## Write instructions a person can follow without guessing
 
-Put the action near the start of a sentence. Name the object and the expected result. Prefer one instruction per numbered step. Use the same term for the same thing, and define unfamiliar abbreviations on first use. Replace vague phrases such as “configure appropriately” with the setting, value, and reason when known.
+Technical writing is successful when a reader can complete the intended task, recognize whether it worked, and recover when it did not. Plain language does not mean removing necessary detail. Keep exact settings, commands, versions, units, permissions, and exceptions.
 
-Use headings that describe a reader’s question or task. Keep warnings next to the step they affect. Distinguish required actions from optional ones and state prerequisites before the procedure begins.
+## Draft around one user task
 
-## Preserve meaning while simplifying
+Before writing, state the reader’s starting point, intended result, prerequisites, and what they should see when done. Then write steps in execution order. Put one action in each numbered step. Put a warning immediately before the action it affects. Explain acronyms on first use and use one term consistently for the same object.
 
-Plain language is not the same as removing technical detail. Keep exact commands, constraints, units, and exceptions. Explain why a step matters when that helps the reader recover from errors. Review the page by following it literally in a clean environment.
+Weak: “Configure the integration appropriately.”
 
-The project’s source packet included a note to Simplified Technical English. The official ASD-STE100 specification is a controlled standard with licensing and access conditions; do not imply this wiki is compliant or reproduce its controlled material. Use its existence as a reminder that controlled vocabulary and consistent grammar can help readers, and consult the current [official STE information](https://asd-ste100.org/STE_downloads.html) if your organization needs the standard.
+Useful: “In **Settings → Integrations**, paste the test-mode webhook URL. Click **Save**, then send a test event. The status should change to **Connected** within a minute.”
+
+Only include exact UI labels if you verified the product version. If settings differ by plan or version, name that scope.
+
+## Give examples and error recovery
+
+Show a realistic example with fake data. Explain what a command changes before asking someone to run it, especially if it deletes, publishes, charges, or changes access. Include expected output or a clear success indicator. Add a short “If this fails” section with the most likely cause and safe next step; do not tell readers to disable security controls as a generic workaround.
+
+Use code fences with language labels and supported version context. Avoid screenshots for text that changes often; if a screenshot is necessary, add alt text and identify the version. Do not include real secrets, account identifiers, customer information, or production hostnames in examples.
+
+## Edit for scan and comprehension
+
+Use headings that answer likely questions, short paragraphs, concrete verbs, and links whose labels explain the destination. Keep lists parallel. Define a term where readers need it rather than sending them elsewhere for every sentence. Remove throat-clearing, repeated caveats, empty headings, and editorial notes meant for maintainers.
+
+Follow the instructions literally in a fresh account or clean environment. Ask someone who did not write the page to complete the task and mark every point where they had to infer a missing step. Recheck after interface or policy changes.
+
+Consistent terminology and constrained ambiguity make instructions easier to follow. See the [official ASD-STE100 information](https://asd-ste100.org/STE_downloads.html) and the [IndieWiki content guide](https://github.com/arunkumarkundra/indiewiki/blob/main/CONTENT_GUIDE.md).

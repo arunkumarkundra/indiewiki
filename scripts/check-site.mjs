@@ -22,6 +22,18 @@ function htmlFiles(dir) {
 
 const pages = htmlFiles(dist);
 assert(pages.length >= 30, `expected a complete starter wiki; found only ${pages.length} HTML pages`);
+
+const contentDir = resolve('src/content/knowledge');
+const articles = readdirSync(contentDir).filter((name) => name.endsWith('.md'));
+assert(articles.length >= 20, `expected a useful starter corpus; found only ${articles.length} articles`);
+for (const name of articles) {
+  const source = readFileSync(join(contentDir, name), 'utf8');
+  const body = source.replace(/^---\n[\s\S]*?\n---\n/, '');
+  const words = body.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) ?? [];
+  assert(words.length >= 300, `${name}: published article is too short to be useful (${words.length} words)`);
+  assert(!/(?:user-supplied|supplied (?:source|founder|notes|PDF)|source packet|source notes supplied)/i.test(body), `${name}: research-process note appears in reader-facing copy`);
+}
+
 let checkedLinks = 0;
 for (const file of pages) {
   const html = readFileSync(file, 'utf8');

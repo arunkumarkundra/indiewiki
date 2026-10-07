@@ -38,7 +38,7 @@ const metaJson = { '@context': 'https://schema.org', '@type': 'Article', headlin
       {related.length > 0 && <section><h2 class="related-title">Related reading</h2><div class="article-grid">{related.map((article) => <ArticleCard article={article!} compact />)}</div></section>}
       {(previous || next) && <nav class="related-nav" aria-label="Previous and next articles">{previous ? <a href={hrefFor(previous)}><span class="nav-label">← Previous</span><strong>{previous.data.title}</strong></a> : <span></span>}{next && <a href={hrefFor(next)} style="text-align:right"><span class="nav-label">Next →</span><strong>{next.data.title}</strong></a>}</nav>}
     </article>
-    {headings.length > 1 && <aside class="article-toc"><h2>On this page</h2><nav aria-label="On this page"><ul>{headings.filter((heading) => heading.depth === 2).map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></nav></aside>}
+    {headings.length > 1 && <aside class="article-toc"><h2>On this page</h2><nav aria-label="On this page"><ul>{headings.filter((heading) => heading.depth === 2 || heading.depth === 3).map((heading) => <li style={heading.depth === 3 ? 'padding-left: 9px' : undefined}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></nav></aside>}
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(metaJson)} />
 </SiteLayout>
