@@ -64,3 +64,5 @@ Change one part at a time when you can: price, included usage, package boundary,
 Never invent a crossed-out price, fake a deadline, hide a recurring charge, or make cancellation deliberately difficult. The FTC’s dark-patterns report discusses such practices in a U.S. consumer-protection context; requirements elsewhere differ, and this page is not jurisdiction-specific legal advice. See [add payments safely](/wiki/payments-and-subscriptions/) and [design a clear offer](/wiki/design-a-clear-offer/) before implementing checkout.
 
 When you need purchase evidence before full automation, a [paid pilot](/wiki/run-a-transparent-paid-pilot/) can test a specific outcome and expose the real delivery work.
+
+Check whether the offer can support its delivery costs with the [contribution-margin worksheet](/wiki/calculate-contribution-margin-for-a-small-product/).

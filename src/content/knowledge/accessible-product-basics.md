@@ -11,7 +11,7 @@ evidence: mixed
 confidence: moderate
 lastVerified: 2026-10-07
 reviewBy: 2027-01-07
-reviewTrigger: "Recheck after upstream documentation, security advisories, pricing, supported versions, or relevant platform policies change."
+reviewTrigger: "Recheck when WCAG or WAI guidance changes, the product's core journeys or interaction patterns change, or local accessibility requirements need review."
 related: [quality]
 featured: false
 seedSources: []
@@ -51,4 +51,4 @@ Give informative images concise alt text that conveys their purpose. Use empty a
 5. Ask people with relevant access needs to try the task when feasible, and compensate their time when appropriate.
 6. Record the barriers found and retest after fixes.
 
-Do not claim WCAG conformance based on a quick checklist; conformance requires evaluating all applicable criteria in scope. W3C’s [WCAG 2.2 Understanding documents](https://www.w3.org/WAI/WCAG22/Understanding/) explain the criteria. Also see [brand guidelines](/wiki/brand-guidelines-for-a-small-product/) and [first launch readiness](/wiki/first-launch-readiness/).
+Do not claim WCAG conformance based on a quick checklist; conformance requires evaluating all applicable criteria in scope. W3C’s [WCAG 2.2 Understanding documents](https://www.w3.org/WAI/WCAG22/Understanding/) explain the criteria. For a defined sample, evidence log, and limitations report, see [run a scoped accessibility evaluation](/wiki/run-an-accessibility-evaluation/). Also see [brand guidelines](/wiki/brand-guidelines-for-a-small-product/) and [first launch readiness](/wiki/first-launch-readiness/).

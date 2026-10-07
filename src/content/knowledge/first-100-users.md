@@ -28,7 +28,7 @@ The first customers usually come from direct learning and service, not a scalabl
 
 ## Choose one audience and one acquisition path
 
-Write the audience as a filter you can apply consistently: role or situation, recent behavior, and a place you can reach them. “Founders” is too broad. “Independent bookkeeping firms that prepare monthly close packages for 5–20 clients” is a testable starting segment. Choose one path for a week: personal introductions, a relevant professional community, a directory, thoughtful direct outreach, a tutorial that answers a specific question, or a partner who already serves the group.
+Write the audience as a filter you can apply consistently: role or situation, recent behavior, and a place you can reach them. “Founders” is too broad. “Independent bookkeeping firms that prepare monthly close packages for 5–20 clients” is a testable starting segment. Choose one plausible path and compare audience access, context, trust, time to signal, cost, and your ability to deliver. Use [choose a first acquisition channel](/wiki/choose-a-first-acquisition-channel/) for a scorecard before committing a full week to the test. Possible paths include personal introductions, a relevant professional community, a directory, thoughtful direct outreach, a tutorial that answers a specific question, or a partner who already serves the group.
 
 Before posting or messaging, read the community’s promotion rules. Do not scrape personal data, send deceptive bulk messages, or pretend to be a customer. Give people a useful reason to engage even if they never buy.
 

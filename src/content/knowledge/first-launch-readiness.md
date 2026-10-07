@@ -54,6 +54,8 @@ If the product stores important user data, make and restore a backup before broa
 
 Choose a small first cohort you can support. Define what counts as meaningful activation and the one or two product outcomes you will inspect. Tell users what is experimental and what is stable. Provide a clear way to report a problem and stop onboarding if a severe issue appears.
 
+Use [first-value onboarding](/wiki/onboard-users-to-first-value/) to make the first task and failure paths concrete; use a [scoped accessibility evaluation](/wiki/run-an-accessibility-evaluation/) to report what was actually reviewed.
+
 Before release, record the commit/version, deployment time, smoke checks, known issues, and rollback action. Afterward, watch logs and user messages during the first real uses. If the core outcome fails, pause promotion, fix the blocker, and contact affected users when appropriate. Do not interpret traffic as success if users cannot complete the task.
 
 ## Do not use a checklist as a substitute for judgment

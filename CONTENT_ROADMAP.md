@@ -37,9 +37,9 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 3. Shape a usable product
 
-**Existing entry points:** MVP scope, user requirements and acceptance criteria, end-to-end flows/states, small usability testing, evidence-based prioritization, accessibility, offer design, brand basics.
+**Existing entry points:** MVP scope, user requirements and acceptance criteria, end-to-end flows/states, first-value onboarding, small usability testing, evidence-based prioritization, accessibility basics and scoped evaluation, offer design, brand basics.
 
-**Build next:** outcomes and product strategy; onboarding and activation; accessibility testing workflow; deeper error, empty, loading, and recovery patterns; choosing what not to build; product decisions with AI-generated prototypes.
+**Build next:** outcomes and product strategy; deeper error, empty, loading, and recovery patterns; choosing what not to build; product decisions with AI-generated prototypes.
 
 **Reader should leave with:** the smallest complete journey that solves one real job, an observable success measure, and a tested path through failure states.
 
@@ -53,17 +53,17 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 5. Ship, find users, and learn
 
-**Existing entry points:** launch readiness, first 100 users, product measurement, SEO guides, outreach, GitHub Pages deployment.
+**Existing entry points:** launch readiness, first 100 users, acquisition-channel selection, product measurement, SEO guides, outreach, GitHub Pages deployment.
 
-**Build next:** launch sequencing by audience; distribution channel selection; content and search strategy; partnerships and communities; onboarding funnel; product analytics; activation/retention definitions; customer support loops; release communication; what to do when launch numbers are weak.
+**Build next:** launch sequencing by audience; content and search strategy; partnerships and communities; customer support loops; release communication; what to do when launch numbers are weak.
 
 **Reader should leave with:** one channel experiment, an instrumented user journey, and a decision cadence that connects feedback to product changes.
 
 ### 6. Monetize and run a sustainable business
 
-**Existing entry points:** business basics, clear offer, first-price strategy, payments and subscriptions.
+**Existing entry points:** business basics, clear offer, first-price strategy, contribution-margin and break-even scenarios, payments and subscriptions.
 
-**Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; gross margin and contribution margin; cash runway and bookkeeping; refunds and chargebacks; sales for solo founders; B2B procurement; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary.
+**Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; cash runway and bookkeeping; refunds and chargebacks; sales for solo founders; B2B procurement; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary.
 
 **Reader should leave with:** clear terms, tested willingness-to-pay evidence, a view of unit economics and cash obligations, and a list of jurisdiction-specific unknowns.
 

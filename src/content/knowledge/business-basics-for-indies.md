@@ -42,6 +42,8 @@ Net collected revenue
 
 Add fixed subscriptions, accounting, insurance, filings, contractor costs, taxes, chargebacks, and a reserve for unexpected bills. Separate business and personal money when the applicable rules and structure require it. Reconcile payments against processor reports and invoices regularly; revenue in a dashboard is not the same as cash available to spend.
 
+Use the [contribution-margin worksheet](/wiki/calculate-contribution-margin-for-a-small-product/) to make variable service costs and founder labor visible before setting growth targets.
+
 List each renewal date, currency, cancellation deadline, and account owner. Remove unused subscriptions and assign someone to review spend. Model an ordinary month and a stressful one—for example, lower sales plus a provider bill or refund spike.
 
 ## Make the customer agreement understandable
