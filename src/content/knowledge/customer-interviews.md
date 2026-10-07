@@ -74,3 +74,5 @@ Use this summary:
 - **Next action:** the smallest useful follow-up.
 
 After five to eight focused conversations, decide whether the problem is clearer, not whether the sample has “validated” the market. If the pattern is weak, recruit a different segment or test a more precise problem. See [idea to first experiment](/wiki/idea-to-first-experiment/) and the [experiment brief](/wiki/experiment-brief-template/).
+
+For a reusable observation-to-finding workflow, see [analyze a small sample of customer research](/wiki/analyze-small-customer-research-samples/).

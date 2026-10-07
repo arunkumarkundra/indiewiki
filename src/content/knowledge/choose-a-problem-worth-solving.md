@@ -68,6 +68,8 @@ For an early product, estimate the group you can plausibly serve first: number o
 
 If your customer is a local business, official sources such as the U.S. Census Bureau’s [Business Builder](https://www.census.gov/data/data-tools/cbb.html) can help explore business counts and demographic/economic data in supported geographies. Census data describes populations and industries; it does not prove that people have your specific problem or will buy. Use the equivalent official statistical agency for other countries and check data definitions, coverage, and release dates.
 
+For a worksheet that separates eligible buyers, reachable prospects, and a near-term revenue scenario, see [estimate a reachable market](/wiki/estimate-a-reachable-market/).
+
 ## End with a testable next step
 
 Choose the riskiest unresolved assumption and test it cheaply. If you do not know whether the problem recurs, interview and observe recent instances. If urgency is clear but buyer identity is not, ask how a purchase would be approved. If the problem and buyer are credible, test a concrete offer with a transparent price and a real next action. Record what result would make you continue, change segment, or stop in an [experiment brief](/wiki/experiment-brief-template/).

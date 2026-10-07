@@ -21,17 +21,17 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 1. Find a problem and a reachable market
 
-**Existing entry points:** idea-to-first-experiment, customer interviews, choose a problem worth solving, business basics.
+**Existing entry points:** idea-to-first-experiment, customer interviews, choose a problem worth solving, bottom-up reachable-market estimate, business basics.
 
-**Build next:** problem selection from observed behavior; choosing a first customer segment; market and niche research; bottom-up market estimates; customer/buyer distinction; founder constraints and fit; recognizing problems without reliable budgets or access.
+**Build next:** niche research; customer/buyer distinction; founder constraints and fit; recognizing problems without reliable budgets or access.
 
 **Reader should leave with:** a narrow problem and segment hypothesis, evidence log, reachable participant list, and an explicit next experiment or reason to stop.
 
 ### 2. Validate demand and understand alternatives
 
-**Existing entry points:** customer interviews, experiment brief, manual outreach, competitor/workaround research, landing-page testing, MVP scope.
+**Existing entry points:** customer interviews, analyzed small-sample research, experiment brief, manual outreach, competitor/workaround research, landing-page testing, honest waitlist/intent test, paid pilot, MVP scope.
 
-**Build next:** competitor and workaround research; landing-page and prototype tests; ethical fake-door tests; pre-sales and deposits; waitlists and their limits; survey design; interpreting small samples; experiment thresholds and decisions; procurement and switching behavior for business buyers.
+**Build next:** prototype tests; survey design; experiment thresholds and decisions; procurement and switching behavior for business buyers. Review waitlist and paid-pilot guidance against real reader cases and applicable jurisdictional rules.
 
 **Reader should leave with:** evidence of behavior and commitment, not just favorable opinions, plus a documented decision and the uncertainty that remains.
 
