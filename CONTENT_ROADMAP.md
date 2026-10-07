@@ -55,7 +55,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** launch readiness, first 100 users, acquisition-channel selection, product measurement, SEO guides, outreach, GitHub Pages deployment.
 
-**Build next:** launch sequencing by audience; content and search strategy; partnerships and communities; release communication. A practical customer-support loop now covers safe intake, triage, resolution, trend review, and product feedback. A launch-diagnosis workflow connects trustworthy measurement, journey drop-offs, user research, and the next experiment; deepen both workflows with reader cases and segment-specific examples.
+**Build next:** content and search strategy; partnerships and communities; deeper release communication examples by product type. A staged launch workflow now separates product access from promotion and gives audience gates from first pilot through broader availability. A practical customer-support loop covers safe intake, triage, resolution, trend review, and product feedback. A launch-diagnosis workflow connects trustworthy measurement, journey drop-offs, user research, and the next experiment; deepen these workflows with reader cases and segment-specific examples.
 
 **Reader should leave with:** one channel experiment, an instrumented user journey, and a decision cadence that connects feedback to product changes.
 
