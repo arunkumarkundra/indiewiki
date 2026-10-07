@@ -1,6 +1,6 @@
 # IndieWiki knowledge base
 
-This document defines the site’s topic map. The repository is canonical; the static website publishes reviewed Markdown rather than keeping a separate copy.
+This document defines the site’s topic map. The repository is canonical; the static website publishes reviewed Markdown rather than keeping a separate copy. See [CONTENT_ROADMAP.md](CONTENT_ROADMAP.md) for the end-to-end coverage audit and prioritized missing topics.
 
 ## Initial map
 

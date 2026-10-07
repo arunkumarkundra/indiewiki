@@ -10,6 +10,8 @@ status: published
 evidence: practitioner
 confidence: limited
 lastVerified: 2026-10-07
+reviewBy: 2027-10-07
+reviewTrigger: "Recheck after material new evidence, a meaningful change to the user workflow, or a credible report that this guidance is wrong."
 related: [case-studies]
 featured: false
 seedSources: []

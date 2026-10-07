@@ -22,7 +22,7 @@ A source may be authoritative for one question and inadequate for another. Prefe
 - Attribute quotations and distinctive ideas. Prefer original summaries over long quotations.
 - Include material counterevidence. Never cite AI output as factual evidence; verify its references independently.
 
-The source list and last-verified date are structured frontmatter fields, validated at build time. Keep an on-page readable source list and include check dates for volatile claims.
+The source list, last-verified date, review-by date, and a concrete review trigger are structured frontmatter fields, validated at build time and shown on the page. A review-by date is a planned check, not a guarantee. If it passes, the site build surfaces that page in the review queue; update it, mark it `needs-review`, or retire it before relying on the claim. Keep an on-page readable source list and include check dates for volatile claims.
 
 ## Recency and maintenance
 
@@ -30,7 +30,7 @@ The source list and last-verified date are structured frontmatter fields, valida
 - **Moderate volatility:** versions, workflows, benchmarks, and market practices. Include relevant version/date and revisit when underlying systems change.
 - **Lower volatility:** durable concepts. Revisit when credible evidence or a correction emerges.
 
-A check date is not a guarantee of continued accuracy. Avoid promising a cadence maintainers cannot support. Make uncertainty visible.
+A check date is not a guarantee of continued accuracy. Avoid promising a cadence maintainers cannot support. Make uncertainty visible and make review work specific: state the event that should trigger an early recheck (for example, a vendor plan change, a new security advisory, a standards revision, a platform policy update, or credible correction).
 
 ## Conflicts, gaps, and intake
 

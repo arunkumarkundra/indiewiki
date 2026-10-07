@@ -26,7 +26,9 @@ Adapt this outline to the page; small reference pages need not include every sec
 4. Trade-offs, risks, alternatives, and when to stop.
 5. Examples or checklist, only where useful.
 6. Sources and further reading.
-7. Maintenance notes, including check date for volatile details and what to recheck.
+7. Maintenance notes, including last verified date, planned review date, and a concrete trigger for an early recheck.
+
+For published pages, `reviewBy` is when the next verification should happen and `reviewTrigger` names a material change that should prompt an earlier check. Use shorter intervals for volatile vendor, security, legal, and platform guidance; use longer intervals only for durable concepts. If the review date passes before the page is checked, mark it `needs-review` or revise its evidence before another release. Do not use a recent date to imply the whole page has been verified when only one link was checked.
 
 The article metadata format is defined in `src/content.config.ts` and documented in `src/content/README.md`. Every page needs the required frontmatter fields; optional fields should be omitted rather than guessed.
 

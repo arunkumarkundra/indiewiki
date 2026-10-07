@@ -26,13 +26,24 @@ assert(pages.length >= 30, `expected a complete starter wiki; found only ${pages
 const contentDir = resolve('src/content/knowledge');
 const articles = readdirSync(contentDir).filter((name) => name.endsWith('.md'));
 assert(articles.length >= 20, `expected a useful starter corpus; found only ${articles.length} articles`);
+const reviewQueue = [];
+const today = new Date().toISOString().slice(0, 10);
 for (const name of articles) {
   const source = readFileSync(join(contentDir, name), 'utf8');
   const body = source.replace(/^---\n[\s\S]*?\n---\n/, '');
+  const status = source.match(/^status:\s*([\w-]+)/m)?.[1];
+  const reviewBy = source.match(/^reviewBy:\s*(\d{4}-\d{2}-\d{2})\s*$/m)?.[1];
+  const reviewTrigger = source.match(/^reviewTrigger:\s*["']?(.+?)["']?\s*$/m)?.[1];
+  if (status === 'published') {
+    assert(Boolean(reviewBy), `${name}: published page needs a reviewBy date`);
+    assert(Boolean(reviewTrigger && reviewTrigger.length >= 20), `${name}: published page needs a concrete reviewTrigger`);
+    if (reviewBy && reviewBy < today) reviewQueue.push(`${name} (${reviewBy})`);
+  }
   const words = body.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) ?? [];
   assert(words.length >= 300, `${name}: published article is too short to be useful (${words.length} words)`);
   assert(!/(?:user-supplied|supplied (?:source|founder|notes|PDF)|source packet|source notes supplied)/i.test(body), `${name}: research-process note appears in reader-facing copy`);
 }
+if (reviewQueue.length) console.warn(`Content reviews due as of ${today}:\n- ${reviewQueue.join('\n- ')}`);
 
 let checkedLinks = 0;
 for (const file of pages) {

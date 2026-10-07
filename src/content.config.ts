@@ -19,6 +19,8 @@ const knowledge = defineCollection({
     evidence: z.enum(['primary', 'multiple-sources', 'practitioner', 'seed-only', 'mixed']),
     confidence: z.enum(['high', 'moderate', 'limited']),
     lastVerified: z.coerce.date(),
+    reviewBy: z.coerce.date(),
+    reviewTrigger: z.string().min(20),
     related: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     seedSources: z.array(z.string()).default([]),

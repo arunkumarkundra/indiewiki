@@ -4,6 +4,7 @@ const { article } = Astro.props;
 type Source = Article['data']['sources'][number];
 type SeedSource = Article['data']['seedSources'][number];
 const formattedDate = article.data.lastVerified.toISOString().slice(0, 10);
+const reviewByDate = article.data.reviewBy.toISOString().slice(0, 10);
 ---
 <section class="provenance" aria-labelledby="provenance-title">
   <div class="provenance-head"><span class="provenance-mark" aria-hidden="true">↗</span><div><h2 id="provenance-title">Evidence &amp; provenance</h2><p>What this page is based on, and when it was checked.</p></div></div>
@@ -11,7 +12,9 @@ const formattedDate = article.data.lastVerified.toISOString().slice(0, 10);
     <div><dt>Evidence</dt><dd>{article.data.evidence.replaceAll('-', ' ')}</dd></div>
     <div><dt>Confidence</dt><dd>{article.data.confidence}</dd></div>
     <div><dt>Last verified</dt><dd><time datetime={formattedDate}>{formattedDate}</time></dd></div>
+    <div><dt>Review by</dt><dd><time datetime={reviewByDate}>{reviewByDate}</time></dd></div>
   </dl>
   {article.data.sources.length > 0 && <ul class="source-list">{article.data.sources.map((source: Source) => <li><a href={source.url} rel="nofollow noopener" target="_blank">{source.title}</a>{source.publisher && <span> · {source.publisher}</span>}</li>)}</ul>}
   {article.data.seedSources.length > 0 && <details class="seed-details"><summary>Seed material used</summary><ul>{article.data.seedSources.map((source: SeedSource) => <li>{source}</li>)}</ul></details>}
+  <p class="review-trigger">Recheck when: {article.data.reviewTrigger}</p>
 </section>

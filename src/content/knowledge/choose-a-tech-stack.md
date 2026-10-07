@@ -10,6 +10,8 @@ status: published
 evidence: practitioner
 confidence: moderate
 lastVerified: 2026-10-07
+reviewBy: 2027-01-07
+reviewTrigger: "Recheck after upstream documentation, security advisories, pricing, supported versions, or relevant platform policies change."
 related: [tech-stack]
 featured: true
 seedSources: []
