@@ -46,6 +46,8 @@ Write a one-sentence hypothesis:
 
 Keep the solution out of the sentence. It makes it easier to notice when evidence points to a different product or even a non-software fix. The [GOV.UK guidance on user needs](https://www.gov.uk/service-manual/service-standard/point-1-understand-user-needs) recommends starting from the user’s goal and context, then validating needs through research rather than treating proposed features as facts. Its public-service context differs from an indie business, but the problem-first discipline transfers well.
 
+If you have several plausible groups, use [the first-niche comparison workflow](/wiki/choose-a-first-customer-niche/) to compare reachability, buying path, and founder constraints before committing to one.
+
 ## Score the problem with evidence
 
 For each hypothesis, collect examples of recent behavior. Ask people to show the last time they handled the task, what tools and steps they used, how much time or money it took, what went wrong, and what they tried before. Avoid asking “Would you use this?” or pitching a feature too early; answers to hypothetical questions are cheap and often polite.

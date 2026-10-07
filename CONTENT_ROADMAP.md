@@ -21,9 +21,9 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 1. Find a problem and a reachable market
 
-**Existing entry points:** idea-to-first-experiment, customer interviews, choose a problem worth solving, bottom-up reachable-market estimate, business basics.
+**Existing entry points:** idea-to-first-experiment, customer interviews, choose a problem worth solving, choose a reachable first customer niche, bottom-up reachable-market estimate, business basics.
 
-**Build next:** niche research; customer/buyer distinction; founder constraints and fit; recognizing problems without reliable budgets or access.
+**Build next:** recognizing problems without reliable budgets or access; strengthen customer/buyer distinction, founder constraints, and niche-selection guidance with field-tested reader examples.
 
 **Reader should leave with:** a narrow problem and segment hypothesis, evidence log, reachable participant list, and an explicit next experiment or reason to stop.
 
