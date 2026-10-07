@@ -36,6 +36,8 @@ Usability testing observes whether people can use a product or prototype to comp
 
 Choose one research question: “Can first-time shop owners publish a catalog without help?” or “Do users understand when an import has only partially succeeded?” Test a flow where the answer could change your next design decision. A clickable prototype is enough for many navigation and comprehension questions; use a working build when timing, data, or system feedback is part of the question.
 
+For help choosing between a sketch, clickable mock-up, coded simulation, manual service, and technical spike, see [prototype a risky product workflow](/wiki/prototype-a-risky-product-workflow/).
+
 GOV.UK’s [moderated usability-testing guidance](https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing) defines the method as watching participants attempt specific tasks and recommends realistic, non-leading tasks. The exact formal process is written for public services; a solo builder can adapt the essentials without a lab or a team of observers.
 
 ## Recruit people who resemble the intended users

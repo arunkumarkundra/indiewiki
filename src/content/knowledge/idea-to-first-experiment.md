@@ -54,6 +54,8 @@ For each assumption, score **uncertainty** (how little you know) and **damage if
 - **Will someone commit?** Ask for a paid pilot, deposit, or scheduled implementation only when the offer and terms are clear and lawful.
 - **Can the workflow be understood?** Give a prototype to a target user and watch them complete a task.
 
+Use [the prototype workflow guide](/wiki/prototype-a-risky-product-workflow/) to choose the lightest artifact that can answer the question, and [a small usability test](/wiki/run-a-small-usability-test/) to structure the observation session.
+
 A landing-page signup measures interest in that page and offer; it does not prove retention, willingness to pay, or that the product works. Do not disguise a fake feature as available. Tell people what will happen with their information and honor any promised follow-up.
 
 ### 4. Pre-commit to a decision
