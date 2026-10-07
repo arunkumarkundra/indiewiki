@@ -45,9 +45,9 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 4. Build and maintain the system
 
-**Existing entry points:** tech-stack choice, maintainable workflow, AI-assisted development, security review, database, auth, API, payments, email, files, jobs.
+**Existing entry points:** tech-stack choice, architecture for a small app, maintainable workflow, AI-assisted development, security review, database, auth, API, payments, email, files, jobs, critical-path testing, privacy-aware production observability, backup restoration.
 
-**Build next:** architecture for a small web product; frontend and backend boundaries; search; observability and error reporting; backups and restore drills; dependency updates; testing strategy; release/versioning; data migration; multi-tenant isolation; integrations and webhooks; cost controls; choosing managed services with exit plans.
+**Build next:** frontend and backend boundaries; search; dependency updates; release/versioning; data migration; multi-tenant isolation; integrations and webhooks; cost controls; choosing managed services with exit plans. Expand testing, observability, and recovery guidance from real reader questions and incident reports.
 
 **Reader should leave with:** a small, supportable design, a tested recovery path, and explicit owners for operational responsibilities—even when the owner is one person.
 
