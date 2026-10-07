@@ -46,6 +46,8 @@ Track queue depth, oldest-job age, success and failure rate, retry counts, and t
 
 Provide a safe replay action for operators and decide what happens to stale jobs after a deploy. Workers should shut down gracefully, finish or release current work, and tolerate interruption. If a job is user-visible, explain failure in plain language and offer a retry when that is safe.
 
+When a third-party service initiates the job, apply the receiving and reconciliation pattern in [integrate an external service with webhooks](/wiki/integrate-an-external-service-with-webhooks/).
+
 ## Test the partial-failure path
 
 Simulate worker shutdown midway through a task, duplicated delivery, provider timeout after the provider completed the action, rate limiting, malformed payload, and an exhausted retry budget. Confirm that the queue recovers and operators can identify the affected record. Reliability comes from explicit states, safe repetition, and a visible recovery path—not from assuming a worker will never fail.

@@ -47,7 +47,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** tech-stack choice, architecture for a small app, maintainable workflow, AI-assisted development, security review, database, auth, API, payments, email, files, jobs, critical-path testing, privacy-aware production observability, backup restoration.
 
-**Build next:** frontend and backend boundaries; search; dependency updates; release/versioning; data migration; multi-tenant isolation; integrations and webhooks; cost controls; choosing managed services with exit plans. Expand testing, observability, and recovery guidance from real reader questions and incident reports.
+**Build next:** frontend and backend boundaries; search; dependency updates; release/versioning; data migration; multi-tenant isolation; cost controls; choosing managed services with exit plans. A provider-neutral webhook integration workflow now covers authentication, delivery, retries, deduplication, ordering, and reconciliation; add provider-specific integration recipes and expand testing, observability, and recovery guidance from real reader questions and incident reports.
 
 **Reader should leave with:** a small, supportable design, a tested recovery path, and explicit owners for operational responsibilities—even when the owner is one person.
 
