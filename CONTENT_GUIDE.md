@@ -22,7 +22,7 @@ Adapt this outline to the page; small reference pages need not include every sec
 6. Sources and further reading.
 7. Maintenance notes, including check date for volatile details and what to recheck.
 
-A metadata format has not been adopted. Use a readable sources section; do not invent inconsistent frontmatter conventions.
+The article metadata format is defined in `src/content.config.ts` and documented in `src/content/README.md`. Every page needs the required frontmatter fields; optional fields should be omitted rather than guessed.
 
 ## Accuracy, safety, and privacy
 

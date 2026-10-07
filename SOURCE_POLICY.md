@@ -22,7 +22,7 @@ A source may be authoritative for one question and inadequate for another. Prefe
 - Attribute quotations and distinctive ideas. Prefer original summaries over long quotations.
 - Include material counterevidence. Never cite AI output as factual evidence; verify its references independently.
 
-No formal frontmatter convention exists yet. Use a readable sources section and include check dates in prose where recency matters.
+The source list and last-verified date are structured frontmatter fields, validated at build time. Keep an on-page readable source list and include check dates for volatile claims.
 
 ## Recency and maintenance
 

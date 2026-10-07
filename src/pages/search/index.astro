@@ -1,0 +1,49 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Search" description="Search the IndieWiki knowledge base." noIndex>
+  <section class="category-hero"><div class="page-kicker"><span class="kicker-line"></span> FIND A USEFUL ANSWER</div><h1>Search the wiki</h1><p>Search page titles, tags, and article text. Results come from the same Markdown pages you can edit on GitHub.</p></section>
+  <form id="wiki-search-form" action="/search/" method="get" role="search" aria-label="Search IndieWiki"><div class="search-box"><span aria-hidden="true" class="search-glyph">⌕</span><input id="wiki-search" name="q" type="search" placeholder="Try: first users, agent security, launch" aria-label="Search the wiki" autocomplete="off"/><button class="search-submit" type="submit">Search <span aria-hidden="true">↗</span></button></div></form>
+  <p id="search-status" class="search-state" aria-live="polite"></p>
+  <div id="search-results" class="search-results"></div>
+  <div id="search-empty" class="search-empty" hidden><h2>No pages found for that search.</h2><p>Try a shorter phrase, another spelling, or one of these paths:</p><ul><li><a href="/categories/validate/">Talk with potential users</a></li><li><a href="/categories/quality/">Improve product quality</a></li><li><a href="/categories/ship/">Prepare to launch</a></li></ul><a href="/categories/">Browse all topics ↗</a></div>
+  <noscript><div class="empty-state"><h2>Search needs JavaScript.</h2><p>The articles remain available by browsing categories or opening a topic from the navigation.</p></div></noscript>
+</SiteLayout>
+<script is:inline>
+  const input = document.querySelector('#wiki-search');
+  const status = document.querySelector('#search-status');
+  const results = document.querySelector('#search-results');
+  const empty = document.querySelector('#search-empty');
+  const form = document.querySelector('#wiki-search-form');
+  let pagefind;
+  let timer;
+
+  async function runSearch(term) {
+    const query = term.trim();
+    results.replaceChildren(); empty.hidden = true;
+    if (!query) { status.textContent = 'Search across article text, categories, and tags.'; return; }
+    status.textContent = 'Searching…';
+    try {
+      pagefind ??= await import('/pagefind/pagefind.js');
+      const response = await pagefind.search(query);
+      const rows = await Promise.all(response.results.slice(0, 12).map((result) => result.data()));
+      if (!rows.length) { status.textContent = ''; empty.hidden = false; return; }
+      status.textContent = `${response.results.length} ${response.results.length === 1 ? 'page' : 'pages'} found`;
+      for (const row of rows) {
+        const card = document.createElement('article'); card.className = 'search-result';
+        const category = document.createElement('div'); category.className = 'card-meta'; category.textContent = row.meta?.category ?? 'Wiki guide';
+        const heading = document.createElement('h2'); const link = document.createElement('a'); link.href = row.url; link.textContent = row.meta?.title ?? row.title; heading.append(link);
+        const excerpt = document.createElement('p'); excerpt.textContent = row.excerpt.replace(/<[^>]*>/g, '');
+        card.append(category, heading, excerpt); results.append(card);
+      }
+    } catch (error) {
+      status.textContent = 'Search is temporarily unavailable. Browse by topic instead.';
+      console.error('IndieWiki search failed', error);
+    }
+  }
+
+  form.addEventListener('submit', (event) => { event.preventDefault(); const query = input.value.trim(); history.replaceState(null, '', query ? `?q=${encodeURIComponent(query)}` : location.pathname); void runSearch(query); });
+  input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => void runSearch(input.value), 140); });
+  const initial = new URLSearchParams(location.search).get('q') ?? '';
+  input.value = initial; void runSearch(initial);
+</script>

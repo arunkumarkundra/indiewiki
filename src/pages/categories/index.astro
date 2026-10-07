@@ -1,0 +1,10 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { categories } from '../../data/categories';
+import { getPublishedArticles } from '../../lib/knowledge';
+const articles = await getPublishedArticles();
+---
+<SiteLayout title="Topics" description="Browse every IndieWiki topic: from choosing an idea and validating demand to building, launching, growing, and operating an independent product.">
+  <section class="category-hero"><div class="page-kicker"><span class="kicker-line"></span> THE KNOWLEDGE MAP</div><h1>Browse all topics</h1><p>Explore by the work you need to do. Pages cross-link related ideas so you can follow a question wherever it leads.</p></section>
+  <div class="category-grid all-categories">{categories.map((category) => { const count = articles.filter((article) => article.data.category === category.id).length; return <a class="category-card" href={`/categories/${category.id}/`}><span class="category-icon" aria-hidden="true">{category.icon}</span><h3>{category.label}<span class="category-count">{count}</span></h3><p>{category.description}</p></a>; })}</div>
+</SiteLayout>

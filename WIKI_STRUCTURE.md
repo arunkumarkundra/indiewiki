@@ -1,6 +1,6 @@
 # IndieWiki knowledge base
 
-This directory is the home for future wiki articles. The repository is canonical; a future website will publish this content rather than keep a separate copy.
+This document defines the site’s topic map. The repository is canonical; the static website publishes reviewed Markdown rather than keeping a separate copy.
 
 ## Initial map
 
@@ -23,4 +23,4 @@ Organize pages around builder tasks and cross-link shared concepts.
 
 ## Page status
 
-A topic on the map is not an approved article. Start with a focused issue or pull request, verify evidence, and follow [the content guide](../CONTENT_GUIDE.md) and [source policy](../SOURCE_POLICY.md). No page template or metadata schema has been adopted; avoid incompatible conventions until maintainers agree.
+A topic on the map is not an approved article. Start with a focused issue or pull request, verify evidence, and follow [the content guide](CONTENT_GUIDE.md), [source policy](SOURCE_POLICY.md), and [authoring notes](src/content/README.md). Article metadata is validated by the static build.

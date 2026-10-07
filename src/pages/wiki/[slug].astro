@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import SourcePanel from '../../components/SourcePanel.astro';
+import { categoryById } from '../../data/categories';
+import { hrefFor } from '../../lib/knowledge';
+export async function getStaticPaths() {
+  const entries = await getCollection('knowledge', ({ data }) => data.status === 'published');
+  return entries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const all = (await getCollection('knowledge', ({ data }) => data.status === 'published')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const index = all.findIndex((item) => item.id === entry.id);
+const previous = index > 0 ? all[index - 1] : undefined;
+const next = index < all.length - 1 ? all[index + 1] : undefined;
+const related = entry.data.related.map((slug) => all.find((item) => item.data.slug === slug)).filter(Boolean);
+const category = categoryById.get(entry.data.category);
+const publishedUrl = `https://github.com/arunkumarkundra/indiewiki/edit/main/src/content/knowledge/${entry.id}.md`;
+const metaJson = { '@context': 'https://schema.org', '@type': 'Article', headline: entry.data.title, description: entry.data.description, dateModified: entry.data.lastVerified.toISOString(), mainEntityOfPage: `https://indie.pi3.in${hrefFor(entry)}`, publisher: { '@type': 'Organization', name: 'IndieWiki', url: 'https://indie.pi3.in/' } };
+---
+<SiteLayout title={entry.data.title} description={entry.data.description} currentCategory={entry.data.category} canonicalPath={hrefFor(entry)} article>
+  <Breadcrumbs category={entry.data.category} title={entry.data.title} />
+  <div class="article-layout">
+    <article class="article-content" itemscope itemtype="https://schema.org/Article" data-pagefind-body>
+      <span data-pagefind-meta="title" hidden>{entry.data.title}</span>
+      <span data-pagefind-meta="category" hidden>{category?.label ?? entry.data.category}</span>
+      <div class="page-kicker"><span class="kicker-line"></span> {category?.label} / {entry.data.kind.replace('-', ' ')}</div>
+      <h1 class="article-title" itemprop="headline">{entry.data.title}</h1>
+      <p class="article-deck" itemprop="description">{entry.data.description}</p>
+      <div class="article-info"><span class="info-pill">{entry.data.evidence.replaceAll('-', ' ')} evidence</span><span>{entry.data.confidence} confidence</span><span>{entry.data.tags.length} tags</span></div>
+      <div class="article-tag-strip">{entry.data.tags.map((tag) => <a class="tag" href={`/tags/${encodeURIComponent(tag.toLowerCase().replaceAll(' ', '-'))}/`}>{tag}</a>)}</div>
+      <div class="article-tools"><span>Maintained in the open</span><a href={publishedUrl}>Suggest an edit on GitHub ↗</a></div>
+      <div class="prose" itemprop="articleBody"><Content /></div>
+      <SourcePanel article={entry} />
+      {related.length > 0 && <section><h2 class="related-title">Related reading</h2><div class="article-grid">{related.map((article) => <ArticleCard article={article!} compact />)}</div></section>}
+      {(previous || next) && <nav class="related-nav" aria-label="Previous and next articles">{previous ? <a href={hrefFor(previous)}><span class="nav-label">← Previous</span><strong>{previous.data.title}</strong></a> : <span></span>}{next && <a href={hrefFor(next)} style="text-align:right"><span class="nav-label">Next →</span><strong>{next.data.title}</strong></a>}</nav>}
+    </article>
+    {headings.length > 1 && <aside class="article-toc"><h2>On this page</h2><nav aria-label="On this page"><ul>{headings.filter((heading) => heading.depth === 2).map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></nav></aside>}
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(metaJson)} />
+</SiteLayout>
