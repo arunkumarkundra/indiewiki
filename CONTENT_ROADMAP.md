@@ -63,7 +63,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** business basics, clear offer, first-price strategy, contribution-margin and break-even scenarios, payments and subscriptions.
 
-**Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; stronger bookkeeping and cash-runway examples for different revenue patterns; B2B contract and procurement variants by sector; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary. Cash forecasting, refund/dispute handling, and a first B2B sales workflow now have practical entry pages.
+**Build next:** deeper pricing and packaging examples by business model and segment; stronger bookkeeping and cash-runway examples for different revenue patterns; B2B contract and procurement variants by sector; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary. First-price choice, value-metric basics, a practical early-stage pricing experiment workflow, cash forecasting, refund/dispute handling, and a first B2B sales workflow now have entry pages; develop them further from reader cases and observed outcomes.
 
 **Reader should leave with:** clear terms, tested willingness-to-pay evidence, a view of unit economics and cash obligations, and a list of jurisdiction-specific unknowns.
 

@@ -59,6 +59,8 @@ Use a sequence that matches your stage:
 3. **Pilot or preorder:** ask for a real commitment only when delivery scope, timing, cancellation, and refund terms are clear.
 4. **Live pricing:** monitor qualified purchase starts, completed purchases, refunds, support burden, expansion, and cancellation reasons by customer segment.
 
+For a test brief, low-traffic methods, outcome metrics, and decision log, use [the early-stage pricing experiment workflow](/wiki/run-a-pricing-experiment/).
+
 Change one part at a time when you can: price, included usage, package boundary, or billing cadence. Record who saw each offer and what they did. Small samples can guide qualitative learning but rarely support precise conversion claims. Keep existing customers’ promises explicit before changing a live offer.
 
 Never invent a crossed-out price, fake a deadline, hide a recurring charge, or make cancellation deliberately difficult. The FTC’s dark-patterns report discusses such practices in a U.S. consumer-protection context; requirements elsewhere differ, and this page is not jurisdiction-specific legal advice. See [add payments safely](/wiki/payments-and-subscriptions/) and [design a clear offer](/wiki/design-a-clear-offer/) before implementing checkout.
