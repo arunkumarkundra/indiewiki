@@ -39,7 +39,7 @@ For work that spans multiple components, write a short plan and confirm the data
 
 ## Make and inspect one change
 
-Keep commits coherent. Prefer a small diff with one purpose. Do not combine a dependency upgrade, formatting sweep, and product feature unless they are inseparable. Read the whole diff, not just the summary. Look for changed defaults, removed validation, accidental secrets, generated output, and files outside the intended scope.
+Keep commits coherent. Prefer a small diff with one purpose. Do not combine a dependency upgrade, formatting sweep, and product feature unless they are inseparable. Read the whole diff, not just the summary. Look for changed defaults, removed validation, accidental secrets, generated output, and files outside the intended scope. Use [a dependency maintenance workflow](/wiki/keep-dependencies-current-and-secure/) to triage updates and verify what reaches production.
 
 Use tests at the right level: pure logic unit tests, database integration checks, and a short end-to-end journey for critical flows. Tests should include boundaries and permission failures, not only the happy path. Run formatting, type checks, build, and tests that the repository expects. A green suite means only that those checks passed; manually inspect visual and operational behavior where relevant.
 

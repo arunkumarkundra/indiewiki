@@ -48,6 +48,8 @@ Validate type, size, format, and allowed values at the boundary. Use parameteriz
 
 Search the repository and build output for API keys, tokens, private URLs, and test data. Store server credentials in the host’s secret manager; browser code may contain only intentionally public keys. Rotate anything that entered Git, a screenshot, prompt, or log. Return useful user errors without stack traces, SQL, or secrets. The [OWASP Secrets Management guidance](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) covers credential scope and lifecycle.
 
+Keep libraries and build tools maintained after launch. Use [a dependency update and vulnerability triage routine](/wiki/keep-dependencies-current-and-secure/) to review alerts, validate upgrades, and confirm that fixes reach production.
+
 ### Data lifecycle
 
 List personal and sensitive data, why each field exists, which vendors receive it, who can read it, how long it stays, and how deletion works. Remove data you do not need. Avoid logging passwords, session tokens, payment details, or full prompts containing personal data. Back up important data and practice restoration.
