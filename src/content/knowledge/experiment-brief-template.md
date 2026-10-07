@@ -72,6 +72,6 @@ Record the denominator and the selection process. “Four replies from 30 person
 
 ## Close the loop
 
-At the end, compare results with the threshold you chose before the test. If you change the threshold after seeing results, record why. State the next decision and the uncertainty that remains. A test is complete when it informs an action, even when that action is to stop.
+At the end, compare results with the threshold you chose before the test. If you change the threshold after seeing results, record why. State the next decision and the uncertainty that remains. A test is complete when it informs an action, even when that action is to stop. For help interpreting weak, mixed, or quantitative results, see [decide what an experiment result means](/wiki/decide-what-an-experiment-result-means/).
 
 For the surrounding process, read [idea to first experiment](/wiki/idea-to-first-experiment/) and [customer interviews](/wiki/customer-interviews/).
