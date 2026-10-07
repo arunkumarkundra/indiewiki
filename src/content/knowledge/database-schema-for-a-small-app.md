@@ -48,7 +48,7 @@ When users can belong to multiple organizations, ownership belongs on the member
 
 ## Make schema changes in small, reversible steps
 
-Use versioned migrations committed with the application. Before a destructive change, ask what currently deployed code expects and how to recover. A safer column rename often takes two releases: add the new column, write both, backfill, switch reads, then remove the old column after checking no version needs it. Adding a required field to a populated table similarly needs a default or a staged backfill.
+Use versioned migrations committed with the application. Before a destructive change, ask what currently deployed code expects and how to recover. A safer column rename often takes two releases: add the new column, write both, backfill, switch reads, then remove the old column after checking no version needs it. Adding a required field to a populated table similarly needs a default or a staged backfill. For a production rollout runbook covering compatibility, backfill, validation, and recovery, see [run a safe production database migration](/wiki/run-a-safe-production-database-migration/).
 
 Try migrations against a realistic copy of the schema and representative data. Measure large backfills; a migration that locks a table for seconds locally may lock it much longer in production. Keep a documented restore path. A backup is only useful if you have tested restoring it into a separate database and confirmed the application can read it.
 
