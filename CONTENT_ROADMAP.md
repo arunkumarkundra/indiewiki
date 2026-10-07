@@ -21,7 +21,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 1. Find a problem and a reachable market
 
-**Existing entry points:** idea-to-first-experiment, customer interviews, business basics.
+**Existing entry points:** idea-to-first-experiment, customer interviews, choose a problem worth solving, business basics.
 
 **Build next:** problem selection from observed behavior; choosing a first customer segment; market and niche research; bottom-up market estimates; customer/buyer distinction; founder constraints and fit; recognizing problems without reliable budgets or access.
 
@@ -29,7 +29,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 2. Validate demand and understand alternatives
 
-**Existing entry points:** customer interviews, experiment brief, manual outreach, MVP scope.
+**Existing entry points:** customer interviews, experiment brief, manual outreach, competitor/workaround research, landing-page testing, MVP scope.
 
 **Build next:** competitor and workaround research; landing-page and prototype tests; ethical fake-door tests; pre-sales and deposits; waitlists and their limits; survey design; interpreting small samples; experiment thresholds and decisions; procurement and switching behavior for business buyers.
 
@@ -37,9 +37,9 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 3. Shape a usable product
 
-**Existing entry points:** MVP scope, accessibility, offer design, brand basics.
+**Existing entry points:** MVP scope, user requirements and acceptance criteria, end-to-end flows/states, small usability testing, evidence-based prioritization, accessibility, offer design, brand basics.
 
-**Build next:** outcomes and product strategy; requirements and acceptance criteria; user flows and state design; onboarding and activation; usability testing; accessibility testing workflow; error, empty, loading, and recovery states; choosing what not to build; product decisions with AI-generated prototypes.
+**Build next:** outcomes and product strategy; onboarding and activation; accessibility testing workflow; deeper error, empty, loading, and recovery patterns; choosing what not to build; product decisions with AI-generated prototypes.
 
 **Reader should leave with:** the smallest complete journey that solves one real job, an observable success measure, and a tested path through failure states.
 
@@ -53,7 +53,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 5. Ship, find users, and learn
 
-**Existing entry points:** launch readiness, first 100 users, SEO guides, outreach, GitHub Pages deployment.
+**Existing entry points:** launch readiness, first 100 users, product measurement, SEO guides, outreach, GitHub Pages deployment.
 
 **Build next:** launch sequencing by audience; distribution channel selection; content and search strategy; partnerships and communities; onboarding funnel; product analytics; activation/retention definitions; customer support loops; release communication; what to do when launch numbers are weak.
 
@@ -61,7 +61,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 6. Monetize and run a sustainable business
 
-**Existing entry points:** business basics, clear offer, payments and subscriptions.
+**Existing entry points:** business basics, clear offer, first-price strategy, payments and subscriptions.
 
 **Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; gross margin and contribution margin; cash runway and bookkeeping; refunds and chargebacks; sales for solo founders; B2B procurement; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary.
 
