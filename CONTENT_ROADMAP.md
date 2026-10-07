@@ -29,9 +29,9 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 ### 2. Validate demand and understand alternatives
 
-**Existing entry points:** customer interviews, analyzed small-sample research, experiment brief, deciding what an experiment result means, prototype design and testing, manual outreach, competitor/workaround research, landing-page testing, honest waitlist/intent test, paid pilot, MVP scope.
+**Existing entry points:** customer interviews, analyzed small-sample research, survey design, experiment brief, deciding what an experiment result means, prototype design and testing, manual outreach, competitor/workaround research, landing-page testing, honest waitlist/intent test, paid pilot, MVP scope.
 
-**Build next:** survey design; deepen experiment guidance with worked reader examples and a method-specific survey workflow; deepen procurement and switching behavior by sector. Review waitlist and paid-pilot guidance against real reader cases and applicable jurisdictional rules. A first B2B sales workflow now exists in `sell-software-to-a-business`.
+**Build next:** deepen experiment guidance with worked reader examples; deepen procurement and switching behavior by sector. Review waitlist and paid-pilot guidance against real reader cases and applicable jurisdictional rules. A first B2B sales workflow now exists in `sell-software-to-a-business`.
 
 **Reader should leave with:** evidence of behavior and commitment, not just favorable opinions, plus a documented decision and the uncertainty that remains.
 

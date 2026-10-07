@@ -52,6 +52,8 @@ Group observations by recurring task, trigger, workaround, consequence, buyer, o
 
 When reporting frequency, show the denominator and selection method: “4 of 7 invited independent consultants we interviewed described rebuilding the same report weekly.” This is not “57% of consultants.” The participants were recruited for a reason and the group is too selected to represent the population. Quantitative rates need a sampling and measurement design appropriate to the claim.
 
+When you need to measure a bounded behavior across a larger, defined group, plan a survey with explicit recruitment and sample limits; see [design a useful customer survey](/wiki/design-a-useful-customer-survey/).
+
 GOV.UK recommends timely analysis, extracting discrete observations, sorting themes, and turning agreed findings into actions. Its [round-planning guidance](https://www.gov.uk/service-manual/user-research/plan-round-of-user-research) is written for government service teams; a solo builder can adapt the evidence separation and follow-up loop without recreating a large workshop.
 
 ## Write a finding that leads to a decision
