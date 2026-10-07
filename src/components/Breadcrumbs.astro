@@ -1,0 +1,10 @@
+---
+import { categoryById } from '../data/categories';
+const { category, title } = Astro.props as { category?: string; title: string };
+const group = category ? categoryById.get(category as never) : undefined;
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a><span aria-hidden="true">/</span>
+  {group && <><a href={`/categories/${group.id}/`}>{group.label}</a><span aria-hidden="true">/</span></>}
+  <span aria-current="page">{title}</span>
+</nav>

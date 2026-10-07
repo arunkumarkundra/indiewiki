@@ -1,0 +1,14 @@
+---
+import type { Article } from '../lib/knowledge';
+import { hrefFor } from '../lib/knowledge';
+import { categoryById } from '../data/categories';
+const { article, compact = false } = Astro.props as { article: Article; compact?: boolean };
+const category = categoryById.get(article.data.category);
+---
+<article class:list={['article-card', { compact }]}>
+  <a class="card-hit" href={hrefFor(article)} aria-label={`Read ${article.data.title}`}></a>
+  <div class="card-meta"><span>{category?.label}</span><span aria-hidden="true">·</span><span>{article.data.kind.replace('-', ' ')}</span></div>
+  <h3><a href={hrefFor(article)}>{article.data.title}</a></h3>
+  <p>{article.data.description}</p>
+  <div class="tag-row" aria-label="Tags">{article.data.tags.slice(0, 3).map((tag) => <a class="tag" href={`/tags/${encodeURIComponent(tag.toLowerCase().replaceAll(' ', '-'))}/`}>{tag}</a>)}</div>
+</article>

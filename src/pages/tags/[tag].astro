@@ -1,0 +1,20 @@
+---
+import { getPublishedArticles } from '../../lib/knowledge';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+export async function getStaticPaths() {
+  const articles = await getPublishedArticles();
+  const tags = [...new Set(articles.flatMap((article) => article.data.tags.map((tag) => tag.toLowerCase().replaceAll(' ', '-'))))];
+  return tags.map((tag) => ({ params: { tag }, props: { tag } }));
+}
+const { tag } = Astro.props;
+const label = decodeURIComponent(tag).replaceAll('-', ' ');
+const articles = (await getPublishedArticles()).filter((article) => article.data.tags.some((item) => item.toLowerCase().replaceAll(' ', '-') === tag));
+---
+<SiteLayout title={`Tag: ${label}`} description={`IndieWiki articles tagged ${label}.`} noIndex>
+  <Breadcrumbs title={`Tag: ${label}`} />
+  <section class="category-hero"><div class="page-kicker"><span class="kicker-line"></span> TAG INDEX</div><h1>{label}</h1><p>Guides connected by this idea.</p></section>
+  <div class="section-heading"><div><div class="eyebrow">{articles.length} {articles.length === 1 ? 'page' : 'pages'}</div></div></div>
+  <div class="article-grid">{articles.map((article) => <ArticleCard article={article} />)}</div>
+</SiteLayout>

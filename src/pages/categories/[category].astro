@@ -1,0 +1,16 @@
+---
+import { getPublishedArticles } from '../../lib/knowledge';
+import { categories } from '../../data/categories';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+export async function getStaticPaths() { return categories.map((category) => ({ params: { category: category.id } })); }
+const category = categories.find((item) => item.id === Astro.params.category)!;
+const articles = (await getPublishedArticles()).filter((article) => article.data.category === category.id);
+---
+<SiteLayout title={category.label} description={category.description} currentCategory={category.id}>
+  <Breadcrumbs title={category.label} />
+  <section class="category-hero"><div class="page-kicker"><span class="kicker-line"></span> {category.icon} / TOPIC</div><h1>{category.label}</h1><p>{category.description}</p></section>
+  <div class="section-heading"><div><div class="eyebrow">{articles.length} {articles.length === 1 ? 'guide' : 'guides'}</div><h2>Explore this topic</h2></div></div>
+  {articles.length ? <div class="article-grid">{articles.map((article) => <ArticleCard article={article} />)}</div> : <div class="empty-state"><h2>This topic is mapped, and the library is still growing.</h2><p>Suggest the first guide or tell us what you need next.</p><a class="text-link" href="https://github.com/arunkumarkundra/indiewiki/issues/new">Suggest a topic ↗</a></div>}
+</SiteLayout>

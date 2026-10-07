@@ -1,0 +1,15 @@
+---
+import { categories } from '../data/categories';
+const { current = '' } = Astro.props as { current?: string };
+---
+<aside class="sidebar" aria-label="Wiki topics">
+  <div class="sidebar-heading">Explore the wiki</div>
+  <nav>
+    {categories.map((category) => (
+      <a class:list={['side-link', { active: current === category.id }]} href={`/categories/${category.id}/`} aria-current={current === category.id ? 'page' : undefined}>
+        <span class="side-icon" aria-hidden="true">{category.icon}</span><span>{category.label}</span>
+      </a>
+    ))}
+  </nav>
+  <div class="sidebar-note"><span class="note-mark" aria-hidden="true">i</span><p>Guidance is scoped and sourced. Check the context before you apply it.</p><a href="/about/">How this wiki works <span aria-hidden="true">↗</span></a></div>
+</aside>

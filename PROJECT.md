@@ -45,6 +45,6 @@ Cross-link topics rather than duplicating guidance. Substantive articles follow 
 
 ## Project status and open decisions
 
-This phase establishes the project constitution and knowledge structure; no website is being built. Supplied material is recorded as unreviewed intake in [sources/README.md](SOURCE_INTAKE.md) and must be checked before claims become guidance.
+The repository is the canonical source for the static wiki. The first implementation uses Markdown articles in `src/content/knowledge/`, built and published by GitHub Actions. Supplied material is recorded in [SOURCE_INTAKE.md](SOURCE_INTAKE.md); it is seed material, not verified evidence.
 
-Before publication or automation depends on them, maintainers should decide the project license/reuse terms, article metadata convention, freshness workflow, public site/hosting, maintainer appointments, and source/image permission records.
+Remaining project decisions include the license/reuse terms, maintainer appointments, source/image permission records, GitHub Pages configuration, and custom-domain DNS. The site workflow is in `.github/workflows/deploy.yml`; the target host is `https://indie.pi3.in`.
