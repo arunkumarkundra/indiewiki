@@ -59,3 +59,5 @@ Request a referral only after value has been delivered, and make the request opt
 Answer four questions: Which source brought the best-fit people? Where did qualified prospects drop out? What did users do twice? What surprised or disappointed them? Pick one change for next week and state what outcome would support it. Revisit your segment if most conversations are outside it or the task is not painful enough.
 
 There is no universal channel or response rate that guarantees the first 100 users. Use [respectful outreach](/wiki/cold-outreach-that-respects-people/), [manual outreach recipe](/wiki/manual-outreach-recipe/), and [customer interviews](/wiki/customer-interviews/).
+
+If a launch has already brought visitors or signups but few customers reach value, use [the weak-launch diagnosis workflow](/wiki/diagnose-weak-launch-results/) to locate the bottleneck before changing channels.

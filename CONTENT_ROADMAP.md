@@ -55,7 +55,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** launch readiness, first 100 users, acquisition-channel selection, product measurement, SEO guides, outreach, GitHub Pages deployment.
 
-**Build next:** launch sequencing by audience; content and search strategy; partnerships and communities; customer support loops; release communication; what to do when launch numbers are weak.
+**Build next:** launch sequencing by audience; content and search strategy; partnerships and communities; customer support loops; release communication. A practical launch-diagnosis workflow now connects trustworthy measurement, journey drop-offs, user research, and the next experiment; deepen it with reader launch reviews and segment-specific cases.
 
 **Reader should leave with:** one channel experiment, an instrumented user journey, and a decision cadence that connects feedback to product changes.
 
