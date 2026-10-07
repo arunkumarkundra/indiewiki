@@ -46,6 +46,8 @@ Use a relationship diagram or a simple table before coding:
 
 When users can belong to multiple organizations, ownership belongs on the membership relationship, not in a single `user.organization_id` field. Every read and write must then be scoped through a verified membership. This is a security boundary as much as a data-modeling choice.
 
+For a pooled application, see [tenant data isolation](/wiki/isolate-tenant-data-in-a-multi-tenant-app/) for composite tenant keys, scoped queries, PostgreSQL row-level security trade-offs, and tests across files, caches, and workers.
+
 ## Make schema changes in small, reversible steps
 
 Use versioned migrations committed with the application. Before a destructive change, ask what currently deployed code expects and how to recover. A safer column rename often takes two releases: add the new column, write both, backfill, switch reads, then remove the old column after checking no version needs it. Adding a required field to a populated table similarly needs a default or a staged backfill. For a production rollout runbook covering compatibility, backfill, validation, and recovery, see [run a safe production database migration](/wiki/run-a-safe-production-database-migration/).

@@ -60,6 +60,8 @@ Hide buttons for clarity, but never rely on the browser to enforce access. For e
 
 Do this for list queries as well as individual records. A detail route can be protected while a search or export endpoint leaks the same data. Re-check permission for destructive and money-related actions at the time they execute; an old page being open is not proof that a role is still valid.
 
+For workspaces shared by multiple customer organizations, see [the end-to-end tenant isolation guide](/wiki/isolate-tenant-data-in-a-multi-tenant-app/) for server-verified tenant context, pooled database policies, cache and file boundaries, and background jobs.
+
 ## Protect the session lifecycle
 
 Use HTTPS in production. Configure session cookies as `Secure`, `HttpOnly`, and an appropriate `SameSite` policy. Rotate session identifiers after login and privilege changes. Expire sessions based on the sensitivity of the product, provide logout that actually invalidates the session, and offer a way to revoke other sessions after account recovery. Do not put long-lived secrets in local storage merely to simplify client code.
