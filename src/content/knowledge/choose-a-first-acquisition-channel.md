@@ -49,6 +49,8 @@ Choose the highest-fit path you can responsibly operate now. Examples include on
 
 For products bought by a team, account for the full path: user discovery, evaluation, approval, procurement, and implementation. A user might discover a tool in a community while the buyer needs a security review and a budget owner. Do not optimize visits if the real bottleneck is qualification or purchasing friction.
 
+For a practical way to identify decision-makers, buyer evidence needs, and a bounded first purchase, see [sell software to a business](/wiki/sell-software-to-a-business/).
+
 ## Run a bounded channel experiment
 
 Use a one-page experiment brief:

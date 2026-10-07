@@ -42,7 +42,7 @@ Net collected revenue
 
 Add fixed subscriptions, accounting, insurance, filings, contractor costs, taxes, chargebacks, and a reserve for unexpected bills. Separate business and personal money when the applicable rules and structure require it. Reconcile payments against processor reports and invoices regularly; revenue in a dashboard is not the same as cash available to spend.
 
-Use the [contribution-margin worksheet](/wiki/calculate-contribution-margin-for-a-small-product/) to make variable service costs and founder labor visible before setting growth targets.
+Use the [contribution-margin worksheet](/wiki/calculate-contribution-margin-for-a-small-product/) to make variable service costs and founder labor visible before setting growth targets. Build a month-by-month [cash runway forecast](/wiki/build-a-cash-runway-forecast/) to model settlement timing, renewals, and downside cases; margin is not spendable cash.
 
 List each renewal date, currency, cancellation deadline, and account owner. Remove unused subscriptions and assign someone to review spend. Model an ordinary month and a stressful one—for example, lower sales plus a provider bill or refund spike.
 
@@ -50,7 +50,7 @@ List each renewal date, currency, cancellation deadline, and account owner. Remo
 
 Before payment, show what is included, who provides it, when access starts, what the customer must do, the total price and billing interval, renewal and cancellation steps, refund terms, support expectations, and material limitations. Do not bury a recurring charge or make cancellation needlessly hard. Keep copies of the offer and terms that applied at purchase.
 
-Use a reputable payment processor so your product does not directly store card data. Still understand what customer information the processor receives, how disputes work, and what records you need. Never promise tax handling or regulatory compliance merely because a vendor offers a feature.
+Use a reputable payment processor so your product does not directly store card data. Still understand what customer information the processor receives, how disputes work, and what records you need. Follow a documented [refund and dispute workflow](/wiki/handle-refunds-and-payment-disputes/). Never promise tax handling or regulatory compliance merely because a vendor offers a feature.
 
 ## Prepare for routine operations
 

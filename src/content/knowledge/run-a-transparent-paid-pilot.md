@@ -40,7 +40,7 @@ Give the buyer a short written scope that covers:
 - **Data and access:** data needed, permitted use, security handling, deletion/return, and who can access it.
 - **Exit:** cancellation, refund, support window, and whether there is any obligation to continue.
 
-Use [clear-offer testing](/wiki/design-a-clear-offer/) to check whether the buyer can explain these terms back. Do not call a research prototype “production ready,” describe a planned feature as available, or promise a date you cannot reasonably support. If you cannot define delivery, do not take money yet; ask for a non-binding interview or letter of intent instead.
+Use [clear-offer testing](/wiki/design-a-clear-offer/) to check whether the buyer can explain these terms back. For business purchases, map the champion, budget owner, security review, procurement steps, and decision date with the [B2B sales workflow](/wiki/sell-software-to-a-business/). Do not call a research prototype “production ready,” describe a planned feature as available, or promise a date you cannot reasonably support. If you cannot define delivery, do not take money yet; ask for a non-binding interview or letter of intent instead.
 
 ## Treat money and delivery as real obligations
 

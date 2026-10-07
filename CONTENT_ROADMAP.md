@@ -31,7 +31,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** customer interviews, analyzed small-sample research, experiment brief, manual outreach, competitor/workaround research, landing-page testing, honest waitlist/intent test, paid pilot, MVP scope.
 
-**Build next:** prototype tests; survey design; experiment thresholds and decisions; procurement and switching behavior for business buyers. Review waitlist and paid-pilot guidance against real reader cases and applicable jurisdictional rules.
+**Build next:** prototype tests; survey design; experiment thresholds and decisions; deeper procurement and switching behavior by sector. Review waitlist and paid-pilot guidance against real reader cases and applicable jurisdictional rules. A first B2B sales workflow now exists in `sell-software-to-a-business`.
 
 **Reader should leave with:** evidence of behavior and commitment, not just favorable opinions, plus a documented decision and the uncertainty that remains.
 
@@ -63,7 +63,7 @@ Do not publish a page to fill a category count. A researched reference may be ma
 
 **Existing entry points:** business basics, clear offer, first-price strategy, contribution-margin and break-even scenarios, payments and subscriptions.
 
-**Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; cash runway and bookkeeping; refunds and chargebacks; sales for solo founders; B2B procurement; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary.
+**Build next:** pricing and packaging; value metric choice; pricing interviews and experiments; stronger bookkeeping and cash-runway examples for different revenue patterns; B2B contract and procurement variants by sector; customer terms and records; jurisdiction-specific legal/tax pathways; when professional advice is necessary. Cash forecasting, refund/dispute handling, and a first B2B sales workflow now have practical entry pages.
 
 **Reader should leave with:** clear terms, tested willingness-to-pay evidence, a view of unit economics and cash obligations, and a list of jurisdiction-specific unknowns.
 
