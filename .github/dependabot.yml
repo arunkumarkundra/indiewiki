@@ -1,0 +1,19 @@
+# Opens a pull request once a month when a dependency or GitHub Action has an
+# update, grouped into one pull request each. The "Check changes" workflow tests
+# it automatically; merge it if the checks are green.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      npm-dependencies:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns: ["*"]

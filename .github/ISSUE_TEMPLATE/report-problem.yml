@@ -1,0 +1,50 @@
+name: Report a problem
+description: Something on a page is wrong, out of date, unclear or broken.
+title: "[Page] "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Reports like this are what keep IndieWiki accurate. A maintainer will check and fix it.
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      description: The full address of the page. It is filled in for you when you use the button on the page.
+      placeholder: https://indiewiki.pi3.in/setup/custom-domain-email/
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - A price, limit or rule has changed
+        - A fact is wrong
+        - A tool has shut down or changed a lot
+        - A step does not work any more
+        - Something is unclear or confusing
+        - A broken link or display problem
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What is wrong, and what should it say?
+      description: Quote the sentence if you can, and tell us the correct information.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to the official page that shows the correct information, if you have one.
+      placeholder: https://
+  - type: checkboxes
+    id: affiliation
+    attributes:
+      label: Disclosure
+      options:
+        - label: I work for or with a company mentioned on this page.

@@ -1,0 +1,55 @@
+name: Suggest a tool
+description: Recommend a tool or service for the Toolbox, with its free plan and trade-offs.
+title: "[Tool] "
+labels: ["tool suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We list tools that indie founders use for real work, whose facts we can check on the vendor's own site. No paid placements, no affiliate links.
+  - type: input
+    id: name
+    attributes:
+      label: Tool name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Website
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: category
+    attributes:
+      label: Which Toolbox list should it go in?
+      description: For example "Payments and subscriptions", or describe a new category.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What does it do, and who is it best for?
+    validations:
+      required: true
+  - type: textarea
+    id: pricing
+    attributes:
+      label: Pricing and free plan
+      description: What is free, what costs money, and a link to the pricing page.
+    validations:
+      required: true
+  - type: textarea
+    id: pros-cons
+    attributes:
+      label: Strengths and trade-offs
+      description: At least one of each, from real use if possible.
+    validations:
+      required: true
+  - type: checkboxes
+    id: affiliation
+    attributes:
+      label: Disclosure
+      options:
+        - label: I work for, own, or am paid by this tool's company.

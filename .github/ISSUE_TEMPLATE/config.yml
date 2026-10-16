@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: How to contribute
+    url: https://indiewiki.pi3.in/contribute/
+    about: All the ways to help, including editing a page yourself in the browser.
+  - name: Report a security problem privately
+    url: https://indiewiki.pi3.in/.well-known/security.txt
+    about: Please do not open a public issue for security problems.

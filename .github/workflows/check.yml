@@ -1,0 +1,33 @@
+# Checks every proposed change (pull request) before it can be merged.
+# It builds the whole site and runs all tests. If something is wrong, the
+# log names the file and says how to fix it. Nothing is published here.
+name: Check changes
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the proposed change
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install exact dependency versions
+        run: npm ci
+
+      - name: Build the site (fails with a list of problems to fix)
+        run: npm run build
+
+      - name: Run all tests
+        run: npm test

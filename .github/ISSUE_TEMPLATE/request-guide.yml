@@ -1,0 +1,36 @@
+name: Request a guide
+description: Ask for a guide, checklist or comparison that IndieWiki does not have yet.
+title: "[Guide request] "
+labels: ["guide request"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What were you trying to do?
+      description: Describe the task or decision you were stuck on.
+    validations:
+      required: true
+  - type: textarea
+    id: found
+    attributes:
+      label: What did you find, and why was it not enough?
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Which stage does it belong to?
+      options:
+        - Start (ideas, validation, working with AI)
+        - Set up (domain, email, accounts)
+        - Build (stack, hosting, login, AI, mobile, games)
+        - Ship (SEO, security, privacy, accessibility)
+        - Launch (launch sites, demos, app stores)
+        - Grow (users, outreach, content, communities)
+        - Earn (pricing, offers, payments)
+        - Run (analytics, monitoring, support, costs, company)
+        - Not sure
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help?
+      options:
+        - label: I could help write or review this guide.
