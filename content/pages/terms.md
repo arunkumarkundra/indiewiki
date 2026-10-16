@@ -8,13 +8,13 @@ nav_title: Terms
 
 **In short:** read, share and reuse the content with credit under CC BY-SA 4.0. Check important facts with the original source. Nothing here is legal, tax or financial advice. Be kind when you contribute.
 
-These terms apply to the website at indiewiki.pi3.in, published by Prisha iCube ("we").
+These terms apply to the website at indie.pi3.in, published by Prisha iCube ("we").
 
 ## Using the content
 
 The text of IndieWiki is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International licence](https://creativecommons.org/licenses/by-sa/4.0/). You may copy, share and adapt it, including commercially, as long as you:
 
-- give credit to "IndieWiki (indiewiki.pi3.in)" with a link to the page you used,
+- give credit to "IndieWiki (indie.pi3.in)" with a link to the page you used,
 - say if you changed it, and
 - share your adapted version under the same licence.
 

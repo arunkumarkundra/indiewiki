@@ -40,20 +40,20 @@ GitHub's website accepts at most 100 files per upload, and this project has a li
 
 If a run fails, open it and read the red step. The most common cause is that Pages was not set to **GitHub Actions** (step 4). Fix it, then on the failed run click **Re-run all jobs**.
 
-### 1.4 Connect indiewiki.pi3.in
+### 1.4 Connect indie.pi3.in
 
 1. **At your DNS provider for pi3.in**, add a record:
    - Type: **CNAME**
-   - Host / Name: **indiewiki**
+   - Host / Name: **indie**
    - Value / Target: **your-github-username.github.io** (your username, not the repository name)
-2. **On GitHub**: **Settings** → **Pages** → **Custom domain** → type `indiewiki.pi3.in` → **Save**. Wait for the DNS check to pass (a few minutes to an hour).
+2. **On GitHub**: **Settings** → **Pages** → **Custom domain** → type `indie.pi3.in` → **Save**. Wait for the DNS check to pass (a few minutes to an hour).
 3. Tick **Enforce HTTPS** when it becomes available (the certificate can take up to an hour).
 4. **Rebuild once** so every link uses the new address: **Actions** → **Build and publish** → **Run workflow** → **Run workflow**.
 5. Recommended: verify the domain so nobody else can claim a subdomain of `pi3.in` on GitHub. Your profile picture → **Settings** → **Pages** → **Add a domain** → `pi3.in`, then add the TXT record GitHub shows at your DNS provider and click **Verify**.
 
 ### 1.5 Contact email
 
-The site shows `indiewiki@pi3.in` (assembled by JavaScript so bots cannot harvest it). Create that address or a forward to your inbox. To use a different address, edit `email:` in `data/site.yml`.
+The site shows `indie@pi3.in` (assembled by JavaScript so bots cannot harvest it). Create that address or a forward to your inbox. To use a different address, edit `email:` in `data/site.yml`.
 
 ### 1.6 Safety settings (5 minutes)
 
@@ -66,7 +66,7 @@ Optional: create the labels `correction`, `tool suggestion` and `guide request` 
 
 ### 1.7 Search engines
 
-1. In [Google Search Console](https://search.google.com/search-console), add a **Domain** property for `indiewiki.pi3.in`, add the TXT record it gives you at your DNS provider, and verify.
+1. In [Google Search Console](https://search.google.com/search-console), add a **Domain** property for `indie.pi3.in`, add the TXT record it gives you at your DNS provider, and verify.
 2. Submit the sitemap: `sitemap.xml`.
 3. In [Bing Webmaster Tools](https://www.bing.com/webmasters), import the property from Google Search Console.
 

@@ -2,7 +2,7 @@
 
 **The indie founder's field manual.** Practical guides, checklists and honest tool picks for solo founders and small teams, from first idea to paying customers.
 
-Live site: <https://indiewiki.pi3.in>
+Live site: <https://indie.pi3.in>
 
 - 8 stages, from validating an idea to running a business
 - Interactive checklists (SEO, security, accessibility, launch, app stores and more) that save progress in the reader's browser and copy as Markdown
@@ -18,7 +18,7 @@ The build refuses to publish if anything is wrong: a broken link, a missing desc
 
 ## Contributing
 
-Anyone with a GitHub account can help, from the browser. See the [contribution guide](CONTRIBUTING.md) or <https://indiewiki.pi3.in/contribute/>.
+Anyone with a GitHub account can help, from the browser. See the [contribution guide](CONTRIBUTING.md) or <https://indie.pi3.in/contribute/>.
 
 ## Maintainers
 

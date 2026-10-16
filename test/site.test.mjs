@@ -17,6 +17,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let out;
 let outBase;
 let result;
+let SITE; // the site address from data/site.yml, e.g. https://indie.pi3.in
 const pages = []; // { file, url, html }
 
 function walk(dir) {
@@ -31,6 +32,7 @@ before(() => {
   outBase = mkdtempSync(join(tmpdir(), 'indiewiki-base-'));
   result = build({ root: ROOT, out, base: '', quiet: true });
   assert.ok(result.ok, `build failed:\n${(result.problems || []).join('\n')}`);
+  SITE = result.ctx.site.url;
   for (const file of walk(out).filter((f) => f.endsWith('.html'))) {
     const rel = `/${relative(out, file).replace(/\\/g, '/')}`;
     const url = rel.endsWith('/index.html') ? rel.slice(0, -'index.html'.length) : rel;
@@ -54,7 +56,7 @@ test('the site builds with every expected page and file', () => {
     'assets/css/site.css', 'assets/js/site.js', 'assets/js/theme.js', 'assets/fonts/atkinson-next-latin.woff2']) {
     assert.ok(existsSync(join(out, f)), `missing ${f}`);
   }
-  assert.equal(readFileSync(join(out, 'CNAME'), 'utf8').trim(), 'indiewiki.pi3.in');
+  assert.equal(readFileSync(join(out, 'CNAME'), 'utf8').trim(), new URL(SITE).hostname);
 });
 
 test('every page has exactly one H1, a title, a description and lang', () => {
@@ -77,7 +79,7 @@ test('indexable pages have canonical, Open Graph and Twitter tags; utility pages
     }
     assert.ok(!noindex, `${p.url} must not be noindex`);
     const canonical = /<link rel="canonical" href="([^"]+)">/.exec(p.html)?.[1];
-    assert.equal(canonical, `https://indiewiki.pi3.in${p.url}`, `${p.url} canonical`);
+    assert.equal(canonical, `${SITE}${p.url}`, `${p.url} canonical`);
     for (const tag of ['og:title', 'og:description', 'og:image', 'og:url', 'og:type']) {
       assert.match(p.html, new RegExp(`<meta property="${tag}" content="[^"]+">`), `${p.url} ${tag}`);
     }
@@ -164,14 +166,14 @@ test('sitemap lists every indexable page and robots.txt points to it', () => {
   const locs = new Set(all(/<loc>([^<]+)<\/loc>/g, sitemap).map((m) => m[1]));
   for (const p of pages) {
     if (p.url === '/404.html' || p.url === '/search/') {
-      assert.ok(!locs.has(`https://indiewiki.pi3.in${p.url}`), `${p.url} should not be in sitemap`);
+      assert.ok(!locs.has(`${SITE}${p.url}`), `${p.url} should not be in sitemap`);
     } else {
-      assert.ok(locs.has(`https://indiewiki.pi3.in${p.url}`), `${p.url} missing from sitemap`);
+      assert.ok(locs.has(`${SITE}${p.url}`), `${p.url} missing from sitemap`);
     }
   }
   const robots = readFileSync(join(out, 'robots.txt'), 'utf8');
   assert.match(robots, /User-agent: \*\nAllow: \//);
-  assert.match(robots, /Sitemap: https:\/\/indiewiki\.pi3\.in\/sitemap\.xml/);
+  assert.ok(robots.includes(`Sitemap: ${SITE}/sitemap.xml`), 'robots.txt must point to the sitemap');
 });
 
 test('search index, feed, llms.txt, manifest and security.txt are well formed', () => {

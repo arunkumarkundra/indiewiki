@@ -20,6 +20,6 @@ IndieWiki is built by people at every level of experience, from first-time found
 
 ## Enforcement
 
-Maintainers may edit or remove comments, issues and contributions that break this code, and may temporarily or permanently block people who repeatedly or seriously break it. To report a problem, contact the maintainers privately using the details on <https://indiewiki.pi3.in/contact/>. Reports are handled confidentially.
+Maintainers may edit or remove comments, issues and contributions that break this code, and may temporarily or permanently block people who repeatedly or seriously break it. To report a problem, contact the maintainers privately using the details on <https://indie.pi3.in/contact/>. Reports are handled confidentially.
 
 This code applies in the repository, its issues and pull requests, and any space run by the project.

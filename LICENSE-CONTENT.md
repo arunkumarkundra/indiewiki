@@ -8,7 +8,7 @@ Plain-language summary: <https://creativecommons.org/licenses/by-sa/4.0/>
 
 You may share and adapt the content, including commercially, if you:
 
-- give credit to "IndieWiki (indiewiki.pi3.in)" with a link to the page you used,
+- give credit to "IndieWiki (indie.pi3.in)" with a link to the page you used,
 - indicate if you made changes, and
 - distribute your adaptations under the same licence.
 

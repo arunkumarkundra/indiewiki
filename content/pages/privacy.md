@@ -8,7 +8,7 @@ nav_title: Privacy
 
 **In short:** we do not collect personal data from readers. There are no cookies, no analytics, no advertising and no third-party scripts on this site. The few things your browser remembers stay in your browser.
 
-This policy covers the website at indiewiki.pi3.in, published by Prisha iCube.
+This policy covers the website at indie.pi3.in, published by Prisha iCube.
 
 ## When you read the site
 
