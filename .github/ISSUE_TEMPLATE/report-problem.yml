@@ -12,7 +12,7 @@ body:
     attributes:
       label: Page address
       description: The full address of the page. It is filled in for you when you use the button on the page.
-      placeholder: https://indiewiki.pi3.in/setup/custom-domain-email/
+      placeholder: https://indie.pi3.in/setup/custom-domain-email/
     validations:
       required: true
   - type: dropdown
