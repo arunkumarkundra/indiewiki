@@ -1,0 +1,118 @@
+id: payments
+title: Payments and subscriptions
+description: Take card payments and subscriptions worldwide. Merchant of record or payment processor, India options, fees and who handles sales tax.
+order: 140
+stage: 7
+intro: |
+  The first choice is not which brand, it is **who is the seller of record**. A *merchant of record* (Paddle, Lemon Squeezy, Polar, Dodo Payments, Stripe Managed Payments) sells to your customer for you and handles VAT, GST and sales tax worldwide, for a higher fee. A *payment processor* (Stripe, Razorpay) is cheaper per sale, but tax registration and filing are your job. [Accepting payments](/earn/accepting-payments/) explains when each makes sense.
+tools:
+  - id: stripe
+    name: Stripe
+    url: https://stripe.com/
+    summary: The standard payment processor for online businesses, with billing, invoices, tax calculation and a huge ecosystem.
+    best_for: Founders with a company in a supported country who want full control and the lowest processing fees.
+    pick: true
+    pricing:
+      model: usage
+      note: A percentage plus a fixed fee per successful charge, varying by country and card. In India, new sign-ups are invite-only.
+      url: https://stripe.com/pricing
+    checked: 2026-10
+    pros:
+      - Best documentation and integrations in the industry.
+      - Payment Links and Checkout work without much code.
+    cons:
+      - You are the seller, so sales tax and VAT compliance are your responsibility unless you add Stripe Tax or use Managed Payments.
+      - Accounts are reviewed and can be paused if your business looks risky.
+  - id: stripe-managed-payments
+    name: Stripe Managed Payments
+    url: https://stripe.com/managed-payments
+    summary: Stripe acting as merchant of record for digital products, handling sales tax, VAT and GST in over 80 countries.
+    best_for: SaaS and digital products already using Stripe Checkout or Payment Links.
+    pricing:
+      model: usage
+      note: An extra fee on top of standard Stripe processing. Check eligibility for your country and product.
+      url: https://docs.stripe.com/payments/managed-payments
+    checked: 2026-10
+    pros:
+      - Tax compliance without leaving Stripe.
+      - Handles fraud, disputes and buyer support for each transaction.
+    cons:
+      - Works only with Checkout and Payment Links, not custom payment forms or Connect.
+  - id: paddle
+    name: Paddle
+    url: https://www.paddle.com/
+    summary: Merchant of record for software and SaaS that handles tax, invoices, fraud and chargebacks for you.
+    best_for: Software businesses selling worldwide that do not want to register for tax in many countries.
+    pricing:
+      model: usage
+      note: 5% + 50¢ per transaction. Separate fees for invoices and transactions under $10.
+      url: https://www.paddle.com/paddle-101
+    checked: 2026-10
+    pros:
+      - Collects and pays sales tax and VAT in more than 100 jurisdictions.
+      - Takes on chargebacks and refunds.
+    cons:
+      - Higher fee than a plain processor.
+      - Approval process; software products only.
+  - id: lemon-squeezy
+    name: Lemon Squeezy
+    url: https://www.lemonsqueezy.com/
+    summary: Merchant of record popular with indie makers for software, digital downloads and subscriptions. Owned by Stripe.
+    best_for: Digital products and small SaaS that want a simple store with tax handled.
+    pricing:
+      model: usage
+      note: 5% + 50¢ per order, plus 1.5% for non-US buyers, 1.5% for PayPal and 0.5% for subscriptions. Payouts to non-US banks cost 1%.
+      url: https://docs.lemonsqueezy.com/help/getting-started/fees
+    checked: 2026-10
+    pros:
+      - Hosted checkout and store pages without code.
+      - Built-in affiliate programme and licence keys.
+    cons:
+      - Extra percentage fees add up for international subscriptions.
+  - id: polar
+    name: Polar
+    url: https://polar.sh/
+    summary: Open-source merchant of record built for developers selling software, subscriptions and usage-based plans.
+    best_for: Developer tools and SaaS that want a modern API and usage billing.
+    pricing:
+      model: usage
+      note: Free Starter plan at 5% + 50¢ per transaction; paid plans lower the rate (Pro is $20 a month at 3.8% + 40¢). Non-US cards add 1.5%.
+      url: https://polar.sh/docs/merchant-of-record/fees
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Open source, with good developer tooling.
+      - Handles tax as merchant of record.
+    cons:
+      - Payout fees from the underlying processor apply.
+  - id: dodo-payments
+    name: Dodo Payments
+    url: https://dodopayments.com/
+    summary: Merchant of record that onboards businesses from India and many other countries to sell digital products globally.
+    best_for: Founders in India who want to sell subscriptions worldwide without Stripe.
+    pricing:
+      model: usage
+      note: A percentage plus a small fixed fee per sale, with extra for international cards. No setup fee.
+      url: https://dodopayments.com/pricing
+    checked: 2026-10
+    pros:
+      - Accepts Indian businesses, including sole founders.
+      - Tax, invoices and disputes handled for you.
+    cons:
+      - Younger company than Paddle or Stripe; read payout terms closely.
+  - id: razorpay
+    name: Razorpay
+    url: https://razorpay.com/
+    summary: India's leading payment gateway for UPI, cards, netbanking and wallets, plus subscriptions and payment links.
+    best_for: Selling to customers in India, where UPI is how most people pay.
+    pricing:
+      model: usage
+      note: Standard plan is 2% on domestic payments and 3% on international cards, plus 18% GST on the fee. No setup fee.
+      url: https://razorpay.com/blog/razorpay-payment-gateway-pricing-explained/
+    checked: 2026-10
+    pros:
+      - UPI, cards and netbanking in one integration.
+      - Payment links and pages without code.
+    cons:
+      - You are the merchant, so GST and invoicing are your job.
+      - International payments need extra approval.

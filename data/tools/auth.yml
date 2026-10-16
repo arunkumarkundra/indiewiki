@@ -1,0 +1,73 @@
+id: auth
+title: Login and user accounts
+description: Services that handle sign-up, login, password resets and social sign-in so you never store passwords yourself.
+order: 55
+stage: 3
+intro: |
+  Do not build login from scratch. A good provider handles password hashing, reset links that expire, session timeouts and social sign-in. If your iPhone app offers Google or other social login, Apple also expects a privacy-friendly option such as Sign in with Apple. Details in [Login and user accounts](/build/auth-and-accounts/).
+tools:
+  - id: supabase-auth
+    name: Supabase Auth
+    url: https://supabase.com/auth
+    summary: Email, magic link, phone and social login that ties directly into your Supabase database permissions.
+    best_for: Apps already using Supabase for their database.
+    pick: true
+    pricing:
+      model: freemium
+      note: Included in Supabase plans. The free plan covers 50,000 monthly active users.
+      url: https://supabase.com/pricing
+    checked: 2026-10
+    pros:
+      - Users are rows in your own Postgres database.
+      - Works with Row Level Security out of the box.
+      - Sign in with Apple, Google and many others.
+    cons:
+      - You build the login screens yourself or use their UI library.
+  - id: clerk
+    name: Clerk
+    url: https://clerk.com/
+    summary: Drop-in login screens and user management, with organisations for B2B apps.
+    best_for: Web apps, especially Next.js, that want polished sign-in screens in an afternoon.
+    pricing:
+      model: freemium
+      note: Free for up to 50,000 monthly retained users per app, with limits on social connections and no MFA. Pro is $20 a month billed yearly or $25 monthly.
+      url: https://clerk.com/pricing
+    checked: 2026-10
+    pros:
+      - Ready-made, good-looking components.
+      - Organisations, roles and invitations for team products.
+    cons:
+      - Free plan lacks MFA and passkeys and shows Clerk branding.
+      - Your users live in Clerk, so leaving later takes work.
+  - id: firebase-auth
+    name: Firebase Authentication
+    url: https://firebase.google.com/products/auth
+    summary: Google's login service with SDKs for Android, iOS and the web.
+    best_for: Mobile apps built on Firebase.
+    pricing:
+      model: freemium
+      note: Common sign-in methods are free at small scale; phone SMS and advanced identity features cost money.
+      url: https://firebase.google.com/pricing
+    checked: 2026-10
+    pros:
+      - Mature mobile SDKs.
+      - Anonymous accounts that upgrade to full accounts later.
+    cons:
+      - SMS verification costs per message and is a target for fraud.
+  - id: better-auth
+    name: Better Auth
+    url: https://www.better-auth.com/
+    summary: Open-source TypeScript auth library that runs inside your own app and stores users in your own database.
+    best_for: Developers who want full control and no per-user fees.
+    pricing:
+      model: open-source
+      note: Free library. You host and maintain it.
+      url: https://www.better-auth.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - No vendor and no per-user pricing.
+      - Plugins for two-factor, organisations and passkeys.
+    cons:
+      - Security updates are your job.
+      - Needs coding skill to set up correctly.

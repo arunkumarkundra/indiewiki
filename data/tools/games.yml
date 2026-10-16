@@ -1,0 +1,89 @@
+id: games
+title: Game engines and libraries
+description: Engines for browser games and downloadable games, from Three.js and Phaser to Godot and Unity, with licence terms that matter to small studios.
+order: 75
+stage: 3
+intro: |
+  Decide where players will find the game first. **In a browser** (shared by link, embedded on sites, played on itch.io): use a web library. **Downloaded** from Steam or the app stores: use an engine. Read the licence before you commit, because engine terms have changed suddenly before. See [Making games](/build/games/).
+tools:
+  - id: threejs
+    name: Three.js
+    url: https://threejs.org/
+    summary: The most widely used JavaScript library for 3D graphics in the browser.
+    best_for: 3D web games, product configurators and interactive scenes on a website.
+    pick: true
+    pricing:
+      model: open-source
+      note: Free, MIT licence.
+      url: https://threejs.org/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Huge community and examples.
+      - Runs anywhere a modern browser runs.
+    cons:
+      - A library, not an engine; physics, UI and scenes are up to you.
+  - id: phaser
+    name: Phaser
+    url: https://phaser.io/
+    summary: Fast, friendly framework for 2D browser games.
+    best_for: 2D web games, game jams and quick prototypes.
+    pricing:
+      model: open-source
+      note: Free, MIT licence.
+      url: https://phaser.io/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Gentle learning curve with many tutorials.
+    cons:
+      - 2D only.
+  - id: babylonjs
+    name: Babylon.js
+    url: https://www.babylonjs.com/
+    summary: Full 3D engine for the web from Microsoft, with physics, an editor and a playground.
+    best_for: Browser games that need built-in physics and engine features.
+    pricing:
+      model: open-source
+      note: Free, Apache 2.0 licence.
+      url: https://www.babylonjs.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - More engine features out of the box than Three.js.
+    cons:
+      - Smaller community than Three.js.
+  - id: godot
+    name: Godot
+    url: https://godotengine.org/
+    summary: Free, open-source engine for 2D and 3D games with no royalties and no revenue tracking.
+    best_for: Indie games for PC, mobile and web where you want no licence surprises.
+    pick: true
+    pricing:
+      model: open-source
+      note: Free, MIT licence, no royalties.
+      url: https://godotengine.org/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Nothing to pay, ever, and you own everything.
+      - Lightweight editor that runs on modest laptops.
+    cons:
+      - Console publishing needs third-party help.
+      - Smaller asset store than Unity.
+  - id: unity
+    name: Unity
+    url: https://unity.com/
+    summary: The most-used engine for mobile and indie games, with a large asset store and many tutorials.
+    best_for: Mobile and cross-platform games, especially if you already know C#.
+    pricing:
+      model: freemium
+      note: Unity Personal is free for individuals and small companies under $200,000 in revenue and funding over the last 12 months.
+      url: https://unity.com/products/unity-personal
+    checked: 2026-10
+    pros:
+      - Exports to almost every platform.
+      - Enormous asset store and learning material.
+    cons:
+      - Paid plans once you pass the revenue threshold.
+      - Licence terms have changed abruptly in the past; read them before you start.

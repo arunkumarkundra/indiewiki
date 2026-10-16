@@ -1,0 +1,126 @@
+id: launch-platforms
+title: Places to launch
+description: Sites and communities where makers announce new products, what each audience cares about, and how to post without getting removed.
+order: 120
+stage: 5
+intro: |
+  A launch is a week of posts, not one post. Each place has its own culture and rules: read them before you post, and reply to every comment on the day. Plan it with the [launch checklist](/launch/launch-checklist/) and [Where to launch](/launch/where-to-launch/).
+tools:
+  - id: product-hunt
+    name: Product Hunt
+    url: https://www.producthunt.com/
+    summary: The best-known daily leaderboard of new tech products, popular with early adopters and other makers.
+    best_for: Consumer and developer tools with a clear visual demo.
+    pick: true
+    pricing:
+      model: free
+      note: Free to launch.
+      url: https://www.producthunt.com/launch
+    checked: 2026-10
+    pros:
+      - A good day brings a burst of traffic, feedback and backlinks.
+      - Launch pages stay up and keep getting found.
+    cons:
+      - Results depend heavily on preparation and the day you pick.
+      - Asking people to upvote breaks the rules.
+  - id: show-hn
+    name: Hacker News (Show HN)
+    url: https://news.ycombinator.com/showhn.html
+    summary: Post "Show HN" to share something you made with a technical, critical audience.
+    best_for: Developer tools, open-source projects and technically interesting products.
+    pricing:
+      model: free
+      note: Free.
+      url: https://news.ycombinator.com/showhn.html
+    checked: 2026-10
+    pros:
+      - Honest, detailed feedback.
+      - Can send very large traffic if it reaches the front page.
+    cons:
+      - Marketing language gets flagged; write plainly.
+      - The product must be something people can try now.
+  - id: indie-hackers
+    name: Indie Hackers
+    url: https://www.indiehackers.com/
+    summary: Community of founders sharing revenue numbers, lessons and launches.
+    best_for: Building in public and getting advice from other bootstrappers.
+    pricing:
+      model: free
+      note: Free.
+      url: https://www.indiehackers.com/
+    checked: 2026-10
+    pros:
+      - Supportive audience that understands small products.
+    cons:
+      - Mostly other founders, not necessarily your customers.
+  - id: betalist
+    name: BetaList
+    url: https://betalist.com/
+    summary: Lists early-stage startups for people who like to try new products first.
+    best_for: Collecting early sign-ups before or right after launch.
+    pricing:
+      model: freemium
+      note: Free submission with a waiting time; a paid option speeds it up.
+      url: https://betalist.com/submit
+    checked: 2026-10
+    pros:
+      - Audience that actively wants to try new things.
+    cons:
+      - The free queue can be long.
+  - id: peerlist
+    name: Peerlist Launchpad
+    url: https://peerlist.io/
+    summary: Professional network for builders with a weekly product launch leaderboard.
+    best_for: Developer-made products and portfolio pieces.
+    pricing:
+      model: free
+      note: Free to launch.
+      url: https://peerlist.io/
+    checked: 2026-10
+    pros:
+      - Weekly cycle gives more time to gather feedback.
+    cons:
+      - Smaller audience than Product Hunt.
+  - id: devhunt
+    name: DevHunt
+    url: https://devhunt.org/
+    summary: Launch site focused on developer tools.
+    best_for: APIs, libraries, CLIs and other tools for developers.
+    pricing:
+      model: freemium
+      note: Free to list; paid options for an earlier slot.
+      url: https://devhunt.org/
+    checked: 2026-10
+    pros:
+      - Audience made of your likely users if you build for developers.
+    cons:
+      - Niche; not useful for consumer apps.
+  - id: reddit
+    name: Reddit
+    url: https://www.reddit.com/
+    summary: Thousands of communities on every topic, many of which rank high in Google for their subject.
+    best_for: Reaching a specific audience where they already talk about the problem you solve.
+    pricing:
+      model: free
+      note: Free. Each subreddit sets its own rules on self-promotion.
+      url: https://www.reddit.com/
+    checked: 2026-10
+    pros:
+      - Very targeted audiences.
+      - Good threads keep sending visitors for years.
+    cons:
+      - Self-promotion without real participation gets removed or banned.
+  - id: alternativeto
+    name: AlternativeTo
+    url: https://alternativeto.net/
+    summary: Directory where people look for alternatives to software they already know.
+    best_for: Products that replace a well-known paid tool.
+    pricing:
+      model: free
+      note: Free to list.
+      url: https://alternativeto.net/
+    checked: 2026-10
+    pros:
+      - Visitors arrive with intent, because they are looking to switch.
+    cons:
+      - Listings are moderated and can take a while to appear.

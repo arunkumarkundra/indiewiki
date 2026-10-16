@@ -1,0 +1,67 @@
+id: newsletters
+title: Newsletters and audience email
+description: Tools to collect email sign-ups and send newsletters and product updates, so you own a way to reach people that no platform can take away.
+order: 130
+stage: 6
+intro: |
+  An email list is the one audience you own. Start collecting addresses before launch, ask clearly for consent, and keep newsletters on a different sending service or subdomain from your app's password resets.
+tools:
+  - id: buttondown
+    name: Buttondown
+    url: https://buttondown.com/
+    summary: Simple, writer-friendly newsletter tool with Markdown editing and a clean API.
+    best_for: Founders writing a plain, personal newsletter.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free for a small list; paid plans by subscriber count.
+      url: https://buttondown.com/pricing
+    checked: 2026-10
+    pros:
+      - Minimal and fast; no design fuss.
+      - Good privacy defaults.
+    cons:
+      - Fewer automation features than marketing suites.
+  - id: kit
+    name: Kit (formerly ConvertKit)
+    url: https://kit.com/
+    summary: Email platform for creators with sign-up forms, automations and digital product sales.
+    best_for: Founders who also sell courses or digital products to their audience.
+    pricing:
+      model: freemium
+      note: Free newsletter plan for a growing list; paid plans add automations.
+      url: https://kit.com/pricing
+    checked: 2026-10
+    pros:
+      - Strong landing pages and forms.
+      - Visual automation builder on paid plans.
+    cons:
+      - Costs rise steeply with list size.
+  - id: beehiiv
+    name: beehiiv
+    url: https://www.beehiiv.com/
+    summary: Newsletter platform with a hosted website, referral programmes and an ad network.
+    best_for: Newsletters that are a product in their own right.
+    pricing:
+      model: freemium
+      note: Free launch plan for smaller lists; paid plans for growth tools.
+      url: https://www.beehiiv.com/pricing
+    checked: 2026-10
+    pros:
+      - Growth tools such as referrals built in.
+    cons:
+      - More than you need for occasional product updates.
+  - id: loops
+    name: Loops
+    url: https://loops.so/
+    summary: Email for SaaS products that combines product updates, onboarding sequences and transactional mail.
+    best_for: Software companies sending onboarding and update emails from one tool.
+    pricing:
+      model: freemium
+      note: Free for a small contact list; paid plans by contacts.
+      url: https://loops.so/pricing
+    checked: 2026-10
+    pros:
+      - Event-based emails triggered by what users do in your app.
+    cons:
+      - Built for SaaS; less suited to a creator newsletter.

@@ -1,0 +1,70 @@
+id: monitoring
+title: Monitoring, errors and uptime
+description: Find out your app is broken before your customers email you. Error tracking, uptime checks, cron monitoring and status pages.
+order: 160
+stage: 8
+intro: |
+  The minimum for a live product: one **uptime check** from outside your network that alerts your phone, and **error tracking** in your frontend and backend. Add a public status page once you have paying customers. Use the [monitoring and backups checklist](/run/monitoring-and-backups/).
+tools:
+  - id: sentry
+    name: Sentry
+    url: https://sentry.io/
+    summary: Catches errors and crashes in web, mobile and backend code, with the exact line and the steps that led to it.
+    best_for: Every app with real users.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free Developer plan for 1 user with 5,000 errors and 30 days of history. Team plan is $26 a month billed yearly.
+      url: https://sentry.io/pricing/
+    checked: 2026-10
+    pros:
+      - Groups identical errors instead of flooding your inbox.
+      - SDKs for almost every language and framework.
+    cons:
+      - One user only on the free plan.
+      - Scrub personal data from error reports.
+  - id: uptimerobot
+    name: UptimeRobot
+    url: https://uptimerobot.com/
+    summary: Checks your site every few minutes from outside and alerts you when it goes down.
+    best_for: A free uptime alarm on launch day.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan has 50 monitors checked every 5 minutes, allowed for commercial use. Paid plans check every minute.
+      url: https://help.uptimerobot.com/en/articles/11604710-who-should-use-uptimerobot-s-free-plan
+    checked: 2026-10
+    pros:
+      - Set up in two minutes.
+      - Email and mobile app alerts.
+    cons:
+      - Five-minute gaps can miss short outages.
+  - id: better-stack
+    name: Better Stack
+    url: https://betterstack.com/
+    summary: Uptime monitoring, on-call alerts, logs and good-looking status pages in one product.
+    best_for: Products ready for a public status page and phone-call alerts.
+    pricing:
+      model: freemium
+      note: Free tier for a few monitors and a status page; paid plans by usage.
+      url: https://betterstack.com/pricing
+    checked: 2026-10
+    pros:
+      - Status pages customers trust.
+    cons:
+      - Many products under one bill; pricing takes reading.
+  - id: healthchecks-io
+    name: Healthchecks.io
+    url: https://healthchecks.io/
+    summary: Alerts you when a scheduled job (backup, report, cron) stops checking in.
+    best_for: Making sure nightly backups and scheduled tasks actually run.
+    pricing:
+      model: freemium
+      note: Free hobbyist plan; paid plans for more checks. Open source if you self-host.
+      url: https://healthchecks.io/pricing/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Catches silent failures that uptime checks cannot see.
+    cons:
+      - You add one line to each job to ping it.

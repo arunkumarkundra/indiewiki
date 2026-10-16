@@ -1,0 +1,100 @@
+id: ai-apis
+title: AI model APIs
+description: Add AI features to your product with model APIs and gateways. Covers free tiers, data use, and how to stop one user from draining your account.
+order: 80
+stage: 3
+intro: |
+  Two rules before you ship any AI feature: call the model **from your server, never from the browser** (or your key leaks), and **set a hard spending limit** with the provider plus a per-user limit in your app. Read [Adding AI features](/build/ai-features/) for prompt injection and fallbacks.
+tools:
+  - id: openai-api
+    name: OpenAI API
+    url: https://platform.openai.com/
+    summary: GPT models for text, images, audio and embeddings through one API.
+    best_for: General-purpose AI features with the widest range of third-party examples.
+    pricing:
+      model: usage
+      note: Pay per token used. Prepaid credits and usage limits can be set in the dashboard.
+      url: https://openai.com/api/pricing/
+    checked: 2026-10
+    pros:
+      - Huge ecosystem of tutorials and libraries.
+      - Many model sizes from cheap to powerful.
+    cons:
+      - Costs scale with usage; set limits early.
+  - id: anthropic-api
+    name: Anthropic API
+    url: https://www.anthropic.com/api
+    summary: Claude models for writing, analysis, coding and tool use.
+    best_for: Features that need careful reasoning over long documents, or coding help inside your product.
+    pricing:
+      model: usage
+      note: Pay per token used, with spend limits in the console.
+      url: https://www.anthropic.com/pricing
+    checked: 2026-10
+    pros:
+      - Long context windows for large documents.
+      - Strong at following detailed instructions.
+    cons:
+      - No free tier for production use.
+  - id: gemini-api
+    name: Gemini API (Google AI Studio)
+    url: https://ai.google.dev/
+    summary: Google's Gemini models, with a free tier for several Flash models and paid tiers for scale.
+    best_for: Prototyping AI features at no cost, then paying once you have users.
+    pricing:
+      model: freemium
+      note: Free tier on several Flash models with rate limits. On the free tier Google may use your data to improve its products; paid tier does not.
+      url: https://ai.google.dev/gemini-api/docs/pricing
+    checked: 2026-10
+    pros:
+      - Real free tier for experiments.
+      - Strong multimodal input (images, audio, video).
+    cons:
+      - Do not send customer data through the free tier.
+      - Free-tier rate limits change without much notice.
+  - id: openrouter
+    name: OpenRouter
+    url: https://openrouter.ai/
+    summary: One API key and one bill for hundreds of models from many providers, so you can switch models without code changes.
+    best_for: Trying several models, or falling back to another provider when one is down.
+    pricing:
+      model: usage
+      note: Prepaid credits at roughly the providers' own prices, plus a fee when you buy credits.
+      url: https://openrouter.ai/
+    checked: 2026-10
+    pros:
+      - Swap models by changing one string.
+      - Automatic fallback between providers.
+    cons:
+      - Another company in the path of your users' data; read its data policies.
+  - id: groq
+    name: Groq
+    url: https://groq.com/
+    summary: Very fast inference for open models such as Llama, useful when response speed matters.
+    best_for: Chat and voice features where users notice every second of delay.
+    pricing:
+      model: freemium
+      note: Free tier with rate limits; pay per token on the developer tier.
+      url: https://groq.com/pricing/
+    checked: 2026-10
+    pros:
+      - Answers arrive almost instantly.
+      - Low prices for open models.
+    cons:
+      - Only open models, which may trail the best closed ones on hard tasks.
+  - id: vercel-ai-sdk
+    name: AI SDK (by Vercel)
+    url: https://ai-sdk.dev/
+    summary: Open-source TypeScript library that talks to OpenAI, Anthropic, Google and others through one interface, with streaming built in.
+    best_for: JavaScript and TypeScript apps that want to switch providers easily.
+    pricing:
+      model: open-source
+      note: Free library. You pay the model providers you call.
+      url: https://ai-sdk.dev/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Change provider with one line.
+      - Handles streaming text and structured output.
+    cons:
+      - JavaScript and TypeScript only.

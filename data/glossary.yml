@@ -1,0 +1,273 @@
+# Glossary terms. Keep definitions to one or two plain sentences.
+# Fields: id (lowercase-hyphen, used in links as [[term:id]]), term, definition (Markdown allowed),
+# see (optional: a page on this site to read more), aka (optional: other names, helps search).
+terms:
+  - id: a-record
+    term: A record
+    definition: A DNS record that points a name, such as your root domain, to an IPv4 address of a server.
+    see: /setup/dns-explained/
+  - id: api-key
+    term: API key
+    definition: A secret string that lets your code use a service and bills usage to your account. Treat it like a password and never put it in browser code.
+    see: /ship/security-checklist/
+  - id: activation
+    term: Activation
+    definition: The first moment a new user gets real value from your product, such as sending their first invoice. A key early metric.
+    see: /run/analytics/
+  - id: arr
+    term: ARR
+    aka: [annual recurring revenue]
+    definition: Annual recurring revenue. Your monthly recurring revenue multiplied by twelve.
+  - id: backlink
+    term: Backlink
+    definition: A link to your site from another website. Links from trusted, relevant sites help search rankings.
+    see: /ship/seo-checklist/
+  - id: breadcrumbs
+    term: Breadcrumbs
+    definition: A trail of links at the top of a page showing where it sits in the site, such as Home / Ship / SEO checklist.
+  - id: bus-factor
+    term: Bus factor
+    definition: How many people would have to disappear before a project stalls. For many indie products it is one; good documentation and shared access raise it.
+    see: /setup/accounts-and-ownership/
+  - id: cac
+    term: CAC
+    aka: [customer acquisition cost]
+    definition: Customer acquisition cost. What you spend on marketing and sales to win one paying customer.
+  - id: canonical-url
+    term: Canonical URL
+    definition: The main address of a page, declared with a link tag, so search engines know which version to index when several addresses show the same content.
+    see: /ship/seo-checklist/
+  - id: cdn
+    term: CDN
+    aka: [content delivery network]
+    definition: A content delivery network. Servers around the world that keep copies of your files so they load fast everywhere.
+  - id: chargeback
+    term: Chargeback
+    definition: When a customer disputes a card payment with their bank and the money is pulled back from you, usually with a fee.
+    see: /earn/accepting-payments/
+  - id: churn
+    term: Churn
+    definition: The share of customers who cancel in a period. Monthly churn of a few percent is common for small SaaS products.
+  - id: cname
+    term: CNAME record
+    definition: A DNS record that points one name to another name, for example www to yourname.github.io.
+    see: /setup/dns-explained/
+  - id: core-web-vitals
+    term: Core Web Vitals
+    definition: Google's measures of real-world page experience, covering loading speed, responsiveness to input, and visual stability.
+    see: /ship/seo-checklist/
+  - id: cors
+    term: CORS
+    definition: Cross-origin resource sharing. Browser rules that decide which other websites may call your API from their pages.
+    see: /ship/security-checklist/
+  - id: csp
+    term: Content-Security-Policy (CSP)
+    aka: [csp]
+    definition: A security header that tells the browser which sources of scripts, styles and other files a page may load, which blocks most injected scripts.
+    see: /ship/security-headers/
+  - id: csrf
+    term: CSRF
+    definition: Cross-site request forgery. An attack that tricks a logged-in user's browser into making an unwanted request to your app.
+    see: /ship/security-checklist/
+  - id: ctr
+    term: CTR
+    aka: [click-through rate]
+    definition: Click-through rate. The share of people who saw your link (for example in search results) and clicked it.
+  - id: dkim
+    term: DKIM
+    definition: A digital signature that your email service adds to messages from your domain. Receivers check it against a public key in your DNS.
+    see: /setup/custom-domain-email/
+  - id: dmarc
+    term: DMARC
+    definition: A DNS record that tells receiving mail servers what to do with messages that fail SPF or DKIM checks, and where to send reports.
+    see: /setup/custom-domain-email/
+  - id: dns
+    term: DNS
+    aka: [domain name system]
+    definition: The domain name system, the internet's address book. It turns names like example.com into the addresses of servers for your website and email.
+    see: /setup/dns-explained/
+  - id: dpdp
+    term: DPDP Act
+    aka: [digital personal data protection]
+    definition: India's Digital Personal Data Protection Act 2023, with rules notified in November 2025 and obligations phasing in through 2027.
+    see: /ship/privacy-and-legal/
+  - id: egress
+    term: Egress
+    definition: Data sent out of a cloud service to the internet. Many providers charge for it, which can make popular files expensive to serve.
+    see: /run/cost-control/
+  - id: environment-variable
+    term: Environment variable
+    definition: A named setting stored on your host, outside your code, used for secrets such as API keys and database passwords.
+  - id: favicon
+    term: Favicon
+    definition: The small icon shown in browser tabs and bookmarks. Modern sites use an SVG favicon plus PNG fallbacks.
+    see: /ship/website-essentials/
+  - id: gdpr
+    term: GDPR
+    definition: The EU's General Data Protection Regulation. It applies to personal data of people in the EU, wherever your business is based.
+    see: /ship/privacy-and-legal/
+  - id: hsts
+    term: HSTS
+    aka: [strict transport security]
+    definition: A security header that tells browsers to use only HTTPS for your domain for a set time.
+    see: /ship/security-headers/
+  - id: idempotency
+    term: Idempotency
+    definition: Designing an action so that doing it twice has the same effect as doing it once, such as processing a retried payment webhook.
+  - id: indexing
+    term: Indexing
+    definition: When a search engine stores a page so it can appear in results. A page must be indexed before it can rank.
+    see: /ship/google-search-console/
+  - id: llms-txt
+    term: llms.txt
+    definition: A proposed Markdown file at the root of a site listing its key pages for AI assistants.
+    see: /ship/website-essentials/
+  - id: ltv
+    term: LTV
+    aka: [lifetime value]
+    definition: Lifetime value. The total revenue you expect from a customer before they leave.
+  - id: magic-link
+    term: Magic link
+    definition: A sign-in method where the user gets a one-time login link by email instead of typing a password.
+    see: /build/auth-and-accounts/
+  - id: manifest
+    term: Web app manifest
+    definition: A small JSON file that gives a website a name, icons and colours when it is installed to a home screen.
+    see: /ship/website-essentials/
+  - id: mfa
+    term: Two-step login (2FA, MFA)
+    aka: [2fa, mfa, two factor]
+    definition: Signing in with something you know (a password) plus something you have (a phone app, passkey or security key).
+    see: /setup/accounts-and-ownership/
+  - id: mor
+    term: Merchant of record
+    aka: [mor]
+    definition: A company that legally sells your product to customers on your behalf and handles sales tax, VAT, invoices and chargebacks, for a higher fee.
+    see: /earn/accepting-payments/
+  - id: mrr
+    term: MRR
+    aka: [monthly recurring revenue]
+    definition: Monthly recurring revenue. The predictable revenue from subscriptions in one month.
+  - id: mvp
+    term: MVP
+    aka: [minimum viable product]
+    definition: Minimum viable product. The smallest version that lets real users get value and lets you learn whether to continue.
+    see: /start/validate-your-idea/
+  - id: mx-record
+    term: MX record
+    definition: A DNS record that says which mail servers receive email for your domain.
+    see: /setup/dns-explained/
+  - id: nameserver
+    term: Nameserver
+    definition: The service that answers DNS questions for your domain. Whoever runs your nameservers is where you edit DNS records.
+    see: /setup/dns-explained/
+  - id: og-tags
+    term: Open Graph tags
+    aka: [og tags, og image]
+    definition: Tags in a page's HTML that control the title, description and image shown when the link is shared in chat apps and social networks.
+    see: /ship/website-essentials/
+  - id: ota-update
+    term: Over-the-air update
+    definition: Updating a mobile app's JavaScript or assets without a new store release, within the stores' rules.
+    see: /build/mobile-apps/
+  - id: passkey
+    term: Passkey
+    definition: A password replacement stored on your device and unlocked with your fingerprint, face or PIN. It cannot be phished like a password.
+  - id: pmf
+    term: Product-market fit
+    aka: [pmf]
+    definition: When a clear group of people want your product enough that they use it repeatedly, pay for it, and tell others.
+  - id: prompt-injection
+    term: Prompt injection
+    definition: Text hidden in user input, documents or web pages that tries to make an AI model ignore its instructions.
+    see: /build/ai-features/
+  - id: pwa
+    term: PWA
+    aka: [progressive web app]
+    definition: Progressive web app. A website that can be installed like an app and can work offline.
+  - id: rate-limit
+    term: Rate limit
+    definition: A cap on how many requests a user or address can make in a period, which stops abuse and protects costs.
+    see: /ship/security-checklist/
+  - id: registrar
+    term: Registrar
+    definition: The company you register and renew a domain name with.
+    see: /setup/choose-a-domain/
+  - id: rls
+    term: Row Level Security (RLS)
+    aka: [rls]
+    definition: Database rules that decide which rows each user may read or change, enforced by the database itself.
+    see: /ship/security-checklist/
+  - id: robots-txt
+    term: robots.txt
+    definition: A file at the root of your site that tells crawlers which paths they may visit and where your sitemap is.
+    see: /ship/seo-checklist/
+  - id: saas
+    term: SaaS
+    definition: Software as a service. Software people use online, usually for a subscription.
+  - id: security-txt
+    term: security.txt
+    definition: A file at /.well-known/security.txt that tells security researchers how to report problems to you.
+    see: /ship/website-essentials/
+  - id: serverless
+    term: Serverless
+    definition: Running code as small functions on a provider's infrastructure, paying per request, without managing servers yourself.
+  - id: sitemap
+    term: Sitemap
+    definition: An XML file listing the pages of your site, which helps search engines find and refresh them.
+    see: /ship/google-search-console/
+  - id: spf
+    term: SPF
+    definition: A DNS TXT record listing the services allowed to send email as your domain. A domain must have only one SPF record.
+    see: /setup/custom-domain-email/
+  - id: sql-injection
+    term: SQL injection
+    definition: An attack where user input is run as part of a database query. Prevent it by always using parameterised queries.
+    see: /ship/security-checklist/
+  - id: static-site
+    term: Static site
+    definition: A website made of ready-made files served as they are, without code running on a server for each visit. Fast, cheap and secure.
+    see: /build/hosting/
+  - id: structured-data
+    term: Structured data
+    aka: [schema markup, json-ld]
+    definition: Machine-readable information about a page, usually in JSON-LD, that helps search engines understand it and can enable rich results.
+    see: /ship/seo-checklist/
+  - id: ttl
+    term: TTL
+    aka: [time to live]
+    definition: Time to live. How many seconds other servers may cache a DNS answer before asking again.
+    see: /setup/dns-explained/
+  - id: txt-record
+    term: TXT record
+    definition: A DNS record holding text, used to prove you own a domain and to publish email security rules such as SPF and DMARC.
+    see: /setup/dns-explained/
+  - id: uptime
+    term: Uptime
+    definition: The share of time your product is available. An outside uptime check alerts you when it is not.
+    see: /run/monitoring-and-backups/
+  - id: vat-gst
+    term: VAT and GST
+    definition: Consumption taxes charged on sales in many countries, including digital products. Who collects them depends on whether you or a merchant of record is the seller.
+    see: /earn/accepting-payments/
+  - id: vibe-coding
+    term: Vibe coding
+    definition: Building software mostly by describing what you want to an AI tool and accepting its code, with little manual programming.
+    see: /start/building-with-ai/
+  - id: wcag
+    term: WCAG
+    definition: Web Content Accessibility Guidelines, the international standard for accessible websites. Level AA is the usual target.
+    see: /ship/accessibility-checklist/
+  - id: webhook
+    term: Webhook
+    definition: A message one service sends to your server when something happens, such as a payment succeeding. Always verify its signature.
+    see: /ship/security-checklist/
+  - id: whois
+    term: WHOIS privacy
+    definition: Hiding your personal contact details from the public register of domain owners. Most good registrars include it free.
+    see: /setup/choose-a-domain/
+  - id: xss
+    term: XSS
+    aka: [cross-site scripting]
+    definition: Cross-site scripting. An attack where someone gets their script to run on your pages, usually through unescaped user input.
+    see: /ship/security-checklist/

@@ -1,0 +1,100 @@
+id: screen-recording
+title: Screenshots and demo videos
+description: Free and paid tools for clean screenshots, product demo videos, animated GIFs and app store preview images.
+order: 125
+stage: 5
+intro: |
+  For most launches you need three things: a full-page screenshot, a 30 to 90 second demo video, and a short looping GIF for social posts. Chrome can take perfect screenshots on its own; see [Screenshots and demo videos](/launch/screenshots-and-demos/).
+tools:
+  - id: chrome-devtools
+    name: Chrome DevTools screenshots
+    url: https://developer.chrome.com/docs/devtools/
+    summary: Chrome's built-in tools take full-page, element and phone-sized screenshots without any extension.
+    best_for: Pixel-perfect screenshots of your site at any screen size.
+    pick: true
+    pricing:
+      model: free
+      note: Free, built into Chrome and Edge.
+      url: https://developer.chrome.com/docs/devtools/
+    checked: 2026-10
+    pros:
+      - Captures the whole page, not just what fits on screen.
+      - Device mode gives exact phone sizes for app-store style images.
+    cons:
+      - The commands are hidden until you know where to look.
+  - id: obs-studio
+    name: OBS Studio
+    url: https://obsproject.com/
+    summary: Free, open-source recorder used by streamers, with full control over scenes, audio and quality.
+    best_for: Longer demos and tutorials on Windows, Mac or Linux at no cost.
+    pick: true
+    pricing:
+      model: free
+      note: Free and open source.
+      url: https://obsproject.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - No watermark, no time limit.
+      - Records screen, webcam and microphone together.
+    cons:
+      - Takes some setup the first time.
+  - id: cap
+    name: Cap
+    url: https://cap.so/
+    summary: Open-source screen recorder in the style of Loom, with instant share links or local-only recordings.
+    best_for: Quick walkthroughs you can share as a link.
+    pricing:
+      model: freemium
+      note: Free for local recording; paid plans for cloud sharing features.
+      url: https://cap.so/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Polished output with little effort.
+    cons:
+      - Younger product than Loom.
+  - id: loom
+    name: Loom
+    url: https://www.loom.com/
+    summary: Record screen and face, then share a link that plays instantly in the browser.
+    best_for: Async demos for investors, customers and teammates.
+    pricing:
+      model: freemium
+      note: Free Starter plan allows 25 videos of up to 5 minutes each.
+      url: https://www.loom.com/pricing
+    checked: 2026-10
+    pros:
+      - Viewers need nothing installed.
+      - See who watched.
+    cons:
+      - The 5-minute cap on the free plan.
+  - id: screen-studio
+    name: Screen Studio
+    url: https://screen.studio/
+    summary: Mac app that turns a raw recording into a polished demo with automatic zooms and smooth cursor movement.
+    best_for: Launch videos on a Mac that look professionally edited.
+    pricing:
+      model: paid
+      note: Paid licence or subscription.
+      url: https://screen.studio/
+    checked: 2026-10
+    pros:
+      - Beautiful results in minutes.
+    cons:
+      - Mac only, and paid.
+  - id: screentogif
+    name: ScreenToGif
+    url: https://www.screentogif.com/
+    summary: Free Windows app that records a part of the screen as a GIF or video and lets you edit frames.
+    best_for: Short looping GIFs for README files and social posts on Windows.
+    pricing:
+      model: free
+      note: Free and open source.
+      url: https://www.screentogif.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Frame-by-frame editor built in.
+    cons:
+      - Windows only.

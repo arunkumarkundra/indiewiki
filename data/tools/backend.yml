@@ -1,0 +1,92 @@
+id: backend
+title: Databases and backends
+description: Where your app's data and server logic live. Postgres, SQLite and serverless options with free plans, plus the limits that catch people out.
+order: 50
+stage: 3
+intro: |
+  For most indie apps a hosted Postgres database with built-in auth and storage is the shortest path. Watch two things on free plans: **pausing** when nobody uses the project, and **hard caps** that stop writes. Never put a secret key in your frontend; see the [security checklist](/ship/security-checklist/).
+tools:
+  - id: supabase
+    name: Supabase
+    url: https://supabase.com/
+    summary: Hosted Postgres with auth, file storage, realtime and edge functions in one dashboard.
+    best_for: Web and mobile apps that need users, a real database and row-level permissions without running servers.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan has 2 active projects, 500 MB database each, 1 GB storage and 50,000 monthly active users. Pro starts at $25 a month with a spend cap on by default.
+      url: https://supabase.com/pricing
+    checked: 2026-10
+    pros:
+      - Plain Postgres, so your data and skills are portable.
+      - Row Level Security lets the database itself enforce who can read what.
+      - Auth, storage and functions included.
+    cons:
+      - Free projects pause after a week without activity.
+      - You must write Row Level Security policies correctly or your data is exposed.
+  - id: neon
+    name: Neon
+    url: https://neon.com/
+    summary: Serverless Postgres that scales to zero when idle, with instant database branches for testing.
+    best_for: Apps that already handle auth elsewhere and want a cheap, standard Postgres database.
+    pricing:
+      model: freemium
+      note: Free plan allows 100 projects with 1 GB storage each (20 GB total) and 100 compute hours per project a month. Paid plans bill by usage.
+      url: https://neon.com/pricing
+    checked: 2026-10
+    pros:
+      - No bill on the free plan; it suspends instead of charging.
+      - Branches give you a safe copy of production data to test changes.
+    cons:
+      - The first request after idle is slower while compute wakes up.
+      - Database only; you add auth and storage yourself.
+  - id: firebase
+    name: Firebase
+    url: https://firebase.google.com/
+    summary: Google's app platform with a document database, auth, hosting and push notifications.
+    best_for: Mobile apps that want push notifications and Google sign-in quickly.
+    pricing:
+      model: freemium
+      note: The free Spark plan covers small apps; the Blaze plan is pay as you go. Set a budget alert before switching.
+      url: https://firebase.google.com/pricing
+    checked: 2026-10
+    pros:
+      - Strong mobile SDKs and push messaging.
+      - Realtime sync built in.
+    cons:
+      - The NoSQL data model is hard to change later and to query for reports.
+      - Pay-as-you-go bills have no hard cap by default.
+  - id: cloudflare-workers
+    name: Cloudflare Workers
+    url: https://workers.cloudflare.com/
+    summary: Run server code close to your users, plus key-value storage, a SQLite database (D1) and queues.
+    best_for: APIs, webhooks and small backends that must be fast and cheap.
+    pricing:
+      model: freemium
+      note: Free plan allows 100,000 requests a day. The paid plan starts at $5 a month and includes 10 million requests.
+      url: https://developers.cloudflare.com/workers/platform/pricing/
+    checked: 2026-10
+    pros:
+      - Very low cost at small and medium scale.
+      - D1 free tier includes 5 GB of SQLite storage.
+      - The free plan stops rather than billing you.
+    cons:
+      - 10 ms of CPU per request on the free plan; heavy work needs the paid plan.
+      - Not a normal Node.js server; some libraries will not run.
+  - id: pocketbase
+    name: PocketBase
+    url: https://pocketbase.io/
+    summary: An open-source backend in a single file, with a database, auth, file storage and an admin screen.
+    best_for: Technical founders happy to run one small server and avoid vendor lock-in.
+    pricing:
+      model: open-source
+      note: Free to use. You pay only for the server you run it on.
+      url: https://pocketbase.io/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - One file to deploy; easy to back up.
+      - No per-user pricing ever.
+    cons:
+      - You are responsible for the server, updates and backups.
+      - Scales up on one machine, not across many.

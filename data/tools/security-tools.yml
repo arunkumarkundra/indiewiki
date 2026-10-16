@@ -1,0 +1,107 @@
+id: security-tools
+title: Security and reputation checks
+description: Free scanners for HTTPS, security headers, leaked secrets and vulnerable packages, and the lookups that show if your domain is flagged as unsafe.
+order: 110
+stage: 4
+intro: |
+  Run these before launch and after every big change. None of them makes your app secure on its own; they catch the common, embarrassing mistakes. Pair them with the [security checklist](/ship/security-checklist/) and, if your site gets blocked by a firewall or antivirus, the [site reputation guide](/ship/site-reputation/).
+tools:
+  - id: mdn-observatory
+    name: MDN HTTP Observatory
+    url: https://developer.mozilla.org/en-US/observatory
+    summary: Mozilla's free scan of your site's security headers and HTTPS setup, with a grade and plain fixes.
+    best_for: A quick header and HTTPS check after each deploy.
+    pick: true
+    pricing:
+      model: free
+      note: Free.
+      url: https://developer.mozilla.org/en-US/observatory
+    checked: 2026-10
+    pros:
+      - Explains each failed test and links to how to fix it.
+    cons:
+      - Static hosts like GitHub Pages cannot set most headers, so expect a lower grade there.
+  - id: securityheaders-com
+    name: Security Headers
+    url: https://securityheaders.com/
+    summary: One-click report of which HTTP security headers a site sends.
+    best_for: A second opinion next to the MDN Observatory.
+    pricing:
+      model: free
+      note: The website scan is free. Its API was shut down in 2026.
+      url: https://securityheaders.com/
+    checked: 2026-10
+    pros:
+      - Fast, simple grade.
+    cons:
+      - No API any more; use the website.
+  - id: ssl-labs
+    name: SSL Labs Server Test
+    url: https://www.ssllabs.com/ssltest/
+    summary: Deep test of your HTTPS certificate and server configuration.
+    best_for: Checking a custom server or a new domain's certificate.
+    pricing:
+      model: free
+      note: Free.
+      url: https://www.ssllabs.com/ssltest/
+    checked: 2026-10
+    pros:
+      - Very thorough.
+    cons:
+      - Mostly useful if you run your own server; managed hosts already score well.
+  - id: virustotal
+    name: VirusTotal
+    url: https://www.virustotal.com/
+    summary: Checks a URL against dozens of security vendors at once, so you can see who flags your site.
+    best_for: Finding out which antivirus or filter is blocking your domain.
+    pricing:
+      model: free
+      note: Free for public lookups.
+      url: https://www.virustotal.com/
+    checked: 2026-10
+    pros:
+      - One lookup covers many vendors.
+    cons:
+      - Shows who flags you, not how to get unflagged; contact each vendor.
+  - id: safe-browsing-status
+    name: Google Safe Browsing site status
+    url: https://transparencyreport.google.com/safe-browsing/search
+    summary: Shows whether Google currently lists your site as dangerous in Chrome and other browsers.
+    best_for: Checking after a "Deceptive site" warning or a sudden drop in visits.
+    pricing:
+      model: free
+      note: Free.
+      url: https://transparencyreport.google.com/safe-browsing/search
+    checked: 2026-10
+    pros:
+      - Straight from the source that powers browser warnings.
+    cons:
+      - To request a review you still use Search Console.
+  - id: github-dependabot
+    name: GitHub Dependabot
+    url: https://docs.github.com/en/code-security/dependabot
+    summary: Watches your project's packages and opens pull requests when a security fix is available.
+    best_for: Any project on GitHub that uses npm, pip or similar packages.
+    pricing:
+      model: free
+      note: Free for repositories on GitHub.
+      url: https://docs.github.com/en/code-security/dependabot
+    checked: 2026-10
+    pros:
+      - Turn it on once in repository settings; it keeps working.
+    cons:
+      - Can open many pull requests; group updates to keep it calm.
+  - id: github-secret-scanning
+    name: GitHub secret scanning
+    url: https://docs.github.com/en/code-security/secret-scanning
+    summary: Detects API keys and passwords pushed to your repository and can block pushes that contain them.
+    best_for: Catching the moment an AI tool or a tired human commits a key.
+    pricing:
+      model: freemium
+      note: Free on public repositories; private repositories need a paid security add-on.
+      url: https://docs.github.com/en/code-security/secret-scanning
+    checked: 2026-10
+    pros:
+      - Push protection stops the leak before it happens.
+    cons:
+      - A leaked key must still be rotated; deleting the commit is not enough.

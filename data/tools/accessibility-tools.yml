@@ -1,0 +1,81 @@
+id: accessibility-tools
+title: Accessibility testing
+description: Free browser tools and screen readers to check that people using keyboards, screen readers or zoom can use your product.
+order: 115
+stage: 4
+intro: |
+  Automated checkers catch roughly the easy third of accessibility problems. The rest you find by using your product with only a keyboard, and by listening to it with a screen reader for ten minutes. The [accessibility checklist](/ship/accessibility-checklist/) tells you what to try.
+tools:
+  - id: axe-devtools
+    name: axe DevTools (browser extension)
+    url: https://www.deque.com/axe/devtools/
+    summary: Browser extension that scans a page for accessibility problems and explains each one.
+    best_for: The first automated check on every new screen.
+    pick: true
+    pricing:
+      model: freemium
+      note: The basic extension is free; guided tests are paid.
+      url: https://www.deque.com/axe/devtools/
+    checked: 2026-10
+    pros:
+      - Very few false alarms.
+      - Explains why each issue matters and how to fix it.
+    cons:
+      - Cannot judge things like whether alt text actually makes sense.
+  - id: wave
+    name: WAVE
+    url: https://wave.webaim.org/
+    summary: WebAIM's checker that marks problems directly on top of your page.
+    best_for: Seeing exactly where on the page a problem sits.
+    pricing:
+      model: free
+      note: Free online and as a browser extension.
+      url: https://wave.webaim.org/
+    checked: 2026-10
+    pros:
+      - Visual, easy for non-developers to read.
+    cons:
+      - Busy display on complex pages.
+  - id: lighthouse
+    name: Lighthouse (Chrome DevTools)
+    url: https://developer.chrome.com/docs/lighthouse/overview
+    summary: Built into Chrome. Audits accessibility, performance, SEO and best practices in one report.
+    best_for: A quick all-round health check without installing anything.
+    pricing:
+      model: free
+      note: Free, built into Chrome.
+      url: https://developer.chrome.com/docs/lighthouse/overview
+    checked: 2026-10
+    pros:
+      - Already on your computer if you use Chrome.
+    cons:
+      - Its accessibility score covers only automated checks.
+  - id: nvda
+    name: NVDA screen reader
+    url: https://www.nvaccess.org/
+    summary: Free, widely used screen reader for Windows.
+    best_for: Hearing how a blind user experiences your product on Windows.
+    pricing:
+      model: free
+      note: Free and open source; donations welcome.
+      url: https://www.nvaccess.org/download/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Used by many real screen reader users.
+    cons:
+      - Takes an hour to learn the basic keys.
+  - id: voiceover
+    name: VoiceOver
+    url: https://support.apple.com/guide/voiceover/welcome/mac
+    summary: The screen reader built into every Mac, iPhone and iPad.
+    best_for: Testing on Apple devices; turn it on with Cmd+F5 on a Mac.
+    pricing:
+      model: free
+      note: Free, built into Apple devices.
+      url: https://support.apple.com/guide/voiceover/welcome/mac
+    checked: 2026-10
+    pros:
+      - Nothing to install.
+    cons:
+      - Behaves differently from Windows screen readers; test both if you can.

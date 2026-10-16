@@ -1,0 +1,33 @@
+# Site-wide settings. Change these here; every page picks them up on the next build.
+
+name: IndieWiki
+tagline: The indie founder's field manual
+# The big line on the home page.
+headline: What to do next, and which tool to use for it.
+# Used as the home page meta description, in llms.txt and in the web app manifest (50 to 170 characters).
+description: Practical guides, checklists and honest tool picks for solo founders and small teams, from first idea to paying customers. Free, checked and open to edit.
+
+url: https://indiewiki.pi3.in
+language: en
+
+# The GitHub repository that holds this site, as "owner/repo".
+# On GitHub this is detected automatically; this value is only a fallback.
+repo: arunkumarkundra/indiewiki
+branch: main
+
+owner: Prisha iCube
+ownerUrl: https://pi3.in/
+# Shown only through JavaScript (never as plain text in the HTML) to keep spam bots away.
+email: indiewiki@pi3.in
+
+contentLicense: CC BY-SA 4.0
+contentLicenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
+
+# Quick searches shown under the home page search box.
+suggestions:
+  - custom domain email
+  - SEO checklist
+  - payments from India
+  - app store rejection
+  - free hosting
+  - privacy policy

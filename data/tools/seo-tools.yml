@@ -1,0 +1,95 @@
+id: seo-tools
+title: SEO tools
+description: Free tools to get your site indexed, find what people search for, test speed and rich results, and spot technical SEO problems.
+order: 100
+stage: 4
+intro: |
+  Start with the free tools from the search engines themselves. They show what Google and Bing actually see, which no third-party tool can. Work through the [SEO checklist](/ship/seo-checklist/) with them open.
+tools:
+  - id: google-search-console
+    name: Google Search Console
+    url: https://search.google.com/search-console
+    summary: Google's free dashboard for your site's search performance, indexing problems and sitemaps.
+    best_for: Every website. Set it up on launch day.
+    pick: true
+    pricing:
+      model: free
+      note: Free.
+      url: https://search.google.com/search-console
+    checked: 2026-10
+    pros:
+      - Shows the queries that bring people to you, with clicks and positions.
+      - Tells you exactly which pages are not indexed and why.
+    cons:
+      - Data arrives a few days late.
+  - id: bing-webmaster-tools
+    name: Bing Webmaster Tools
+    url: https://www.bing.com/webmasters
+    summary: Bing's free equivalent of Search Console, which also feeds several other search and AI assistants.
+    best_for: Getting indexed beyond Google. Import your Search Console setup in one click.
+    pricing:
+      model: free
+      note: Free.
+      url: https://www.bing.com/webmasters
+    checked: 2026-10
+    pros:
+      - Can import sites from Google Search Console.
+      - Supports IndexNow to tell search engines about changes instantly.
+    cons:
+      - Smaller audience than Google on its own.
+  - id: pagespeed-insights
+    name: PageSpeed Insights
+    url: https://pagespeed.web.dev/
+    summary: Google's speed test that shows real-user Core Web Vitals and a lab report with fixes.
+    best_for: Checking speed on mobile, which is how Google judges your site.
+    pricing:
+      model: free
+      note: Free.
+      url: https://pagespeed.web.dev/
+    checked: 2026-10
+    pros:
+      - Shows real-world data once your site has enough visitors.
+    cons:
+      - Lab scores vary between runs; look at trends, not one number.
+  - id: rich-results-test
+    name: Rich Results Test
+    url: https://search.google.com/test/rich-results
+    summary: Checks the structured data on a page and shows which Google rich results it can earn.
+    best_for: Testing breadcrumbs, article and product markup after you add it.
+    pricing:
+      model: free
+      note: Free.
+      url: https://search.google.com/test/rich-results
+    checked: 2026-10
+    pros:
+      - Tests a live URL or pasted code.
+    cons:
+      - Valid markup does not guarantee Google will show a rich result.
+  - id: ahrefs-webmaster-tools
+    name: Ahrefs Webmaster Tools
+    url: https://ahrefs.com/webmaster-tools
+    summary: Free site audit and backlink view for websites you can prove you own.
+    best_for: Finding broken links, missing tags and who links to you.
+    pricing:
+      model: free
+      note: Free for verified sites; full keyword research needs a paid Ahrefs plan.
+      url: https://ahrefs.com/webmaster-tools
+    checked: 2026-10
+    pros:
+      - Thorough technical audit for free.
+    cons:
+      - Competitor research is behind the paid plan.
+  - id: screaming-frog
+    name: Screaming Frog SEO Spider
+    url: https://www.screamingfrog.co.uk/seo-spider/
+    summary: Desktop crawler that walks your site like a search engine and lists every title, status code and redirect.
+    best_for: Finding 404s, redirect chains, duplicate titles and missing descriptions.
+    pricing:
+      model: freemium
+      note: Free for up to 500 URLs per crawl; a yearly licence removes the limit.
+      url: https://www.screamingfrog.co.uk/seo-spider/pricing/
+    checked: 2026-10
+    pros:
+      - Very detailed, fast and runs on your computer.
+    cons:
+      - Dense interface built for SEO specialists.

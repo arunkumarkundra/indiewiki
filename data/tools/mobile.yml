@@ -1,0 +1,75 @@
+id: mobile
+title: Mobile app frameworks
+description: Build iPhone and Android apps from one codebase. Compare Expo, Flutter and Capacitor, plus in-app subscriptions and store costs.
+order: 70
+stage: 3
+intro: |
+  Store accounts cost money before you write a line: Apple's developer program is a yearly fee and Google Play is a one-time fee. New personal Google Play accounts also need **12 testers for 14 days** before going live. Plan for both. See [Mobile apps](/build/mobile-apps/).
+tools:
+  - id: expo
+    name: Expo (React Native)
+    url: https://expo.dev/
+    summary: Build iOS, Android and web apps in JavaScript or TypeScript, with cloud builds and over-the-air updates.
+    best_for: Solo founders who know some web development and want both stores without a Mac build machine.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan includes 15 Android and 15 iOS cloud builds a month and updates for 1,000 monthly users. Starter is $19 a month plus usage.
+      url: https://expo.dev/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - One codebase for iPhone, Android and the web.
+      - Cloud builds and store submission without owning a Mac.
+      - Push notifications and updates without a new store release.
+    cons:
+      - Very custom native features may need native code.
+      - Over-the-air updates must still follow store rules.
+  - id: flutter
+    name: Flutter
+    url: https://flutter.dev/
+    summary: Google's toolkit for building fast, custom-looking apps for mobile, web and desktop from one Dart codebase.
+    best_for: Apps with heavily custom design, or teams already comfortable with Dart.
+    pricing:
+      model: open-source
+      note: Free and open source.
+      url: https://flutter.dev/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Smooth, consistent visuals on every platform.
+      - Strong tooling and hot reload.
+    cons:
+      - Dart is a new language for most web developers.
+      - Web output is heavier than a normal website.
+  - id: capacitor
+    name: Capacitor
+    url: https://capacitorjs.com/
+    summary: Wrap an existing web app as an iOS and Android app, with plugins for camera, files and notifications.
+    best_for: You already have a working web app and want it in the stores quickly.
+    pricing:
+      model: open-source
+      note: Free and open source.
+      url: https://capacitorjs.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Reuses your web code almost as-is.
+    cons:
+      - Apple may reject apps that are only a thin wrapper around a website.
+      - Feels less native than Expo or Flutter.
+  - id: revenuecat
+    name: RevenueCat
+    url: https://www.revenuecat.com/
+    summary: Handles in-app purchases and subscriptions for Apple and Google, with paywalls and analytics.
+    best_for: Any mobile app that sells subscriptions inside the app.
+    pricing:
+      model: freemium
+      note: Free until you track $2,500 in monthly revenue, then 1% of tracked revenue.
+      url: https://www.revenuecat.com/pricing
+    checked: 2026-10
+    pros:
+      - Removes the hardest part of store subscriptions.
+      - Paywall templates you can change without a release.
+    cons:
+      - Takes a cut once you earn real money.

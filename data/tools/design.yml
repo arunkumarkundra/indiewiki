@@ -1,0 +1,116 @@
+id: design
+title: Design, icons and images
+description: Free tools for mockups, diagrams, icons, photos, favicons and image compression, so your product looks finished without a designer.
+order: 90
+stage: 3
+intro: |
+  Two habits make a small product look professional: compress every image (WebP or AVIF, sized to how it is shown), and keep one icon set and one or two fonts across the whole product. Check the licence of every photo and icon you use.
+tools:
+  - id: figma
+    name: Figma
+    url: https://www.figma.com/
+    summary: The standard tool for interface design, prototypes and design handoff, in the browser.
+    best_for: Designing screens before you build them, and sharing them for feedback.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free starter plan with limited files; paid seats for teams.
+      url: https://www.figma.com/pricing/
+    checked: 2026-10
+    pros:
+      - Huge library of free community templates and UI kits.
+      - Works in the browser on any computer.
+    cons:
+      - Free plan limits the number of design files.
+  - id: penpot
+    name: Penpot
+    url: https://penpot.app/
+    summary: Open-source design and prototyping tool, usable in the browser or self-hosted.
+    best_for: Teams that want a free, open alternative to Figma.
+    pricing:
+      model: freemium
+      note: Free cloud plan; self-hosting is free.
+      url: https://penpot.app/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Open standards (SVG, CSS) under the hood.
+    cons:
+      - Smaller template community.
+  - id: excalidraw
+    name: Excalidraw
+    url: https://excalidraw.com/
+    summary: Hand-drawn style whiteboard for diagrams, flows and quick sketches.
+    best_for: Architecture sketches, user flows and diagrams for docs.
+    pricing:
+      model: free
+      note: Free in the browser; a paid plus plan adds collaboration features.
+      url: https://excalidraw.com/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - No sign-up needed.
+      - Exports SVG and PNG.
+    cons:
+      - Not meant for pixel-perfect design.
+  - id: squoosh
+    name: Squoosh
+    url: https://squoosh.app/
+    summary: Free in-browser image compressor that converts to WebP and AVIF with a live before/after view.
+    best_for: Shrinking screenshots and photos before they go on your site.
+    pick: true
+    pricing:
+      model: free
+      note: Free and open source. Images never leave your device.
+      url: https://squoosh.app/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Often cuts image size by more than half.
+      - Private, because processing happens in your browser.
+    cons:
+      - One image at a time.
+  - id: realfavicongenerator
+    name: RealFaviconGenerator
+    url: https://realfavicongenerator.net/
+    summary: Generates every favicon and app icon size from one image, with the HTML to paste.
+    best_for: Getting favicons right on every browser and phone in one go.
+    pricing:
+      model: free
+      note: Free.
+      url: https://realfavicongenerator.net/
+    checked: 2026-10
+    pros:
+      - Checks your live site for missing icons.
+    cons:
+      - Generates more files than a simple site strictly needs.
+  - id: lucide
+    name: Lucide icons
+    url: https://lucide.dev/
+    summary: A consistent set of over a thousand open-source line icons, as SVG or components.
+    best_for: Interface icons that match each other.
+    pricing:
+      model: open-source
+      note: Free, ISC licence.
+      url: https://lucide.dev/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - One visual style across all icons.
+      - Copy single SVGs; no library needed.
+    cons:
+      - Line style only.
+  - id: unsplash
+    name: Unsplash
+    url: https://unsplash.com/
+    summary: Large library of high-quality photos that are free to use under the Unsplash licence.
+    best_for: Hero images, blog headers and placeholders.
+    pricing:
+      model: free
+      note: Free under the Unsplash licence; check the licence terms for each use.
+      url: https://unsplash.com/license
+    checked: 2026-10
+    pros:
+      - High quality, searchable.
+    cons:
+      - Popular photos appear on many other sites.

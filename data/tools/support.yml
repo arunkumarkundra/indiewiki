@@ -1,0 +1,67 @@
+id: support
+title: Support, chat and feedback
+description: Talk to users without drowning. Live chat, shared inboxes, feedback boards and forms with free plans suited to one-person support.
+order: 170
+stage: 8
+intro: |
+  Early on, every support conversation is product research. Make it easy to reach you, answer fast, and keep a simple list of what people ask for. See [Customer support for one](/run/customer-support/).
+tools:
+  - id: crisp
+    name: Crisp
+    url: https://crisp.chat/
+    summary: Live chat widget and shared inbox that also pulls in email and other channels.
+    best_for: Adding a chat bubble to your site and app on day one.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan for a small team with basic live chat; paid plans add automation and more seats.
+      url: https://crisp.chat/en/pricing/
+    checked: 2026-10
+    pros:
+      - Mobile apps to answer from your phone.
+    cons:
+      - Most automation is on paid plans.
+  - id: chatwoot
+    name: Chatwoot
+    url: https://www.chatwoot.com/
+    summary: Open-source customer support inbox for chat, email, WhatsApp and social messages.
+    best_for: Technical founders who want to self-host support and keep the data.
+    pricing:
+      model: freemium
+      note: Free to self-host; cloud plans with a free starter tier.
+      url: https://www.chatwoot.com/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - No per-seat cost when self-hosted.
+    cons:
+      - Self-hosting means maintaining a server.
+  - id: tally
+    name: Tally
+    url: https://tally.so/
+    summary: Form builder that works like a document, with a free plan that allows unlimited forms and responses.
+    best_for: Feedback forms, waitlists, surveys and bug reports without code.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan covers unlimited forms and submissions within fair use; Pro removes branding.
+      url: https://tally.so/pricing
+    checked: 2026-10
+    pros:
+      - Very fast to build a good-looking form.
+    cons:
+      - Tally branding on free forms.
+  - id: github-discussions
+    name: GitHub Discussions
+    url: https://docs.github.com/en/discussions
+    summary: Free forum attached to a GitHub repository for questions, ideas and announcements.
+    best_for: Open-source projects and developer tools.
+    pricing:
+      model: free
+      note: Free on GitHub.
+      url: https://docs.github.com/en/discussions
+    checked: 2026-10
+    pros:
+      - Searchable answers that help the next person.
+    cons:
+      - Users need a GitHub account.

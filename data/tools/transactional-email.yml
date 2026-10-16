@@ -1,0 +1,86 @@
+id: transactional-email
+title: Sending email from your app
+description: Services that send password resets, receipts and notifications from your app so they reach the inbox instead of spam.
+order: 60
+stage: 3
+intro: |
+  App emails (sign-up confirmations, password resets, receipts) need a sending service and three DNS records on your domain: **SPF**, **DKIM** and **DMARC**. Without them, Gmail and Outlook put your mail in spam or reject it. Every service below gives you the exact records to paste into DNS. Keep marketing newsletters on a separate service or subdomain so a complaint about a newsletter cannot hurt your password resets.
+tools:
+  - id: resend
+    name: Resend
+    url: https://resend.com/
+    summary: Developer-friendly email API with clean docs, React Email templates and a simple dashboard.
+    best_for: New web apps that send a modest number of emails and want an easy API.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan sends 3,000 emails a month, at most 100 a day, on up to 3 domains. Pro is $20 a month for 50,000.
+      url: https://resend.com/pricing
+    checked: 2026-10
+    pros:
+      - Very quick to set up, with copy-paste DNS records.
+      - Good logs to see what was delivered or bounced.
+    cons:
+      - The 100-a-day cap on the free plan bites on launch day.
+      - Data kept for 30 days on the free plan.
+  - id: brevo
+    name: Brevo
+    url: https://www.brevo.com/
+    summary: Transactional and marketing email in one account, with SMTP and an API.
+    best_for: Founders who want app email and a simple newsletter from one place.
+    pricing:
+      model: freemium
+      note: Free plan sends 300 emails a day and stores up to 100,000 contacts. Free emails carry a "Sent with Brevo" footer.
+      url: https://help.brevo.com/hc/en-us/articles/208580669-FAQs-What-are-the-limits-of-the-Free-plan
+    checked: 2026-10
+    pros:
+      - Daily allowance resets every day, with no monthly cap.
+      - SMTP works with almost any tool.
+    cons:
+      - Brevo branding on free emails.
+      - The dashboard is crowded with marketing features.
+  - id: postmark
+    name: Postmark
+    url: https://postmarkapp.com/
+    summary: Paid email service known for fast, reliable delivery of transactional mail only.
+    best_for: Products where password resets and receipts must arrive in seconds, every time.
+    pricing:
+      model: paid
+      note: Monthly plans by volume, with a small free allowance for testing.
+      url: https://postmarkapp.com/pricing
+    checked: 2026-10
+    pros:
+      - Strong reputation for deliverability.
+      - Separate streams for transactional and broadcast mail.
+    cons:
+      - Costs money from the start of real use.
+  - id: amazon-ses
+    name: Amazon SES
+    url: https://aws.amazon.com/ses/
+    summary: Amazon's low-cost bulk email service, billed per thousand emails.
+    best_for: Technical teams sending large volumes who are comfortable with AWS.
+    pricing:
+      model: usage
+      note: Pay per email sent; very cheap at volume. New accounts start in a sandbox until approved.
+      url: https://aws.amazon.com/ses/pricing/
+    checked: 2026-10
+    pros:
+      - Lowest cost at scale.
+    cons:
+      - AWS console and approval process are hard for beginners.
+      - You build your own dashboards and bounce handling.
+  - id: cloudflare-email-sending
+    name: Cloudflare Email Service
+    url: https://developers.cloudflare.com/email-service/
+    summary: Send email from Cloudflare Workers, alongside free inbound routing for your domain.
+    best_for: Apps already running on Cloudflare Workers.
+    pricing:
+      model: usage
+      note: Needs the paid Workers plan; 3,000 emails a month included, then $0.35 per 1,000.
+      url: https://developers.cloudflare.com/email-service/platform/pricing/
+    checked: 2026-10
+    pros:
+      - One vendor for hosting, DNS and email.
+    cons:
+      - Not available on the free Workers plan.
+      - Newer than the dedicated email services.

@@ -1,0 +1,96 @@
+id: ai-coding
+title: AI coding tools
+description: Tools that write and change code with you, from app builders for non-programmers to coding agents for developers, and what each is good at.
+order: 85
+stage: 1
+intro: |
+  App builders get you a working prototype fast. Coding agents and editors help you maintain and extend a real codebase. Whichever you use, **you** are responsible for what ships: secrets, security and correctness. Read [Building with AI coding tools](/start/building-with-ai/) for a workflow that avoids the common disasters.
+tools:
+  - id: claude-code
+    name: Claude Code
+    url: https://www.anthropic.com/claude-code
+    summary: Anthropic's coding agent. It reads your codebase, makes changes across files, runs commands and tests, from the terminal, desktop app or web.
+    best_for: Founders with a real codebase who want an agent to plan, edit and test changes.
+    pricing:
+      model: paid
+      note: Included with paid Claude plans, or billed per token through the API.
+      url: https://www.anthropic.com/pricing
+    checked: 2026-10
+    pros:
+      - Works across a whole repository, not one file at a time.
+      - Can run your tests and fix what fails.
+    cons:
+      - You still need to review changes and understand what is being deployed.
+  - id: cursor
+    name: Cursor
+    url: https://cursor.com/
+    summary: A code editor built around AI, with chat, inline edits and an agent mode.
+    best_for: People who like a familiar editor (it is based on VS Code) with AI built in.
+    pricing:
+      model: freemium
+      note: Free hobby plan with limited AI use; paid plans for regular work.
+      url: https://cursor.com/pricing
+    checked: 2026-10
+    pros:
+      - Feels like VS Code, with extensions.
+      - Choose between several AI models.
+    cons:
+      - Heavy users run through included usage quickly.
+  - id: github-copilot
+    name: GitHub Copilot
+    url: https://github.com/features/copilot
+    summary: GitHub's AI assistant inside VS Code, JetBrains editors and github.com, including an agent that can open pull requests.
+    best_for: Developers already working on GitHub who want suggestions and chat in their editor.
+    pricing:
+      model: freemium
+      note: Free tier with monthly limits; paid plans for more requests and premium models.
+      url: https://github.com/features/copilot/plans
+    checked: 2026-10
+    pros:
+      - Tight GitHub integration, including pull request reviews.
+    cons:
+      - Free tier limits are low for daily use.
+  - id: lovable
+    name: Lovable
+    url: https://lovable.dev/
+    summary: Describe an app in plain English and get a working full-stack web app, with Supabase for data.
+    best_for: Non-programmers building a first prototype or internal tool.
+    pricing:
+      model: freemium
+      note: Free plan with daily credits; paid plans for more messages and private projects.
+      url: https://lovable.dev/pricing
+    checked: 2026-10
+    pros:
+      - Visible results in minutes without setup.
+      - Sync to GitHub so you own the code.
+    cons:
+      - Generated apps often need security review before real users.
+      - Large changes can break earlier work; save versions often.
+  - id: bolt
+    name: Bolt.new
+    url: https://bolt.new/
+    summary: Build and run full-stack web apps from a chat, in the browser.
+    best_for: Quick prototypes and demos without installing anything.
+    pricing:
+      model: freemium
+      note: Free plan with a monthly token allowance; paid plans for more.
+      url: https://bolt.new/pricing
+    checked: 2026-10
+    pros:
+      - Everything runs in the browser.
+    cons:
+      - Token usage climbs fast as projects grow.
+  - id: replit
+    name: Replit
+    url: https://replit.com/
+    summary: Browser-based coding environment with an AI agent, databases and one-click hosting.
+    best_for: Building and hosting small apps entirely from a browser, on any computer.
+    pricing:
+      model: freemium
+      note: Free starter plan; paid plans for the agent, private apps and always-on hosting.
+      url: https://replit.com/pricing
+    checked: 2026-10
+    pros:
+      - Code, database and hosting in one place.
+    cons:
+      - Costs can grow as apps get busier; watch usage.

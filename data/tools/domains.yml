@@ -1,0 +1,79 @@
+id: domains
+title: Domains and DNS
+description: Where to buy your domain name and who should answer DNS for it. Compare renewal prices, privacy and the extras each registrar includes.
+order: 10
+stage: 2
+intro: |
+  Buy the domain from a registrar that charges a fair **renewal** price, not just a cheap first year. Then decide who runs DNS. Many founders buy at one registrar and point DNS at Cloudflare for its free CDN and email routing. Read [Choose and register a domain](/setup/choose-a-domain/) before you buy.
+tools:
+  - id: cloudflare-registrar
+    name: Cloudflare Registrar
+    url: https://www.cloudflare.com/products/registrar/
+    summary: Sells domains at the price the registry charges, with no markup on registration or renewal.
+    best_for: Founders who will use Cloudflare for DNS anyway and want the lowest long-term price.
+    pick: true
+    pricing:
+      model: paid
+      note: At-cost yearly price per domain, the same at renewal. No extra fee for WHOIS privacy.
+      url: https://www.cloudflare.com/products/registrar/
+    checked: 2026-10
+    pros:
+      - No promotional first-year price that jumps at renewal.
+      - WHOIS redaction included.
+      - DNS, CDN, email routing and security in the same dashboard.
+    cons:
+      - Your domain must use Cloudflare's DNS while it is registered there.
+      - Not every extension is supported; check yours (some country codes are missing).
+      - You usually need to buy the domain elsewhere first and transfer it, or register a supported extension directly.
+  - id: porkbun
+    name: Porkbun
+    url: https://porkbun.com/
+    summary: Low-priced registrar with free WHOIS privacy, free SSL and simple email forwarding on every domain.
+    best_for: First-time founders who want a cheap, friendly registrar with a clean dashboard.
+    pricing:
+      model: paid
+      note: Yearly price per domain, published openly including renewals. Privacy and forwarding are free.
+      url: https://porkbun.com/products/domains
+    checked: 2026-10
+    pros:
+      - Renewal prices shown up front, close to first-year prices.
+      - WHOIS privacy and URL/email forwarding included.
+      - Easy to point DNS at Cloudflare or GitHub Pages.
+    cons:
+      - Email forwarding is basic; it does not give you a real inbox.
+      - Fewer add-on services than the large registrars.
+  - id: namecheap
+    name: Namecheap
+    url: https://www.namecheap.com/
+    summary: Large, long-running registrar with free domain privacy and free email forwarding.
+    best_for: People who want a well-known registrar and are happy to compare renewal prices carefully.
+    pricing:
+      model: paid
+      note: Yearly price per domain. First-year promotions are common, so compare the renewal price.
+      url: https://www.namecheap.com/domains/
+    checked: 2026-10
+    pros:
+      - Free privacy protection and email forwarding.
+      - Huge range of extensions.
+      - Clear Advanced DNS screen for A, CNAME, TXT and MX records.
+    cons:
+      - Renewals often cost more than the first year.
+      - The checkout offers many add-ons you do not need.
+  - id: cloudflare-dns
+    name: Cloudflare DNS
+    url: https://www.cloudflare.com/application-services/products/dns/
+    summary: Free, fast DNS hosting with an optional proxy that adds a CDN, HTTPS and basic protection in front of your site.
+    best_for: Almost every indie site. Point your domain's nameservers here even if you bought it elsewhere.
+    pick: true
+    pricing:
+      model: freemium
+      note: The Free plan covers DNS, CDN, SSL and email routing for most small products.
+      url: https://www.cloudflare.com/plans/
+    checked: 2026-10
+    pros:
+      - Changes apply in seconds to minutes.
+      - Lets you add response headers to a static site, which GitHub Pages cannot do on its own.
+      - Free inbound email forwarding for your domain.
+    cons:
+      - The orange-cloud proxy can confuse other services' domain checks; switch it to DNS only while verifying.
+      - Moving nameservers takes a few hours to settle.

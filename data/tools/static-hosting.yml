@@ -1,0 +1,77 @@
+id: static-hosting
+title: Website and frontend hosting
+description: Free and cheap places to host a website, landing page or single-page app. Read the commercial-use rules before you launch a paid product.
+order: 40
+stage: 3
+intro: |
+  The biggest trap here is not price, it is the **rules**. GitHub Pages and the Vercel Hobby plan do not allow commercial use. If your site sells something, pick a host whose free plan allows it, or budget for a paid plan. See [Hosting your website](/build/hosting/) for the full comparison.
+tools:
+  - id: cloudflare-pages
+    name: Cloudflare Pages
+    url: https://pages.cloudflare.com/
+    summary: Static site and frontend hosting on Cloudflare's network, with builds from GitHub and a generous free plan.
+    best_for: Most indie landing pages and web apps, including commercial ones.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free plan includes 500 builds a month, one build at a time, and up to 20,000 files per site.
+      url: https://developers.cloudflare.com/pages/platform/limits
+    checked: 2026-10
+    pros:
+      - Static traffic is not metered on the free plan, so a launch-day spike does not cost you.
+      - Custom domains, HTTPS and preview links for every branch.
+      - Add server code later with Cloudflare Workers.
+    cons:
+      - Build settings can be confusing for the first project.
+      - Single files above 25 MiB must live elsewhere, such as R2.
+  - id: github-pages
+    name: GitHub Pages
+    url: https://pages.github.com/
+    summary: Free hosting for a website straight from a GitHub repository, with your own domain and HTTPS.
+    best_for: Docs, portfolios, open-source projects and free tools. Not for selling things.
+    pricing:
+      model: free
+      note: Free. On free GitHub accounts the repository must be public. Soft limits of 1 GB site size and 100 GB a month bandwidth.
+      url: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+    checked: 2026-10
+    pros:
+      - No extra account; it lives next to your code.
+      - Edit and publish from the GitHub website alone.
+      - Free custom domain with automatic HTTPS.
+    cons:
+      - GitHub's terms say it is not for online businesses, e-commerce or commercial SaaS.
+      - You cannot set HTTP response headers such as a full Content-Security-Policy.
+      - Private repositories need a paid GitHub plan.
+  - id: netlify
+    name: Netlify
+    url: https://www.netlify.com/
+    summary: Popular frontend platform with forms, functions and deploy previews, priced in monthly credits.
+    best_for: Sites that want built-in form handling and easy previews.
+    pricing:
+      model: freemium
+      note: Free plan has 300 credits a month with a hard stop. A production deploy costs 15 credits and each GB of bandwidth costs 20.
+      url: https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/
+    checked: 2026-10
+    pros:
+      - Deploy previews and form submissions are not charged in credits.
+      - Smooth setup from GitHub.
+    cons:
+      - Credits run out faster than you expect if you deploy often or get traffic.
+      - The free plan cannot buy extra credits, so the site can stop until next month.
+  - id: vercel
+    name: Vercel
+    url: https://vercel.com/
+    summary: The company behind Next.js. Excellent developer experience and previews for frontend apps.
+    best_for: Next.js projects, once you are on a paid plan for anything commercial.
+    pricing:
+      model: freemium
+      note: Hobby is free but limited to personal, non-commercial use. Pro is $20 per developer seat per month plus usage.
+      url: https://vercel.com/docs/plans/hobby
+    checked: 2026-10
+    pros:
+      - First-class support for Next.js features.
+      - Preview deployment for every pull request.
+      - Spend management controls on Pro.
+    cons:
+      - The free Hobby plan forbids commercial use.
+      - When Hobby limits are hit, features can pause for up to 30 days.

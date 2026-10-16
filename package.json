@@ -1,0 +1,27 @@
+{
+  "name": "indiewiki",
+  "version": "1.0.0",
+  "description": "IndieWiki: practical guides, checklists and honest tool picks for indie founders.",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "test": "node --test \"test/*.test.mjs\"",
+    "check": "npm run build && npm test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource-variable/atkinson-hyperlegible-mono": "^5.3.0",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "js-yaml": "^5.5.0",
+    "markdown-it": "^15.0.3",
+    "markdown-it-container": "^4.0.0"
+  },
+  "devDependencies": {
+    "html-validate": "^11.16.2"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://indiewiki.pi3.in"
+}

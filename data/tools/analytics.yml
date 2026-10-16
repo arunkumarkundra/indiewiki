@@ -1,0 +1,102 @@
+id: analytics
+title: Analytics
+description: Understand who visits and what users do, from simple cookie-free page counts to full product analytics with funnels and session replays.
+order: 150
+stage: 8
+intro: |
+  Use two layers. A **light, cookie-free counter** on your website for traffic and sources, and **product analytics** inside the app for what signed-in users do. Cookie-free tools usually do not need a consent banner; tools that use cookies or replays usually do in the EU and UK. See [Analytics without the creepiness](/run/analytics/).
+tools:
+  - id: cloudflare-web-analytics
+    name: Cloudflare Web Analytics
+    url: https://www.cloudflare.com/web-analytics/
+    summary: Free, privacy-first visitor counts and Core Web Vitals, without cookies.
+    best_for: Basic traffic numbers on a marketing site at no cost.
+    pick: true
+    pricing:
+      model: free
+      note: Free.
+      url: https://www.cloudflare.com/web-analytics/
+    checked: 2026-10
+    pros:
+      - No cookies and no personal data.
+      - Works without moving your DNS to Cloudflare.
+    cons:
+      - Basic reports; no custom events or funnels.
+  - id: plausible
+    name: Plausible Analytics
+    url: https://plausible.io/
+    summary: Lightweight, open-source, cookie-free analytics with a one-page dashboard and goal tracking.
+    best_for: Founders who want clear numbers and custom events without consent banners.
+    pricing:
+      model: paid
+      note: Cloud plans start at $9 a month for one site, with a 30-day free trial. Self-hosting is free.
+      url: https://plausible.io/
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Tiny script, so no speed penalty.
+      - Shareable public dashboards.
+    cons:
+      - Paid for the hosted version.
+  - id: umami
+    name: Umami
+    url: https://umami.is/
+    summary: Open-source, cookie-free web analytics you can self-host or use in the cloud.
+    best_for: Privacy-friendly analytics with a real free cloud plan.
+    pricing:
+      model: freemium
+      note: Free cloud Hobby plan for 1 website and 100,000 events a month with 6 months of data. Pro is $20 a month. Self-hosting is free.
+      url: https://umami.is/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Custom events on the free plan.
+      - Self-host if you outgrow the free tier.
+    cons:
+      - Free cloud plan covers only one site.
+  - id: posthog
+    name: PostHog
+    url: https://posthog.com/
+    summary: Product analytics, session replays, feature flags, A/B tests and error tracking in one open-source platform.
+    best_for: Understanding what users do inside your app once you have sign-ups.
+    pricing:
+      model: freemium
+      note: Free each month for 1 million analytics events, 5,000 session replays, 1 million feature flag requests and 100,000 exceptions. Billing limits can be set per product.
+      url: https://posthog.com/pricing
+    checked: 2026-10
+    open_source: true
+    pros:
+      - Very generous free allowance.
+      - Hard billing limits so you are never surprised.
+    cons:
+      - So many features that setup takes thought.
+      - Session replays may need consent and careful masking of personal data.
+  - id: google-analytics
+    name: Google Analytics 4
+    url: https://marketingplatform.google.com/about/analytics/
+    summary: Google's free analytics with deep reports and integration with Google Ads.
+    best_for: Sites that run Google Ads or need its specific reports.
+    pricing:
+      model: free
+      note: Free.
+      url: https://marketingplatform.google.com/about/analytics/
+    checked: 2026-10
+    pros:
+      - Free, powerful and widely understood.
+    cons:
+      - Uses cookies, so EU and UK visitors usually need a consent banner.
+      - Reports are hard to read for beginners.
+  - id: microsoft-clarity
+    name: Microsoft Clarity
+    url: https://clarity.microsoft.com/
+    summary: Free heatmaps and session recordings that show where people click, scroll and get stuck.
+    best_for: Watching real visitors use your landing page to find confusing spots.
+    pricing:
+      model: free
+      note: Free.
+      url: https://clarity.microsoft.com/
+    checked: 2026-10
+    pros:
+      - Free with no traffic limit.
+    cons:
+      - Records visitors' sessions, so you need consent where the law requires it.

@@ -1,0 +1,54 @@
+id: file-storage
+title: File and image storage
+description: Where to keep user uploads, images, videos and large downloads without paying painful bandwidth bills when traffic grows.
+order: 65
+stage: 3
+intro: |
+  Never store user uploads inside your web server or your Git repository. Use object storage, keep buckets **private by default**, and hand out short-lived links when someone needs a file. Bandwidth (egress) is usually the cost that surprises people, so compare that first.
+tools:
+  - id: cloudflare-r2
+    name: Cloudflare R2
+    url: https://www.cloudflare.com/developer-platform/products/r2/
+    summary: S3-compatible object storage with no charge for data downloaded from it.
+    best_for: Images, videos, downloads and backups that many people will fetch.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free each month for 10 GB of storage, 1 million write operations and 10 million reads. Egress to the internet is free.
+      url: https://developers.cloudflare.com/r2/pricing/
+    checked: 2026-10
+    pros:
+      - Free egress removes the classic surprise bill.
+      - Works with any tool that speaks the S3 API.
+    cons:
+      - Needs a card on file to enable, even for free use.
+      - Image resizing is a separate product.
+  - id: supabase-storage
+    name: Supabase Storage
+    url: https://supabase.com/storage
+    summary: File storage tied to your Supabase users and permissions, with image transformations on paid plans.
+    best_for: Apps already on Supabase that store user avatars and documents.
+    pricing:
+      model: freemium
+      note: 1 GB of storage on the free plan, shared with the project's 5 GB egress allowance.
+      url: https://supabase.com/pricing
+    checked: 2026-10
+    pros:
+      - Access rules use the same policies as your database.
+    cons:
+      - Small free allowance for media-heavy apps.
+  - id: backblaze-b2
+    name: Backblaze B2
+    url: https://www.backblaze.com/cloud-storage
+    summary: Low-cost S3-compatible storage, often used for backups and archives.
+    best_for: Cheap backups of your database and files.
+    pricing:
+      model: usage
+      note: Pay per GB stored each month, with a free starting allowance.
+      url: https://www.backblaze.com/cloud-storage/pricing
+    checked: 2026-10
+    pros:
+      - Simple, low prices.
+      - Good for off-site copies of backups.
+    cons:
+      - Fewer extra features than the big clouds.

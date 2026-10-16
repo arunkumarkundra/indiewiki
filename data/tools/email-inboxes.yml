@@ -1,0 +1,92 @@
+id: email-inboxes
+title: Email on your own domain
+description: Ways to send and receive mail as you@yourdomain.com, from free forwarding to a full business inbox, and what changes for Gmail users in 2027.
+order: 20
+stage: 2
+intro: |
+  Forwarding alone lets you *receive* at your domain. To *reply* from it you need an inbox that sends as your domain. Gmail's free "Send mail as" trick for outside addresses stops working in January 2027, so read [Email on your custom domain](/setup/custom-domain-email/) before you set anything up.
+tools:
+  - id: zoho-mail
+    name: Zoho Mail
+    url: https://www.zoho.com/mail/
+    summary: Real mailboxes on your own domain, with a Forever Free plan for small teams.
+    best_for: Solo founders and tiny teams who want to send and receive as their domain at no cost.
+    pick: true
+    pricing:
+      model: freemium
+      note: Free for up to 5 users with 5 GB each on one domain, through the web and the Zoho apps. Paid plans add IMAP/POP and more storage.
+      url: https://www.zoho.com/mail/zohomail-pricing.html
+    checked: 2026-10
+    pros:
+      - Sends as your domain with proper SPF and DKIM, so replies land in inboxes.
+      - Mobile apps for reading and replying on the go.
+      - Cheap paid plans when you outgrow free.
+    cons:
+      - The free plan has no IMAP, POP or ActiveSync, so you cannot use Gmail, Outlook or Apple Mail with it.
+      - The admin console has many screens; follow their setup wizard step by step.
+  - id: google-workspace
+    name: Google Workspace
+    url: https://workspace.google.com/
+    summary: Gmail, Calendar, Drive and Meet on your own domain, with the deliverability and integrations people expect.
+    best_for: Founders who live in Gmail, need "Sign in with Google" for business tools, or are building a team.
+    pricing:
+      model: paid
+      note: Per user per month. Business Starter includes 30 GB pooled storage per user. Annual billing is cheaper than flexible.
+      url: https://workspace.google.com/pricing
+    checked: 2026-10
+    pros:
+      - The familiar Gmail interface and apps.
+      - Sending as aliases on your domain keeps working after the 2027 Gmail change.
+      - Best-known option for business credibility and third-party integrations.
+    cons:
+      - A monthly cost for every person.
+      - Overkill if you only need one address.
+  - id: cloudflare-email-routing
+    name: Cloudflare Email Routing
+    url: https://developers.cloudflare.com/email-service/
+    summary: Free forwarding from addresses on your domain to any inbox you already have.
+    best_for: Receiving mail at hello@yourdomain.com when your DNS is on Cloudflare.
+    pricing:
+      model: free
+      note: Inbound routing is free on the Workers Free plan. Sending from your domain needs the paid Workers plan.
+      url: https://developers.cloudflare.com/email-service/platform/pricing/
+    checked: 2026-10
+    pros:
+      - Unlimited addresses and catch-all rules.
+      - Set up in minutes from the Cloudflare dashboard.
+    cons:
+      - Forwarding only. Replies come from your personal address unless you add a sending service.
+      - Forwarded mail can fail strict checks if the sender's DMARC is strict.
+  - id: fastmail
+    name: Fastmail
+    url: https://www.fastmail.com/
+    summary: Independent paid email with excellent custom-domain support, aliases and standard IMAP.
+    best_for: People who want a fast, private inbox that works in any mail app.
+    pricing:
+      model: paid
+      note: Monthly or yearly per user. No free plan; a free trial is offered.
+      url: https://www.fastmail.com/pricing/
+    checked: 2026-10
+    pros:
+      - Works with any email app through IMAP and SMTP.
+      - Unlimited aliases and masked addresses on higher plans.
+      - No advertising business model.
+    cons:
+      - Paid from day one.
+      - Fewer office apps than Google or Microsoft.
+  - id: proton-mail
+    name: Proton Mail
+    url: https://proton.me/mail
+    summary: End-to-end encrypted email from Switzerland. Custom domains are available on paid plans.
+    best_for: Founders who care most about privacy and do not need deep third-party integrations.
+    pricing:
+      model: freemium
+      note: Free personal plan; using your own domain needs a paid plan.
+      url: https://proton.me/mail/pricing
+    checked: 2026-10
+    pros:
+      - Strong privacy and encryption.
+      - Apps for every platform.
+    cons:
+      - Other mail apps need the Proton Bridge app on desktop.
+      - Custom domains cost money.
