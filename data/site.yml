@@ -7,7 +7,7 @@ headline: What to do next, and which tool to use for it.
 # Used as the home page meta description, in llms.txt and in the web app manifest (50 to 170 characters).
 description: Practical guides, checklists and honest tool picks for solo founders and small teams, from first idea to paying customers. Free, checked and open to edit.
 
-url: https://indiewiki.pi3.in
+url: https://indie.pi3.in
 language: en
 
 # The GitHub repository that holds this site, as "owner/repo".
@@ -18,7 +18,7 @@ branch: main
 owner: Prisha iCube
 ownerUrl: https://pi3.in/
 # Shown only through JavaScript (never as plain text in the HTML) to keep spam bots away.
-email: indiewiki@pi3.in
+email: indie@pi3.in
 
 contentLicense: CC BY-SA 4.0
 contentLicenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
