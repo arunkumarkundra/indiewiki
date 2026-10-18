@@ -255,13 +255,13 @@ test('robots.txt hides only utility files and the sitemap holds only real pages'
   }
 });
 
-test('footer: copyright owner link, privacy, terms, contact and email on every page', () => {
+test('footer: copyright owner link, privacy, terms and contact on every page', () => {
   const { site } = result.ctx;
   for (const p of pages) {
     const legal = /<div class="site-footer__legal">([\s\S]*?)<\/div>/.exec(p.html)?.[1] || '';
     assert.match(legal, new RegExp(`&copy; \\d{4} <a href="${site.ownerUrl.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}">${site.owner}</a>`), `${p.url} copyright`);
     for (const href of ['/privacy/', '/terms/', '/contact/']) assert.ok(legal.includes(`href="${href}"`), `${p.url} footer lacks ${href}`);
-    assert.match(legal, /data-email="[^"]+" data-email-show/, `${p.url} footer lacks the email address`);
+    assert.doesNotMatch(legal, /data-email/, `${p.url}: the email belongs on the contact page, not the footer`);
   }
 });
 

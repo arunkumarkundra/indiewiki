@@ -156,7 +156,6 @@ function footer(ctx) {
       <li><a href="${ctx.url('/privacy/')}">Privacy</a></li>
       <li><a href="${ctx.url('/terms/')}">Terms</a></li>
       <li><a href="${ctx.url('/contact/')}">Contact</a></li>
-      <li><a href="${ctx.url('/contact/')}" data-email="${esc(ctx.emailCode)}" data-email-show>Email us</a></li>
     </ul>
   </div>
 </footer>`;
