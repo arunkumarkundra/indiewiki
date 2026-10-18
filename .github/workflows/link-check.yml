@@ -1,0 +1,71 @@
+# Checks every link to other websites once a month and lists broken ones in
+# an issue called "Broken links found", so dead sources and moved pricing pages
+# get noticed. (Links inside IndieWiki are already checked on every build.)
+# Run it any time from Actions > Check outside links > Run workflow.
+name: Check outside links
+
+on:
+  schedule:
+    - cron: "41 4 1 * *" # 1st of every month, 04:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install exact dependency versions
+        run: npm ci
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Check every outside link
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: false
+          jobSummary: true
+          output: lychee/report.md
+          # Only web addresses are checked. 403, 429 and 999 mean "this site
+          # blocks robots", not "broken", so they are not reported.
+          # Edit and issue links on GitHub need a login, so they are skipped.
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            --max-concurrency 8 --max-retries 2 --timeout 30
+            --accept "100..=103,200..=299,403,429,999"
+            --exclude "^https://github\.com/[^/]+/[^/]+/(issues/new|edit/)"
+            "dist/**/*.html"
+
+      - name: Open or update the "Broken links found" issue
+        if: steps.lychee.outputs.exit_code != 0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "The monthly check could not open the links below. For each one: open it in your browser."
+            echo "If it is really gone, find the address in the repository (press **/** on the Code tab and paste it), then update or remove it."
+            echo "If it opens fine, the site just blocks automated checkers and you can ignore it."
+            echo
+            cat lychee/report.md
+          } > issue-body.md
+          number=$(gh issue list --state open --search '"Broken links found" in:title' --json number --jq '.[0].number // empty')
+          if [ -n "$number" ]; then
+            gh issue edit "$number" --body-file issue-body.md
+            gh issue comment "$number" --body "Updated by the check on $(date -u +%Y-%m-%d)."
+          else
+            gh issue create --title "Broken links found" --body-file issue-body.md
+          fi
