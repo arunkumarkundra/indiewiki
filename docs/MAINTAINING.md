@@ -98,6 +98,7 @@ Open the page on the live site and click **Edit this page**, or open the file in
 
 - Each build log ends with **"Due for a fact check"**: tools checked six or more months ago and pages reviewed a year or more ago. Open the latest **Build and publish** run in **Actions** to see it.
 - Once a quarter, work through that list: open each tool's pricing page, update the entry and its `checked:` month.
+- **Broken outside links**: on the 1st of each month, the **Check outside links** workflow tests every link to other websites. If any fail, it opens (or updates) an issue called **Broken links found** listing them. Open each link in your browser: if it is really gone, search the repository for the address (press **/** on the **Code** tab) and fix it; if it opens fine, that site just blocks robots and you can ignore it. You can also run it any time: **Actions** → **Check outside links** → **Run workflow**.
 - Watch for big changes in the indie world (a provider changing free plans, app store rule changes, new privacy laws) and update the affected pages first.
 - **Dependabot** opens a monthly pull request for software updates. If its checks are green, merge it.
 - The site rebuilds every Monday by itself, which also renews the expiry date in `security.txt`.
@@ -110,6 +111,7 @@ Open the page on the live site and click **Edit this page**, or open the file in
 - **A new Toolbox category**: create `data/tools/<category-id>.yml` by copying an existing one; set `id` to the file name and `stage` to the stage number it belongs to.
 - **A glossary term**: add an entry to `data/glossary.yml`.
 - **Home page search suggestions** and the site name, tagline and email: `data/site.yml`.
+- **Sharing images** are made automatically for every page when the site builds (1200 by 630 pixels, showing the page title and its stage), so there is nothing to design for a new page. The home page uses the hand-made `static/img/og-default.png`.
 
 ---
 

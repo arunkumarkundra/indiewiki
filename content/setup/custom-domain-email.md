@@ -17,7 +17,7 @@ faq:
     a: Check that the domain has exactly one SPF record, that DKIM is turned on in your email provider, and that a DMARC record exists. Most providers show a green tick for each once they are correct.
 sources:
   - title: "Gmail Help: Send emails from a different address or alias"
-    url: https://support.google.com/mail/answer/22370?hl=en
+    url: https://support.google.com/mail/answer/22370
   - title: "Android Authority: Google is ending Gmail's third-party Send as feature"
     url: https://www.androidauthority.com/gmail-killing-third-party-send-as-feature-3694659/
   - title: Zoho Mail pricing and Forever Free plan

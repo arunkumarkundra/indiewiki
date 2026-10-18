@@ -16,7 +16,7 @@ faq:
     a: "Only if your users need it: notifications that matter, camera or offline use, or a habit they repeat daily on the phone. Otherwise a fast, installable website is cheaper and reaches people sooner."
 sources:
   - title: "Google Play: App testing requirements for new personal developer accounts"
-    url: https://support.google.com/googleplay/android-developer/answer/14151465?hl=en
+    url: https://support.google.com/googleplay/android-developer/answer/14151465
   - title: Expo pricing
     url: https://expo.dev/pricing
 related: [/launch/app-store-submission/, /build/auth-and-accounts/, /tools/mobile/]

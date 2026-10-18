@@ -11,9 +11,13 @@
   "dependencies": {
     "@fontsource-variable/atkinson-hyperlegible-mono": "^5.3.0",
     "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@fontsource/atkinson-hyperlegible-mono": "^5.3.0",
+    "@fontsource/atkinson-hyperlegible-next": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "js-yaml": "^5.5.0",
     "markdown-it": "^15.0.3",
-    "markdown-it-container": "^4.0.0"
+    "markdown-it-container": "^4.0.0",
+    "satori": "^0.61.0"
   },
   "devDependencies": {
     "html-validate": "^11.16.2"
@@ -23,5 +27,8 @@
   "engines": {
     "node": ">=22"
   },
-  "homepage": "https://indie.pi3.in"
+  "homepage": "https://indie.pi3.in",
+  "overrides": {
+    "fflate": "^0.8.2"
+  }
 }

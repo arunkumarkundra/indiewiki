@@ -18,7 +18,7 @@ sources:
   - title: "Apple: Offering account deletion in your app"
     url: https://developer.apple.com/support/offering-account-deletion-in-your-app/
   - title: "Google Play: Testing requirements for new personal developer accounts"
-    url: https://support.google.com/googleplay/android-developer/answer/14151465?hl=en
+    url: https://support.google.com/googleplay/android-developer/answer/14151465
 related: [/build/mobile-apps/, /build/auth-and-accounts/, /ship/privacy-and-legal/]
 ---
 

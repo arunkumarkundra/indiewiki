@@ -2,7 +2,7 @@
 title: Privacy, terms and the law
 description: What your privacy policy and terms must say, when you need a cookie banner, and the basics of GDPR, India's DPDP Act and children's data, in plain English.
 type: guide
-updated: 2026-10-16
+updated: 2026-10-18
 order: 6
 nav_title: Privacy, terms and the law
 time: 14 min read
@@ -17,8 +17,8 @@ faq:
 sources:
   - title: European Commission data protection overview
     url: https://commission.europa.eu/law/law-topic/data-protection_en
-  - title: DPDP Act and Rules timeline (third-party summary)
-    url: https://www.dpdpactindia.com/timeline.html
+  - title: "DPDP Rules, 2025 notified (Press Information Bureau, Government of India)"
+    url: https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251117695301.pdf
 related: [/ship/website-essentials/, /build/auth-and-accounts/, /run/analytics/]
 ---
 
