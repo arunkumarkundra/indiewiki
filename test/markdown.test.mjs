@@ -85,3 +85,10 @@ test('headings get unique ids and table-of-contents entries', () => {
 test('tables are wrapped in a keyboard-scrollable region', () => {
   assert.match(render('| a | b |\n| - | - |\n| 1 | 2 |').html, /<div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table>/);
 });
+
+test('unclean links are reported: tracking parameters, .html pages, empty #, http://', () => {
+  const bad = render('[a](https://x.com/?utm_source=nl) [b](https://x.com/p?srsltid=AfmB) [c](/ship/x.html) [d](#) [e](http://x.com)');
+  assert.equal(bad.env.errors.length, 5, bad.env.errors.join('\n'));
+  const good = render('[a](https://github.com/o/r/issues/new?template=x.yml) [b](https://news.ycombinator.com/showhn.html) [c](/ship/x/#top) [d](#top)');
+  assert.deepEqual(good.env.errors, []);
+});

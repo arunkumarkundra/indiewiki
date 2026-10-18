@@ -27,10 +27,10 @@ function walk(dir) {
   });
 }
 
-before(() => {
+before(async () => {
   out = mkdtempSync(join(tmpdir(), 'indiewiki-'));
   outBase = mkdtempSync(join(tmpdir(), 'indiewiki-base-'));
-  result = build({ root: ROOT, out, base: '', quiet: true });
+  result = await build({ root: ROOT, out, base: '', quiet: true });
   assert.ok(result.ok, `build failed:\n${(result.problems || []).join('\n')}`);
   SITE = result.ctx.site.url;
   for (const file of walk(out).filter((f) => f.endsWith('.html'))) {
@@ -51,7 +51,7 @@ test('the site builds with every expected page and file', () => {
   assert.ok(pages.length > 60, `only ${pages.length} pages`);
   for (const f of ['index.html', '404.html', 'sitemap.xml', 'robots.txt', 'feed.xml', 'llms.txt', 'llms-full.txt',
     'search-index.json', 'manifest.webmanifest', '.well-known/security.txt', 'CNAME', '.nojekyll',
-    'favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png',
+    'favicon.svg', 'favicon.ico', 'favicon-32.png', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png',
     'img/og-default.png', 'img/screenshot-wide.webp', 'img/screenshot-narrow.webp',
     'assets/css/site.css', 'assets/js/site.js', 'assets/js/theme.js', 'assets/fonts/atkinson-next-latin.woff2']) {
     assert.ok(existsSync(join(out, f)), `missing ${f}`);
@@ -200,14 +200,88 @@ test('search index, feed, llms.txt, manifest and security.txt are well formed', 
   assert.ok(new Date(expires) > new Date(), 'security.txt has expired');
 });
 
+/** Width and height of a PNG, read from its header. */
+function pngSize(file) {
+  const b = readFileSync(file);
+  assert.equal(b.toString('latin1', 1, 4), 'PNG', `${file} is not a PNG`);
+  return [b.readUInt32BE(16), b.readUInt32BE(20)];
+}
+
+test('every indexable page has its own 1200 x 630 sharing image with a description', () => {
+  const seen = new Set();
+  for (const p of pages) {
+    if (/<meta name="robots" content="noindex/.test(p.html)) continue;
+    const image = /<meta property="og:image" content="([^"]+)">/.exec(p.html)[1];
+    assert.equal(/<meta name="twitter:image" content="([^"]+)">/.exec(p.html)?.[1], image, `${p.url} twitter:image`);
+    for (const tag of ['og:image:alt']) assert.match(p.html, new RegExp(`<meta property="${tag}" content="[^"]{10,}">`), `${p.url} ${tag}`);
+    for (const tag of ['twitter:title', 'twitter:description', 'twitter:image:alt']) assert.match(p.html, new RegExp(`<meta name="${tag}" content="[^"]+">`), `${p.url} ${tag}`);
+    assert.ok(image.startsWith(`${SITE}/`), `${p.url} og:image must be a full address: ${image}`);
+    const file = join(out, image.slice(SITE.length));
+    assert.ok(existsSync(file), `${p.url}: sharing image ${image} was not generated`);
+    assert.deepEqual(pngSize(file), [1200, 630], `${image} must be 1200 x 630`);
+    if (p.url !== '/') {
+      assert.notEqual(image, `${SITE}/img/og-default.png`, `${p.url} should have its own sharing image`);
+      assert.ok(!seen.has(image), `${image} is used by two pages`);
+      seen.add(image);
+    }
+  }
+  assert.ok(seen.size > 70, `only ${seen.size} page images`);
+});
+
+test('links are clean: no .html pages, no empty #, no tracking parameters, no http://', () => {
+  const tracking = /[?&](utm_[a-z_]+|fbclid|gclid|msclkid|srsltid|igshid|mc_cid|mc_eid|_hsenc|ref_src)=/i;
+  for (const p of pages) {
+    for (const [, raw] of all(/\shref="([^"]*)"/g, p.html)) {
+      const href = raw.replace(/&amp;/g, '&');
+      assert.notEqual(href, '', `${p.url} has an empty link`);
+      assert.notEqual(href, '#', `${p.url} has a link to "#"`);
+      assert.doesNotMatch(href, tracking, `${p.url} links to ${href}`);
+      assert.doesNotMatch(href, /^http:\/\//, `${p.url} links to ${href}`);
+      if (href.startsWith('/')) assert.doesNotMatch(href.split(/[?#]/)[0], /\.html?$/, `${p.url} links to ${href}`);
+    }
+  }
+});
+
+test('robots.txt hides only utility files and the sitemap holds only real pages', () => {
+  const robots = readFileSync(join(out, 'robots.txt'), 'utf8');
+  const disallowed = all(/^Disallow: (.+)$/gm, robots).map((m) => m[1]);
+  assert.deepEqual(disallowed.sort(), ['/search-index.json', '/search/']);
+  const sitemap = readFileSync(join(out, 'sitemap.xml'), 'utf8');
+  for (const [, loc] of all(/<loc>([^<]+)<\/loc>/g, sitemap)) {
+    assert.ok(loc.startsWith(`${SITE}/`) && loc.endsWith('/'), `odd sitemap address ${loc}`);
+    const page = pages.find((p) => `${SITE}${p.url}` === loc);
+    assert.ok(page, `sitemap lists ${loc}, which was not built`);
+    assert.doesNotMatch(page.html, /<meta name="robots" content="noindex/, `sitemap lists noindex page ${loc}`);
+  }
+});
+
+test('footer: copyright owner link, privacy, terms, contact and email on every page', () => {
+  const { site } = result.ctx;
+  for (const p of pages) {
+    const legal = /<div class="site-footer__legal">([\s\S]*?)<\/div>/.exec(p.html)?.[1] || '';
+    assert.match(legal, new RegExp(`&copy; \\d{4} <a href="${site.ownerUrl.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}">${site.owner}</a>`), `${p.url} copyright`);
+    for (const href of ['/privacy/', '/terms/', '/contact/']) assert.ok(legal.includes(`href="${href}"`), `${p.url} footer lacks ${href}`);
+    assert.match(legal, /data-email="[^"]+" data-email-show/, `${p.url} footer lacks the email address`);
+  }
+});
+
+test('menu: each stage has a toggle that controls its own list of pages', () => {
+  for (const p of pages.filter((x) => x.html.includes('data-nav>'))) {
+    const toggles = all(/<button class="nav-group__toggle" type="button" aria-expanded="(true|false)" aria-controls="([^"]+)" data-nav-group hidden>/g, p.html);
+    assert.equal(toggles.length, result.ctx.stageCount, `${p.url} stage toggles`);
+    for (const [, , id] of toggles) assert.ok(p.html.includes(`<ul class="nav-group__items" id="${id}">`), `${p.url} ${id}`);
+    assert.ok(toggles.filter((t) => t[1] === 'true').length <= 1, `${p.url} opens more than one stage`);
+  }
+});
+
 test('the contact email never appears as plain text in the HTML', () => {
   const email = result.ctx.site.email;
   for (const p of pages) assert.ok(!p.html.includes(email), `${p.url} exposes ${email}`);
   assert.ok(!readFileSync(join(out, 'llms-full.txt'), 'utf8').includes(email));
 });
 
-test('a build under a base path (github.io/repo) prefixes every internal URL', () => {
-  const r = build({ root: ROOT, out: outBase, base: '/indiewiki', quiet: true });
+test('a build under a base path (github.io/repo) prefixes every internal URL', async () => {
+  const r = await build({ root: ROOT, out: outBase, base: '/indiewiki', quiet: true, images: false });
   assert.ok(r.ok);
   assert.ok(!existsSync(join(outBase, 'CNAME')), 'no CNAME when served under a base path');
   const html = readFileSync(join(outBase, 'ship/seo-checklist/index.html'), 'utf8');

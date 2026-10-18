@@ -143,6 +143,22 @@
     window.addEventListener('resize', function () { if (window.innerWidth > 900) closeNav(false); });
   }
 
+  // Stage groups work as an accordion: opening one closes the others,
+  // so the menu stays short enough to use on a phone.
+  var groupToggles = $all('[data-nav-group]');
+  function setGroup(btn, open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.closest('.nav-group').classList.toggle('is-open', open);
+  }
+  groupToggles.forEach(function (btn) {
+    btn.hidden = false;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      if (open) groupToggles.forEach(function (other) { if (other !== btn) setGroup(other, false); });
+      setGroup(btn, open);
+    });
+  });
+
   /* 4. Search ------------------------------------------------------------------ */
   var STOP = { the: 1, a: 1, an: 1, to: 1, of: 1, for: 1, in: 1, on: 1, and: 1, or: 1, how: 1, what: 1, is: 1, my: 1, i: 1, do: 1, with: 1, can: 1, me: 1, your: 1, should: 1, which: 1, best: 1 };
   var indexPromise = null;

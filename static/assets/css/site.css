@@ -296,6 +296,16 @@ progress { accent-color: var(--ink); }
   display: inline-grid; place-items: center; width: 22px; height: 22px; flex: none;
   border: 1.5px solid var(--ink); border-radius: 50%; font-size: 0.75rem; font-weight: 800;
 }
+.nav-group__row { display: flex; align-items: center; gap: 2px; }
+.nav-group__row .nav-group__title { flex: 1; min-width: 0; }
+.nav-group__toggle {
+  display: inline-grid; place-items: center; flex: none; width: 36px; height: 36px; padding: 0;
+  border: 0; border-radius: var(--radius); background: none; color: var(--ink-2); cursor: pointer;
+}
+.nav-group__toggle[hidden] { display: none; }
+.nav-group__toggle:hover { background: var(--sunk); color: var(--ink); }
+.nav-group__toggle .icon { transition: transform 0.15s ease; }
+.nav-group__toggle[aria-expanded="true"] .icon { transform: rotate(90deg); }
 .nav-group__items { display: none; margin: 2px 0 8px 19px; padding-left: 14px; border-left: 1.5px solid var(--rule); }
 .nav-group.is-open .nav-group__items { display: block; }
 .nav-group__items a, .nav-ref a {
@@ -635,7 +645,9 @@ li.check.is-done .check__label a { color: var(--ink-3); }
   .nav-toggle { display: inline-grid; }
   .shell, .shell--toc { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .sidebar {
-    position: fixed; top: 0; left: 0; bottom: 0; z-index: 45; width: min(86vw, 340px); max-height: none;
+    /* align-self must be reset: with "start" a fixed grid child grows to its content height and cannot scroll. */
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 45; width: min(86vw, 340px);
+    align-self: stretch; height: 100vh; height: 100dvh; max-height: none;
     padding: 0 16px 40px; background: var(--bg); border-right: 1.5px solid var(--ink);
     transform: translateX(-102%); transition: transform 0.22s ease; visibility: hidden;
   }
@@ -645,7 +657,8 @@ li.check.is-done .check__label a { color: var(--ink-3); }
     background: var(--bg); padding: 8px 0; margin-bottom: 8px; border-bottom: 1px solid var(--rule);
   }
   .sidebar__label { font-weight: 800; }
-  .nav-group__items { display: block; }
+  .nav-group__title, .nav-group__items a, .nav-ref a { padding-top: 9px; padding-bottom: 9px; }
+  .nav-group__toggle { width: 44px; height: 44px; }
   .main { padding-top: 20px; }
   .route__stop { grid-template-columns: 52px minmax(0, 1fr); }
   .route__links { grid-column: 2; }
