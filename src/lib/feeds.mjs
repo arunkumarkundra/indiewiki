@@ -14,12 +14,14 @@ ${entries.map((e) => `  <url><loc>${esc(ctx.canonical(e.path))}</loc>${e.updated
 }
 
 export function robotsTxt(ctx) {
-  // Everyone may crawl everything except the search results page,
-  // which only shows what the rest of the site already contains.
+  // Everyone may crawl every page. Blocked: the search results page (it only
+  // repeats what the rest of the site says) and the data file behind search.
+  // Nothing secret is listed here, because anyone can read robots.txt.
   return `# ${ctx.site.name} welcomes search engines and AI crawlers.
 User-agent: *
 Allow: /
 Disallow: /search/
+Disallow: /search-index.json
 
 Sitemap: ${ctx.site.url}/sitemap.xml
 `;

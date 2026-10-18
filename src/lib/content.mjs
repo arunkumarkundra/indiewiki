@@ -9,7 +9,7 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, basename, relative } from 'node:path';
 import { load as parseYaml } from 'js-yaml';
-import { isIsoDate } from './util.mjs';
+import { isIsoDate, linkProblem } from './util.mjs';
 
 export const PAGE_TYPES = {
   guide: 'Guide',
@@ -87,7 +87,7 @@ export function validatePage(fm, file, problems, today) {
     else fm.sources.forEach((s, i) => {
       if (!s || typeof s.title !== 'string' || typeof s.url !== 'string' || !/^https:\/\//.test(s.url)) {
         say(`"sources" item ${i + 1} needs a "title" and an https:// "url".`);
-      }
+      } else if (linkProblem(s.url)) say(`"sources" item ${i + 1}: ${linkProblem(s.url)}`);
     });
   }
   if (fm.related !== undefined && (!Array.isArray(fm.related) || fm.related.some((r) => typeof r !== 'string' || !r.startsWith('/')))) {
@@ -107,6 +107,7 @@ export function validateTool(tool, file, problems) {
   }
   if (typeof tool.name !== 'string' || !tool.name.trim()) say('"name" is required.');
   if (typeof tool.url !== 'string' || !/^https:\/\//.test(tool.url)) say('"url" must start with https://.');
+  else if (linkProblem(tool.url)) say(`"url": ${linkProblem(tool.url)}`);
   if (typeof tool.summary !== 'string' || tool.summary.length < 20 || tool.summary.length > 220) say('"summary" must be 20 to 220 characters.');
   if (typeof tool.best_for !== 'string' || !tool.best_for.trim()) say('"best_for" is required: who should pick this?');
   for (const key of ['pros', 'cons']) {
@@ -121,6 +122,7 @@ export function validateTool(tool, file, problems) {
     if (!PRICING_MODELS[p.model]) say(`"pricing.model" must be one of: ${Object.keys(PRICING_MODELS).join(', ')}.`);
     if (typeof p.note !== 'string' || !p.note.trim()) say('"pricing.note" is required: one line on what is free and what costs money.');
     if (p.url !== undefined && (typeof p.url !== 'string' || !/^https:\/\//.test(p.url))) say('"pricing.url" must start with https://.');
+    else if (p.url && linkProblem(p.url)) say(`"pricing.url": ${linkProblem(p.url)}`);
   }
   if (typeof tool.checked !== 'string' || !/^\d{4}-(0[1-9]|1[0-2])$/.test(tool.checked)) {
     say('"checked" must be the month you last verified the facts, written as YYYY-MM.');
@@ -140,6 +142,10 @@ export function loadSite(root, { today } = {}) {
   for (const key of ['name', 'tagline', 'description', 'url', 'owner', 'ownerUrl', 'email', 'language']) {
     if (!site[key]) problems.push(`data/site.yml: "${key}" is required.`);
   }
+  if (site.url && !/^https:\/\/[a-z0-9.-]+$/i.test(site.url)) {
+    problems.push(`data/site.yml: "url" must be just the address, like https://indie.pi3.in (https, no slash or path at the end). It is "${site.url}".`);
+  }
+  if (site.email && !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(site.email)) problems.push(`data/site.yml: "email" does not look like an email address: "${site.email}".`);
 
   // ---- Sections and their pages --------------------------------------------
   const contentDir = join(root, 'content');

@@ -20,11 +20,15 @@ import { createMarkdown, createEnv } from './lib/markdown.mjs';
 import { readingMinutes, shortHash, plainText } from './lib/util.mjs';
 import * as T from './lib/templates.mjs';
 import * as F from './lib/feeds.mjs';
+import { writeOgImages } from './lib/og.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
-/** Build the site. Returns { ok, problems, dist, ctx }. Writes nothing if content is invalid. */
-export function build({ root = ROOT, out = join(root, 'dist'), base = process.env.BASE_PATH, quiet = false } = {}) {
+/**
+ * Build the site. Resolves to { ok, problems, dist, ctx }. Writes nothing if content is invalid.
+ * `images: false` skips drawing the per-page sharing images (used by a test that only checks links).
+ */
+export async function build({ root = ROOT, out = join(root, 'dist'), base = process.env.BASE_PATH, quiet = false, images = true } = {}) {
   const buildDate = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
   const loaded = loadSite(root, { today: buildDate });
   const problems = [...loaded.problems];
@@ -44,6 +48,7 @@ export function build({ root = ROOT, out = join(root, 'dist'), base = process.en
     // Reversed and base64-encoded so simple scrapers do not harvest the address.
     emailCode: Buffer.from([...site.email].reverse().join('')).toString('base64'),
   };
+  ctx.ogCards = new Map(); // page path -> sharing-image card, filled in while pages render
   ctx.stageTitle = (stage) => sections.find((s) => s.stage === stage)?.title || `Stage ${stage}`;
   ctx.pagesByPath = new Map(pages.map((p) => [p.path, p]));
   // Title and description for any linkable page: used by "Read next" boxes.
@@ -114,7 +119,7 @@ export function build({ root = ROOT, out = join(root, 'dist'), base = process.en
   addRoute('/glossary/', [...glossary.keys()]);
   addRoute('/updates/', []);
   addRoute('/search/', []);
-  for (const file of ['/feed.xml', '/sitemap.xml', '/llms.txt', '/llms-full.txt', '/robots.txt', '/.well-known/security.txt']) addRoute(file, []);
+  for (const file of ['/feed.xml', '/sitemap.xml', '/llms.txt', '/llms-full.txt', '/robots.txt', '/manifest.webmanifest', '/.well-known/security.txt']) addRoute(file, []);
 
   const staticDir = join(root, 'static');
   const checkEnv = (owner, env) => {
@@ -214,9 +219,17 @@ export function build({ root = ROOT, out = join(root, 'dist'), base = process.en
   write('/.nojekyll', '');
   if (!basePath) write('/CNAME', `${new URL(site.url).hostname}\n`);
 
+  if (images) {
+    await writeOgImages(ctx.ogCards, {
+      root, out,
+      host: new URL(site.url).hostname,
+      stages: sections.filter((s) => !s.isMeta).map((s) => ({ stage: s.stage, title: s.title })),
+    });
+  }
+
   if (!quiet) {
     const count = countHtml(out);
-    console.log(`Built ${count} pages, ${tools.size} tools, ${glossary.size} glossary terms into ${out}${basePath ? ` (base path ${basePath})` : ''}.`);
+    console.log(`Built ${count} pages, ${tools.size} tools, ${glossary.size} glossary terms${images ? ` and ${ctx.ogCards.size} sharing images` : ''} into ${out}${basePath ? ` (base path ${basePath})` : ''}.`);
     // Freshness report. Never fails the build; it tells maintainers what to re-check next.
     const monthsAgo = (iso) => {
       const [y, m] = iso.split('-').map(Number);
@@ -246,6 +259,6 @@ function countHtml(dir) {
 
 // Run when called directly: `node src/build.mjs`
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  const result = build();
-  if (!result.ok) process.exit(1);
+  build().then((result) => { if (!result.ok) process.exitCode = 1; })
+    .catch((err) => { console.error(err); process.exitCode = 1; });
 }

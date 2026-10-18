@@ -17,7 +17,7 @@
  */
 import MarkdownIt from 'markdown-it';
 import container from 'markdown-it-container';
-import { esc, slugify, shortHash } from './util.mjs';
+import { esc, slugify, shortHash, linkProblem } from './util.mjs';
 
 export const CALLOUTS = {
   tip: 'Tip',
@@ -119,6 +119,9 @@ export function createMarkdown() {
   md.renderer.rules.link_open = (tokens, idx, opts, env, self) => {
     const token = tokens[idx];
     const href = token.attrGet('href') || '';
+    const problem = linkProblem(href);
+    if (problem) env.errors.push(`Link ${problem}`);
+    if (href === '#' || href === '') env.errors.push('A link has an empty address ("#"). Point it at a page or a heading.');
     if (href.startsWith('/')) {
       env.links.push(href);
       token.attrSet('href', env.url(href));
@@ -126,7 +129,7 @@ export function createMarkdown() {
       token.attrJoin('class', 'ext');
       token.attrSet('rel', 'noopener');
     } else if (href.startsWith('#')) {
-      env.anchors.push(href.slice(1));
+      if (href.length > 1) env.anchors.push(href.slice(1));
     } else if (!/^mailto:/i.test(href)) {
       env.errors.push(`Link "${href}" is not allowed. Use a full https:// address, or a site path that starts with "/".`);
     }

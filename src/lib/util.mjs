@@ -84,3 +84,26 @@ export function truncate(text, max) {
   const cut = clean.slice(0, max - 1);
   return `${cut.slice(0, cut.lastIndexOf(' '))}…`;
 }
+
+/**
+ * Tracking parameters that people copy along with a link (from newsletters, ads,
+ * Google results and social apps). They leak where a reader came from and make
+ * the same page look like many different URLs, so the build rejects them.
+ */
+const TRACKING_PARAM = /[?&](utm_[a-z_]+|fbclid|gclid|gbraid|wbraid|dclid|msclkid|yclid|twclid|ttclid|li_fat_id|igshid|igsh|mc_cid|mc_eid|_hsenc|_hsmi|mkt_tok|srsltid|ref_src|spm|_ga|_gl)=/i;
+
+/**
+ * Problems with a link address, or null when it is clean.
+ * Internal links must be clean paths ("/ship/seo-checklist/", never ".html").
+ */
+export function linkProblem(href) {
+  if (TRACKING_PARAM.test(href)) {
+    return `"${href}" contains a tracking parameter (utm_, fbclid, srsltid and similar). Delete everything from "?" onwards unless the page needs it.`;
+  }
+  if (/^http:\/\//i.test(href)) return `"${href}" uses http://. Use the https:// address.`;
+  if (href.startsWith('/') && /(^|\/)index\.html(?=$|[?#])|\.html?(?=$|[?#])/i.test(href)) {
+    return `"${href}" is not a clean address. Link to the folder form instead, e.g. "/ship/seo-checklist/".`;
+  }
+  if (/^https?:\/\/[^/]+.*#$/.test(href)) return `"${href}" ends with an empty "#". Remove it.`;
+  return null;
+}

@@ -11,6 +11,7 @@
 import { esc, humanDate, monthYear } from './util.mjs';
 import { icons, logoMark } from './icons.mjs';
 import { PAGE_TYPES, PRICING_MODELS } from './content.mjs';
+import { ogImagePath } from './og.mjs';
 
 export const CSP = [
   "default-src 'self'",
@@ -40,7 +41,12 @@ function head(ctx, p) {
   const { site } = ctx;
   const fullTitle = p.path === '/' ? `${site.name}: ${site.tagline}` : `${p.title} | ${site.name}`;
   const canonical = ctx.canonical(p.path);
-  const image = `${site.url}/img/og-default.png`;
+  // Pages that describe an `og` card get their own sharing image (drawn by src/lib/og.mjs);
+  // the home page and pages kept out of search use the hand-made default image.
+  const card = p.og && !p.noindex ? p.og : null;
+  if (card) ctx.ogCards.set(p.path, card);
+  const image = card ? ctx.canonical(ogImagePath(p.path)) : `${site.url}/img/og-default.png`;
+  const imageAlt = card ? `${card.title} (${card.kicker}), ${site.name}` : `${site.name}: ${site.tagline}`;
   const robots = p.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large';
   return `<!DOCTYPE html>
 <html lang="${esc(site.language)}" data-base="${esc(ctx.base)}">
@@ -70,14 +76,16 @@ ${p.noindex ? '' : `<link rel="canonical" href="${esc(canonical)}">\n`}<meta nam
 <meta property="og:description" content="${esc(p.description)}">
 <meta property="og:url" content="${esc(canonical)}">
 <meta property="og:image" content="${image}">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(site.name)}: ${esc(site.tagline)}">
+<meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(p.path === '/' ? fullTitle : p.title)}">
 <meta name="twitter:description" content="${esc(p.description)}">
 <meta name="twitter:image" content="${image}">
+<meta name="twitter:image:alt" content="${esc(imageAlt)}">
 ${p.updated ? `<meta property="article:modified_time" content="${p.updated}">\n` : ''}${(p.jsonLd || []).map(jsonLd).join('\n')}
 </head>`;
 }
@@ -147,7 +155,8 @@ function footer(ctx) {
     <ul>
       <li><a href="${ctx.url('/privacy/')}">Privacy</a></li>
       <li><a href="${ctx.url('/terms/')}">Terms</a></li>
-      <li><a href="${ctx.url('/contact/')}" data-email="${esc(ctx.emailCode)}">Contact</a></li>
+      <li><a href="${ctx.url('/contact/')}">Contact</a></li>
+      <li><a href="${ctx.url('/contact/')}" data-email="${esc(ctx.emailCode)}" data-email-show>Email us</a></li>
     </ul>
   </div>
 </footer>`;
@@ -159,9 +168,15 @@ function sidebar(ctx, currentPath) {
     const inSection = currentPath.startsWith(s.path);
     const items = s.pages.map((p) =>
       `<li><a href="${ctx.url(p.path)}"${p.path === currentPath ? ' aria-current="page"' : ''}>${esc(p.fm.nav_title || p.fm.title)}</a></li>`).join('');
+    const id = `nav-stage-${s.stage}`;
+    // The toggle stays hidden until site.js runs, so without JavaScript the
+    // current stage is open and every stage title still links to its page.
     return `<li class="nav-group${inSection ? ' is-open' : ''}">
-      <a class="nav-group__title" href="${ctx.url(s.path)}"${s.path === currentPath ? ' aria-current="page"' : ''}><span class="nav-group__num">${s.stage}</span>${esc(s.title)}</a>
-      <ul class="nav-group__items">${items}</ul>
+      <div class="nav-group__row">
+        <a class="nav-group__title" href="${ctx.url(s.path)}"${s.path === currentPath ? ' aria-current="page"' : ''}><span class="nav-group__num">${s.stage}</span>${esc(s.title)}</a>
+        <button class="nav-group__toggle" type="button" aria-expanded="${inSection}" aria-controls="${id}" data-nav-group hidden>${icons.chevron}<span class="visually-hidden">${esc(s.title)} pages</span></button>
+      </div>
+      <ul class="nav-group__items" id="${id}">${items}</ul>
     </li>`;
   }).join('');
   const ref = [['/tools/', 'Toolbox'], ['/checklists/', 'All checklists'], ['/glossary/', 'Glossary'], ['/updates/', 'Recently reviewed']];
@@ -171,7 +186,7 @@ function sidebar(ctx, currentPath) {
   <ol class="nav-stages">${stageList}</ol>
   <p class="sidebar__heading">Reference</p>
   <ul class="nav-ref">${ref.map(([h, l]) => `<li><a href="${ctx.url(h)}"${currentPath.startsWith(h) ? ' aria-current="page"' : ''}>${l}</a></li>`).join('')}</ul>
-  <p class="sidebar__heading">Mobile shortcuts</p>
+  <p class="sidebar__heading">More</p>
   <ul class="nav-ref nav-ref--mobile"><li><a href="${ctx.url('/contribute/')}">Contribute</a></li><li><a href="${ctx.url('/about/')}">About</a></li></ul>
 </nav>`;
 }
@@ -319,7 +334,7 @@ ${pager}
       dateModified: fm.updated,
       inLanguage: ctx.site.language,
       mainEntityOfPage: ctx.canonical(page.path),
-      image: `${ctx.site.url}/img/og-default.png`,
+      image: section.isMeta ? `${ctx.site.url}/img/og-default.png` : ctx.canonical(ogImagePath(page.path)),
       author: { '@type': 'Organization', name: `${ctx.site.name} contributors`, url: ctx.canonical('/contribute/') },
       publisher: { '@type': 'Organization', name: ctx.site.owner, url: ctx.site.ownerUrl, logo: { '@type': 'ImageObject', url: `${ctx.site.url}/icon-512.png` } },
       isAccessibleForFree: true,
@@ -337,6 +352,14 @@ ${pager}
   return documentPage(ctx, {
     path: page.path, title: fm.title, description: fm.description, updated: fm.updated,
     ogType: section.isMeta ? 'website' : 'article', jsonLd: ld, kind: section.isMeta ? 'meta' : 'doc',
+    og: {
+      title: fm.title,
+      kicker: section.isMeta ? 'The project' : `${PAGE_TYPES[fm.type]} · Stage ${section.stage}: ${section.title}`,
+      meta: fm.type === 'checklist'
+        ? `${page.checklistItems.length} items${fm.time ? ` · ${fm.time}` : ''}`
+        : (fm.time || `${page.minutes} min read`),
+      stage: section.isMeta ? 0 : section.stage,
+    },
   }, main, { toc: tocHtml(page.headings) });
 }
 
@@ -381,6 +404,7 @@ ${next ? `<p class="next-stage">When this stage is done, move on to <a href="${c
 </article>`;
   return documentPage(ctx, {
     path: section.path, title: `${section.title}: ${section.summary}`, description: section.description, kind: 'section',
+    og: { title: section.title, kicker: `Stage ${section.stage} of ${ctx.stageCount}`, meta: section.summary, stage: section.stage },
     jsonLd: [breadcrumbLd(ctx, trail), { '@context': 'https://schema.org', '@type': 'CollectionPage', name: section.title, description: section.description, url: ctx.canonical(section.path) }],
   }, main);
 }
@@ -499,6 +523,7 @@ ${groups}
   return documentPage(ctx, {
     path: '/tools/', title: 'Toolbox: tools for indie founders, with free tiers and catches', description: `Honest picks for hosting, email, payments, analytics, auth and more. ${ctx.tools.size} tools with pros, cons and checked pricing.`,
     kind: 'tools', activeTop: '/tools/', jsonLd: [breadcrumbLd(ctx, trail)],
+    og: { title: 'Tools for indie founders, compared', kicker: 'Toolbox', meta: `${ctx.tools.size} tools · free plans, pros and cons`, stage: 0 },
   }, main);
 }
 
@@ -555,6 +580,7 @@ ${table}
 </article>`;
   return documentPage(ctx, {
     path: cat.path, title: `${cat.title}: compared for indie founders`, description: cat.description, kind: 'category', activeTop: '/tools/',
+    og: { title: cat.title, kicker: 'Toolbox', meta: `${cat.tools.length} tool${cat.tools.length === 1 ? '' : 's'} compared · free plans, pros and cons`, stage: cat.stage },
     jsonLd: [breadcrumbLd(ctx, trail), {
       '@context': 'https://schema.org', '@type': 'ItemList', name: cat.title,
       itemListElement: sorted.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, url: ctx.canonical(`${cat.path}#${t.id}`) })),
@@ -584,6 +610,7 @@ ${breadcrumbs(ctx, trail)}
   return documentPage(ctx, {
     path: '/checklists/', title: 'Checklists for launching and running a product', description: 'Interactive checklists for SEO, security, privacy, accessibility, launch day and app stores. Progress saves in your browser.',
     kind: 'checklists', activeTop: '/checklists/', jsonLd: [breadcrumbLd(ctx, trail)],
+    og: { title: 'Checklists for launching and running a product', kicker: 'Checklists', meta: 'Tick as you go · progress saves in your browser', stage: 0 },
   }, main);
 }
 
@@ -603,7 +630,7 @@ ${breadcrumbs(ctx, trail)}
 </article>`;
   return documentPage(ctx, {
     path: '/glossary/', title: 'Glossary of indie hacker and web terms', description: 'DNS, CNAME, MoR, RLS, CSP, MRR and other terms explained in plain English for founders without a technical background.',
-    kind: 'glossary', jsonLd: [breadcrumbLd(ctx, trail), {
+    kind: 'glossary', og: { title: 'Glossary of indie hacker and web terms', kicker: 'Glossary', meta: `${ctx.glossary.size} terms in plain English`, stage: 0 }, jsonLd: [breadcrumbLd(ctx, trail), {
       '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: `${ctx.site.name} glossary`,
       hasDefinedTerm: terms.map((t) => ({ '@type': 'DefinedTerm', name: t.term, description: ctx.plainInline(t.definition), url: ctx.canonical(`/glossary/#${t.id}`) })),
     }],
@@ -625,6 +652,7 @@ ${breadcrumbs(ctx, trail)}
   return documentPage(ctx, {
     path: '/updates/', title: 'Recently reviewed pages', description: 'Every IndieWiki page with the date an editor last checked it, newest first, so you know how fresh the advice is.',
     kind: 'updates', jsonLd: [breadcrumbLd(ctx, trail)],
+    og: { title: 'Recently reviewed pages', kicker: 'Updates', meta: 'Every page with the date it was last checked', stage: 0 },
   }, main);
 }
 
